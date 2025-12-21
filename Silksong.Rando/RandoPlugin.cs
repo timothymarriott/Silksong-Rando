@@ -18,6 +18,7 @@ using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.ResourceProviders;
 using UnityEngine.SceneManagement;
 using Object = UnityEngine.Object;
+using Silksong.Rando.Locations;
 
 namespace Silksong.Rando;
 

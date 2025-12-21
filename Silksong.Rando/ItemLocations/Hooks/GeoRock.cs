@@ -1,6 +1,6 @@
 ﻿using HarmonyLib;
 
-namespace Silksong.Rando.Hooks;
+namespace Silksong.Rando.Locations.Hooks;
 
 [HarmonyPatch(typeof(GeoRock), nameof(GeoRock.Start))]
 class GeoRock_Start_Patch

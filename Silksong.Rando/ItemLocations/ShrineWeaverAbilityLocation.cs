@@ -3,7 +3,7 @@ using GlobalEnums;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
-namespace Silksong.Rando;
+namespace Silksong.Rando.Locations;
 
 
 

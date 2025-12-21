@@ -1,6 +1,6 @@
 ﻿using HarmonyLib;
 
-namespace Silksong.Rando.Hooks;
+namespace Silksong.Rando.Locations.Hooks;
 
 [HarmonyPatch(typeof(PlayMakerFSM), nameof(PlayMakerFSM.Start))]
 class PlayMakerFSM_Start_Patch
