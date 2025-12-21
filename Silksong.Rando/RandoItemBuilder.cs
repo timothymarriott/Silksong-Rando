@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using Silksong_Rando;
 using TeamCherry.Localization;
 using UnityEngine;
 
+namespace Silksong.Rando;
 
 public class RandoItem : CollectableItemBasic
 {

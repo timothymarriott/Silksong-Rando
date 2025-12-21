@@ -1,0 +1,30 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
+using UnityEngine;
+
+namespace Silksong.Rando;
+
+public static class AssemblyExtensions
+{
+    public static Sprite LoadEmbeddedSprite(this Assembly asm, string path, float pixelsPerUnit = 64f)
+    {
+        Debug.Log(asm);
+        using var stream = asm.GetManifestResourceStream(path);
+        if (stream == null)
+        {
+            
+        }
+
+        var buffer = new byte[stream.Length];
+        
+        stream.Read(buffer, 0, buffer.Length);
+
+        var tex = new Texture2D(2, 2);
+
+        tex.LoadImage(buffer, true);
+
+        return Sprite.Create(tex, new Rect(0, 0, tex.width, tex.height), Vector2.one * 0.5f, pixelsPerUnit);
+    }
+}

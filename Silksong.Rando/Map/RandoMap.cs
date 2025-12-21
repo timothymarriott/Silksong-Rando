@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Silksong_Rando.Map;
+namespace Silksong.Rando.Map;
 
 public class RandoMap : MonoBehaviour
 {

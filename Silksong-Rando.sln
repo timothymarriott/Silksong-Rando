@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Silksong-Rando", "Silksong-Rando\Silksong-Rando.csproj", "{915533AB-A3D2-4FA9-931C-869A29F76DFA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Silksong.Rando", "Silksong.Rando\Silksong.Rando.csproj", "{915533AB-A3D2-4FA9-931C-869A29F76DFA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

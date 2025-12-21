@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Runtime.InteropServices;
-using Silksong_Rando;
+ 
+namespace Silksong.Rando;
 
 class ConsoleMover
 {

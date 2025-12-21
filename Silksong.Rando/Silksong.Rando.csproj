@@ -22,9 +22,12 @@
         <!--Shortens and anonymizes paths in debug symbols relative to the project directory. Breakpoints will not work, however.-->
         <PathMap Condition="'$(Configuration)' == 'Release'">$(MSBuildProjectDirectory)=/</PathMap>
 
+        <AssemblyName>Silksong.Rando</AssemblyName>
+        
         <PackageReadmeFile>README.md</PackageReadmeFile>
         <PackageIcon>icon.png</PackageIcon>
         <RepositoryUrl>https://github.com/timothymarriott/Silksong-Rando</RepositoryUrl>
+        <RootNamespace>Silksong-Rando</RootNamespace>
     </PropertyGroup>
     <ItemGroup>
         <None Remove="Resources\**" />
@@ -82,7 +85,7 @@
         </PropertyGroup>
         <Copy
                 SourceFiles="@(Binaries)"
-                DestinationFolder="$(SilksongFolder)/BepInEx/plugins/timothymarriott-$(AssemblyTitle)/%(Binaries.LocalDir)"
+                DestinationFolder="$(SilksongFolder)/BepInEx/plugins/$(AssemblyTitle)/%(Binaries.LocalDir)"
                 Condition="'$(SilksongFolder)' != '' And Exists('$(SilksongFolder)')"
         />
         <RemoveDir Directories="$(ThunderstoreDir)/temp;$(ThunderstoreDir)/dist"/>

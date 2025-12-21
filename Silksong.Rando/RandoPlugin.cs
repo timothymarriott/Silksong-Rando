@@ -10,7 +10,7 @@ using HarmonyLib;
 using Newtonsoft.Json;
 using PrepatcherPlugin;
 using RandomizerCore.Extensions;
-using Silksong_Rando.Map;
+using Silksong.Rando.Map;
 using Silksong.FsmUtil;
 using TeamCherry.Localization;
 using UnityEngine;
@@ -19,12 +19,17 @@ using UnityEngine.ResourceManagement.ResourceProviders;
 using UnityEngine.SceneManagement;
 using Object = UnityEngine.Object;
 
-namespace Silksong_Rando;
+namespace Silksong.Rando;
 
-[BepInAutoPlugin(id: "io.github.timothymarriott.rando")]
+[BepInPlugin(Id, Name, Version)]
 [BepInDependency("org.silksong-modding.datamanager")]
-public partial class RandoPlugin : BaseUnityPlugin
+public class RandoPlugin : BaseUnityPlugin
 {
+    
+    public const string Id = "com.lem00ns.Silksong.Rando";
+    public const string Name = "Randomiser";
+    public const string Version = "0.0.1";
+    
     public static RandoPlugin instance;
 
     public static ManualLogSource Log => instance.Logger;

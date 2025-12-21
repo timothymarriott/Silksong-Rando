@@ -1,5 +1,7 @@
 using System.Collections.Generic;
 
+namespace Silksong.Rando;
+
 public static class GameScenes
 {
     

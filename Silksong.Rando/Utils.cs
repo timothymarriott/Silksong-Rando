@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Reflection;
 using BepInEx.Logging;
-using Silksong_Rando;
 using UnityEngine;
 
+namespace Silksong.Rando;
 
 public static class Utils
 {
@@ -26,7 +26,7 @@ public static class Utils
 
         foreach (string res in resourceNames)
         {
-            if (res.EndsWith(".png") && res.StartsWith("Silksong-Rando.Resources."))
+            if (res.EndsWith(".png") && res.StartsWith("Silksong.Rando.Resources."))
             {
                 try
                 {

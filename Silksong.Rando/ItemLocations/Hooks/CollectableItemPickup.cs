@@ -1,5 +1,6 @@
 ﻿using HarmonyLib;
-using Silksong_Rando;
+
+namespace Silksong.Rando.Hooks;
 
 [HarmonyPatch(typeof(CollectableItemPickup), nameof(CollectableItemPickup.Start))]
 class CollectableItemPickup_Start_Patch

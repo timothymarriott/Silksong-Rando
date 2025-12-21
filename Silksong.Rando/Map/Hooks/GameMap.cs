@@ -1,6 +1,8 @@
 ﻿using HarmonyLib;
-using Silksong_Rando;
-using Silksong_Rando.Map;
+using Silksong.Rando;
+using Silksong.Rando.Map;
+
+namespace Silksong.Rando.Hooks;
 
 [HarmonyPatch(typeof(GameMap), nameof(GameMap.Start))]
 class GameMap_Start_Patch

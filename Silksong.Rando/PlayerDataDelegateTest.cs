@@ -2,7 +2,7 @@
 using System.Reflection;
 using MonoMod.RuntimeDetour;
 
-namespace Genie;
+namespace Silksong.Rando;
 
 public class PlayerDataDelegateTestGroup : PlayerDataTest
 {
