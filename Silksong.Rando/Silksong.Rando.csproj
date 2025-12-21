@@ -27,7 +27,7 @@
         <PackageReadmeFile>README.md</PackageReadmeFile>
         <PackageIcon>icon.png</PackageIcon>
         <RepositoryUrl>https://github.com/timothymarriott/Silksong-Rando</RepositoryUrl>
-        <RootNamespace>Silksong-Rando</RootNamespace>
+        <RootNamespace>Silksong.Rando</RootNamespace>
     </PropertyGroup>
     <ItemGroup>
         <None Remove="Resources\**" />

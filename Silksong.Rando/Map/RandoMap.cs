@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Silksong.Rando.Data;
+using UnityEngine;
 
 namespace Silksong.Rando.Map;
 
@@ -38,7 +39,7 @@ public class RandoMap : MonoBehaviour
         
         GameObject obj = Instantiate(parent.GetChild(0).gameObject, parent);
         
-        obj.transform.SetLocalPosition2D((Vector2) new Vector3(position.x, position.y, -1f));
+        obj.transform.SetLocalPosition2D(new Vector3(position.x, position.y, -1f));
         if (!obj.activeSelf)
             obj.SetActive(true);
     }
@@ -50,7 +51,7 @@ public class RandoMap : MonoBehaviour
             if (RandoPlugin.instance.ItemLocationData.ContainsKey(replacement.Key))
             {
                 var data = RandoPlugin.instance.ItemLocationData[replacement.Key];
-                CreateMapPin(new Vector2(data.PositionInSceneX, data.PositionInSceneY), replacement.Key.Split("|")[0], new Vector2(data.RoomSizeX, data.RoomSizeY));
+                CreateMapPin(new Vector2(data.PositionInSceneX, data.PositionInSceneY), replacement.Key.Split("|")[0], GameScenes.Scenes[replacement.Key].Size);
             }
         }
     }

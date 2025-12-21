@@ -12,6 +12,8 @@ using PrepatcherPlugin;
 using RandomizerCore.Extensions;
 using Silksong.Rando.Map;
 using Silksong.FsmUtil;
+using Silksong.Rando.Data;
+using Silksong.Rando.Data.Extractors;
 using TeamCherry.Localization;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
@@ -54,9 +56,11 @@ public class RandoPlugin : BaseUnityPlugin
         
         ConsoleMover.Move();
         resources = ModResources.LoadResources(Logger);
+        GameScenes.Load();
         sceneLoader = SceneLoader.Setup();
         gameObject.AddComponent<RandoMap>();
         gameObject.AddComponent<LocationFinder>();
+        gameObject.AddComponent<SceneDumper>();
         
         string replacementText = File.ReadAllText(Application.persistentDataPath + "\\rando\\replacements.json");
         var replacements = JsonConvert.DeserializeObject<Dictionary<string, string>>(replacementText);
@@ -85,7 +89,6 @@ public class RandoPlugin : BaseUnityPlugin
         GUI.skin.font = ModResources.GetFont();
         GUI.Label(new Rect(0, Screen.height - 30f, 100, 100), GM.GetSceneNameString(), ModResources.GetLabelStyle());
     }
-
     
     private void Update()
     {
@@ -93,7 +96,6 @@ public class RandoPlugin : BaseUnityPlugin
         {
             GM = GameManager.instance;
         }
-
     }
 
     private void OnDestroy()

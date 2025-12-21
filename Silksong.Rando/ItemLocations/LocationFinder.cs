@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using Newtonsoft.Json;
+using Silksong.Rando.Data;
 using UnityEngine;
 
 namespace Silksong.Rando.Locations
@@ -17,9 +18,9 @@ namespace Silksong.Rando.Locations
             if (Input.GetKeyDown(KeyCode.Y) && !IsSearching)
             {
                 IsSearching = true;
-                SceneLoader.ExecuteLoad(GameScenes.Scenes, (scene, i) =>
+                SceneLoader.ExecuteLoad(GameScenes.SceneNames, (scene, i) =>
                 {
-                    RandoPlugin.Log.LogInfo($"Searching {scene.name} ({i}/{GameScenes.Scenes.Count}) found {ItemLocations.Count} locations.");
+                    RandoPlugin.Log.LogInfo($"Searching {scene} ({i}/{GameScenes.SceneNames.Count}) found {ItemLocations.Count} locations.");
                     File.WriteAllLines(Application.persistentDataPath + "\\rando\\locations.txt", ItemLocations.Keys);
                     Dictionary<string, ItemLocationData> locations = new();
                     foreach (var loc in ItemLocations)

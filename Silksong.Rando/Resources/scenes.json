@@ -1,0 +1,2262 @@
+{
+  "Tut_01": {
+    "width": 120.0,
+    "height": 120.0
+  },
+  "Tut_01b": {
+    "width": 160.0,
+    "height": 99.0
+  },
+  "Tut_02": {
+    "width": 150.0,
+    "height": 59.0
+  },
+  "Tut_03": {
+    "width": 126.0,
+    "height": 35.0
+  },
+  "Tut_04": {
+    "width": 87.0,
+    "height": 36.0
+  },
+  "Tut_05": {
+    "width": 310.0,
+    "height": 147.0
+  },
+  "Mosstown_01": {
+    "width": 140.0,
+    "height": 30.0
+  },
+  "Mosstown_02": {
+    "width": 160.0,
+    "height": 65.0
+  },
+  "Mosstown_02c": {
+    "width": 55.0,
+    "height": 16.0
+  },
+  "Mosstown_03": {
+    "width": 34.0,
+    "height": 146.0
+  },
+  "Aspid_01": {
+    "width": 80.0,
+    "height": 273.0
+  },
+  "Crawl_01": {
+    "width": 150.0,
+    "height": 130.0
+  },
+  "Crawl_02": {
+    "width": 30.0,
+    "height": 150.0
+  },
+  "Crawl_03": {
+    "width": 180.0,
+    "height": 77.0
+  },
+  "Crawl_03b": {
+    "width": 135.0,
+    "height": 21.0
+  },
+  "Crawl_04": {
+    "width": 165.0,
+    "height": 20.0
+  },
+  "Crawl_05": {
+    "width": 225.0,
+    "height": 35.0
+  },
+  "Crawl_06": {
+    "width": 85.0,
+    "height": 35.0
+  },
+  "Crawl_07": {
+    "width": 86.0,
+    "height": 58.0
+  },
+  "Crawl_08": {
+    "width": 105.0,
+    "height": 22.0
+  },
+  "Crawl_09": {
+    "width": 150.0,
+    "height": 58.0
+  },
+  "Crawl_10": {
+    "width": 53.0,
+    "height": 30.0
+  },
+  "Belltown": {
+    "width": 109.0,
+    "height": 75.0
+  },
+  "Belltown_04": {
+    "width": 85.0,
+    "height": 97.0
+  },
+  "Belltown_06": {
+    "width": 80.0,
+    "height": 83.0
+  },
+  "Belltown_07": {
+    "width": 70.0,
+    "height": 34.0
+  },
+  "Belltown_08": {
+    "width": 115.0,
+    "height": 47.0
+  },
+  "Belltown_Shrine": {
+    "width": 95.0,
+    "height": 38.0
+  },
+  "Belltown_Room_pinsmith": {
+    "width": 55.0,
+    "height": 26.0
+  },
+  "Belltown_Room_shellwood": {
+    "width": 55.0,
+    "height": 26.0
+  },
+  "Belltown_Room_doctor": {
+    "width": 55.0,
+    "height": 26.0
+  },
+  "Belltown_Room_Relic": {
+    "width": 55.0,
+    "height": 26.0
+  },
+  "Belltown_basement": {
+    "width": 95.0,
+    "height": 135.0
+  },
+  "Belltown_basement_03": {
+    "width": 150.0,
+    "height": 150.0
+  },
+  "Bellway_01": {
+    "width": 100.0,
+    "height": 45.0
+  },
+  "Bellway_01_boss": {
+    "width": 100.0,
+    "height": 45.0
+  },
+  "Bellway_02": {
+    "width": 120.0,
+    "height": 50.0
+  },
+  "Bellway_02_boss": {
+    "width": 120.0,
+    "height": 50.0
+  },
+  "Bellway_03": {
+    "width": 150.0,
+    "height": 60.0
+  },
+  "Bellway_03_boss": {
+    "width": 150.0,
+    "height": 60.0
+  },
+  "Bellway_04": {
+    "width": 95.0,
+    "height": 30.0
+  },
+  "Bellway_04_boss": {
+    "width": 95.0,
+    "height": 30.0
+  },
+  "Bellway_08": {
+    "width": 150.0,
+    "height": 33.0
+  },
+  "Bellway_City": {
+    "width": 112.0,
+    "height": 36.0
+  },
+  "Bellway_Peak": {
+    "width": 29.0,
+    "height": 55.0
+  },
+  "Bellway_Peak_02": {
+    "width": 101.0,
+    "height": 37.0
+  },
+  "Bellway_Shadow": {
+    "width": 75.0,
+    "height": 41.0
+  },
+  "Bellway_Aqueduct": {
+    "width": 96.0,
+    "height": 78.0
+  },
+  "Bellway_Centipede_Arena": {
+    "width": 191.0,
+    "height": 43.0
+  },
+  "Bellway_Centipede_additive": {
+    "width": 191.0,
+    "height": 43.0
+  },
+  "Bellshrine": {
+    "width": 43.0,
+    "height": 25.0
+  },
+  "Bellshrine_02": {
+    "width": 43.0,
+    "height": 25.0
+  },
+  "Bellshrine_03": {
+    "width": 43.0,
+    "height": 25.0
+  },
+  "Bellshrine_05": {
+    "width": 43.0,
+    "height": 25.0
+  },
+  "Bellshrine_Enclave": {
+    "width": 43.0,
+    "height": 25.0
+  },
+  "Bellshrine_Coral": {
+    "width": 43.0,
+    "height": 40.0
+  },
+  "Bellshrine_Lore_Additive": {
+    "width": 43.0,
+    "height": 40.0
+  },
+  "Bonetown": {
+    "width": 315.0,
+    "height": 90.0
+  },
+  "Bonegrave": {
+    "width": 315.0,
+    "height": 82.0
+  },
+  "Bone_01": {
+    "width": 130.0,
+    "height": 91.0
+  },
+  "Bone_01b": {
+    "width": 38.0,
+    "height": 91.0
+  },
+  "Bone_01c": {
+    "width": 198.0,
+    "height": 91.0
+  },
+  "Bone_02": {
+    "width": 155.0,
+    "height": 46.0
+  },
+  "Bone_03": {
+    "width": 60.0,
+    "height": 138.0
+  },
+  "Bone_04": {
+    "width": 233.0,
+    "height": 31.0
+  },
+  "Bone_05": {
+    "width": 201.0,
+    "height": 22.0
+  },
+  "Bone_05_boss": {
+    "width": 201.0,
+    "height": 22.0
+  },
+  "Bone_05_bellway": {
+    "width": 201.0,
+    "height": 22.0
+  },
+  "Bone_05b": {
+    "width": 80.0,
+    "height": 30.0
+  },
+  "Bone_06": {
+    "width": 112.0,
+    "height": 50.0
+  },
+  "Bone_07": {
+    "width": 92.0,
+    "height": 74.0
+  },
+  "Bone_08": {
+    "width": 40.0,
+    "height": 95.0
+  },
+  "Bone_09": {
+    "width": 164.0,
+    "height": 45.0
+  },
+  "Bone_10": {
+    "width": 115.0,
+    "height": 69.0
+  },
+  "Bone_11": {
+    "width": 120.0,
+    "height": 31.0
+  },
+  "Bone_11b": {
+    "width": 52.0,
+    "height": 18.0
+  },
+  "Bone_12": {
+    "width": 58.0,
+    "height": 43.0
+  },
+  "Bone_14": {
+    "width": 135.0,
+    "height": 38.0
+  },
+  "Bone_15": {
+    "width": 113.0,
+    "height": 29.0
+  },
+  "Bone_16": {
+    "width": 135.0,
+    "height": 75.0
+  },
+  "Bone_17": {
+    "width": 35.0,
+    "height": 25.0
+  },
+  "Bone_18": {
+    "width": 49.0,
+    "height": 33.0
+  },
+  "Bone_19": {
+    "width": 146.0,
+    "height": 27.0
+  },
+  "Ant_02": {
+    "width": 130.0,
+    "height": 25.0
+  },
+  "Ant_03": {
+    "width": 50.0,
+    "height": 78.0
+  },
+  "Ant_04": {
+    "width": 384.0,
+    "height": 34.0
+  },
+  "Ant_04_mid": {
+    "width": 235.0,
+    "height": 37.0
+  },
+  "Ant_04_left": {
+    "width": 145.0,
+    "height": 37.0
+  },
+  "Ant_05b": {
+    "width": 120.0,
+    "height": 20.0
+  },
+  "Ant_05c": {
+    "width": 84.0,
+    "height": 41.0
+  },
+  "Ant_08": {
+    "width": 85.0,
+    "height": 90.0
+  },
+  "Ant_09": {
+    "width": 170.0,
+    "height": 48.0
+  },
+  "Ant_14": {
+    "width": 29.0,
+    "height": 130.0
+  },
+  "Ant_17": {
+    "width": 60.0,
+    "height": 24.0
+  },
+  "Ant_19": {
+    "width": 173.0,
+    "height": 106.0
+  },
+  "Ant_20": {
+    "width": 222.0,
+    "height": 48.0
+  },
+  "Ant_21": {
+    "width": 138.0,
+    "height": 89.0
+  },
+  "Ant_Merchant": {
+    "width": 152.0,
+    "height": 30.0
+  },
+  "Ant_Queen": {
+    "width": 55.0,
+    "height": 34.0
+  },
+  "Dock_01": {
+    "width": 35.0,
+    "height": 84.0
+  },
+  "Dock_02": {
+    "width": 125.0,
+    "height": 101.0
+  },
+  "Dock_02b": {
+    "width": 94.0,
+    "height": 120.0
+  },
+  "Dock_03": {
+    "width": 168.0,
+    "height": 120.0
+  },
+  "Dock_03b": {
+    "width": 168.0,
+    "height": 120.0
+  },
+  "Dock_03c": {
+    "width": 163.0,
+    "height": 80.0
+  },
+  "Dock_03d": {
+    "width": 110.0,
+    "height": 78.0
+  },
+  "Dock_04": {
+    "width": 30.0,
+    "height": 105.0
+  },
+  "Dock_05": {
+    "width": 30.0,
+    "height": 18.0
+  },
+  "Dock_06_Church": {
+    "width": 75.0,
+    "height": 35.0
+  },
+  "Dock_08": {
+    "width": 110.0,
+    "height": 35.0
+  },
+  "Dock_09": {
+    "width": 77.0,
+    "height": 35.0
+  },
+  "Dock_10": {
+    "width": 35.0,
+    "height": 60.0
+  },
+  "Dock_11": {
+    "width": 148.0,
+    "height": 77.0
+  },
+  "Dock_12": {
+    "width": 48.0,
+    "height": 67.0
+  },
+  "Dock_13": {
+    "width": 35.0,
+    "height": 76.0
+  },
+  "Dock_14": {
+    "width": 29.0,
+    "height": 17.0
+  },
+  "Dock_15": {
+    "width": 29.0,
+    "height": 77.0
+  },
+  "Dock_16": {
+    "width": 75.0,
+    "height": 39.0
+  },
+  "Room_Forge": {
+    "width": 140.0,
+    "height": 69.0
+  },
+  "Bone_East_01": {
+    "width": 47.0,
+    "height": 83.0
+  },
+  "Bone_East_02": {
+    "width": 162.0,
+    "height": 35.0
+  },
+  "Bone_East_02b": {
+    "width": 330.0,
+    "height": 35.0
+  },
+  "Bone_East_03": {
+    "width": 224.0,
+    "height": 42.0
+  },
+  "Bone_East_04": {
+    "width": 83.0,
+    "height": 100.0
+  },
+  "Bone_East_04c": {
+    "width": 68.0,
+    "height": 17.0
+  },
+  "Bone_East_04b": {
+    "width": 44.0,
+    "height": 100.0
+  },
+  "Bone_East_05": {
+    "width": 190.0,
+    "height": 47.0
+  },
+  "Bone_East_07": {
+    "width": 40.0,
+    "height": 190.0
+  },
+  "Bone_East_08": {
+    "width": 150.0,
+    "height": 50.0
+  },
+  "Bone_East_09": {
+    "width": 100.0,
+    "height": 97.0
+  },
+  "Bone_East_09b": {
+    "width": 100.0,
+    "height": 200.0
+  },
+  "Bone_East_10": {
+    "width": 132.0,
+    "height": 38.0
+  },
+  "Bone_East_10_Church": {
+    "width": 200.0,
+    "height": 30.0
+  },
+  "Bone_East_10_Room": {
+    "width": 155.0,
+    "height": 50.0
+  },
+  "Bone_East_11": {
+    "width": 40.0,
+    "height": 278.0
+  },
+  "Bone_East_12": {
+    "width": 180.0,
+    "height": 32.0
+  },
+  "Bone_East_13": {
+    "width": 128.0,
+    "height": 35.0
+  },
+  "Bone_East_14": {
+    "width": 140.0,
+    "height": 80.0
+  },
+  "Bone_East_14b": {
+    "width": 309.0,
+    "height": 75.0
+  },
+  "Bone_East_15": {
+    "width": 173.0,
+    "height": 110.0
+  },
+  "Bone_East_16": {
+    "width": 57.0,
+    "height": 30.0
+  },
+  "Bone_East_17": {
+    "width": 115.0,
+    "height": 107.0
+  },
+  "Bone_East_17b": {
+    "width": 115.0,
+    "height": 64.0
+  },
+  "Bone_East_18": {
+    "width": 178.0,
+    "height": 62.0
+  },
+  "Bone_East_18b": {
+    "width": 327.0,
+    "height": 108.0
+  },
+  "Bone_East_18c": {
+    "width": 80.0,
+    "height": 25.0
+  },
+  "Bone_East_20": {
+    "width": 150.0,
+    "height": 33.0
+  },
+  "Bone_East_21": {
+    "width": 40.0,
+    "height": 20.0
+  },
+  "Bone_East_22": {
+    "width": 59.0,
+    "height": 35.0
+  },
+  "Bone_East_24": {
+    "width": 263.0,
+    "height": 76.0
+  },
+  "Bone_East_25": {
+    "width": 157.0,
+    "height": 27.0
+  },
+  "Bone_East_Weavehome": {
+    "width": 205.0,
+    "height": 120.0
+  },
+  "Bone_East_Umbrella": {
+    "width": 55.0,
+    "height": 26.0
+  },
+  "Bone_East_LavaChallenge": {
+    "width": 29.0,
+    "height": 289.0
+  },
+  "Halfway_01": {
+    "width": 56.0,
+    "height": 32.0
+  },
+  "Greymoor_01": {
+    "width": 130.0,
+    "height": 52.0
+  },
+  "Greymoor_02": {
+    "width": 90.0,
+    "height": 150.0
+  },
+  "Greymoor_03": {
+    "width": 120.0,
+    "height": 140.0
+  },
+  "Greymoor_04": {
+    "width": 40.0,
+    "height": 170.0
+  },
+  "Greymoor_05": {
+    "width": 110.0,
+    "height": 75.0
+  },
+  "Greymoor_05_boss": {
+    "width": 110.0,
+    "height": 75.0
+  },
+  "Greymoor_06": {
+    "width": 40.0,
+    "height": 207.0
+  },
+  "Greymoor_07": {
+    "width": 75.0,
+    "height": 100.0
+  },
+  "Greymoor_08": {
+    "width": 161.0,
+    "height": 38.0
+  },
+  "Greymoor_08_boss": {
+    "width": 161.0,
+    "height": 38.0
+  },
+  "Greymoor_08_caravan": {
+    "width": 161.0,
+    "height": 38.0
+  },
+  "Greymoor_08_mapper": {
+    "width": 161.0,
+    "height": 38.0
+  },
+  "Greymoor_10": {
+    "width": 110.0,
+    "height": 25.0
+  },
+  "Greymoor_11": {
+    "width": 110.0,
+    "height": 70.0
+  },
+  "Greymoor_12": {
+    "width": 180.0,
+    "height": 35.0
+  },
+  "Greymoor_13": {
+    "width": 180.0,
+    "height": 23.0
+  },
+  "Greymoor_15": {
+    "width": 78.0,
+    "height": 84.0
+  },
+  "Greymoor_15b": {
+    "width": 220.0,
+    "height": 141.0
+  },
+  "Greymoor_16": {
+    "width": 171.0,
+    "height": 60.0
+  },
+  "Greymoor_17": {
+    "width": 57.0,
+    "height": 65.0
+  },
+  "Greymoor_20b": {
+    "width": 50.0,
+    "height": 20.0
+  },
+  "Greymoor_20c": {
+    "width": 52.0,
+    "height": 86.0
+  },
+  "Greymoor_21": {
+    "width": 80.0,
+    "height": 25.0
+  },
+  "Greymoor_22": {
+    "width": 110.0,
+    "height": 50.0
+  },
+  "Greymoor_24": {
+    "width": 84.0,
+    "height": 26.0
+  },
+  "Dust_01": {
+    "width": 155.0,
+    "height": 27.0
+  },
+  "Dust_02": {
+    "width": 40.0,
+    "height": 130.0
+  },
+  "Dust_03": {
+    "width": 145.0,
+    "height": 40.0
+  },
+  "Dust_04": {
+    "width": 110.0,
+    "height": 90.0
+  },
+  "Dust_05": {
+    "width": 352.0,
+    "height": 31.0
+  },
+  "Dust_06": {
+    "width": 30.0,
+    "height": 190.0
+  },
+  "Dust_09": {
+    "width": 180.0,
+    "height": 52.0
+  },
+  "Dust_10": {
+    "width": 160.0,
+    "height": 80.0
+  },
+  "Dust_11": {
+    "width": 140.0,
+    "height": 40.0
+  },
+  "Dust_12": {
+    "width": 44.0,
+    "height": 16.0
+  },
+  "Dust_Barb": {
+    "width": 45.0,
+    "height": 32.0
+  },
+  "Dust_Shack": {
+    "width": 38.0,
+    "height": 30.0
+  },
+  "Dust_Chef": {
+    "width": 60.0,
+    "height": 74.0
+  },
+  "Dust_Maze_01": {
+    "width": 170.0,
+    "height": 30.0
+  },
+  "Dust_Maze_02": {
+    "width": 86.0,
+    "height": 67.0
+  },
+  "Dust_Maze_03": {
+    "width": 43.0,
+    "height": 150.0
+  },
+  "Dust_Maze_04": {
+    "width": 147.0,
+    "height": 57.0
+  },
+  "Dust_Maze_05": {
+    "width": 131.0,
+    "height": 79.0
+  },
+  "Dust_Maze_06": {
+    "width": 131.0,
+    "height": 42.0
+  },
+  "Dust_Maze_07": {
+    "width": 45.0,
+    "height": 70.0
+  },
+  "Dust_Maze_08": {
+    "width": 90.0,
+    "height": 90.0
+  },
+  "Dust_Maze_crossing": {
+    "width": 100.0,
+    "height": 24.0
+  },
+  "Dust_Maze_Last_Hall": {
+    "width": 75.0,
+    "height": 18.0
+  },
+  "Dust_Maze_08_completed": {
+    "width": 90.0,
+    "height": 80.0
+  },
+  "Dust_Maze_09_entrance": {
+    "width": 70.0,
+    "height": 28.0
+  },
+  "Organ_01": {
+    "width": 160.0,
+    "height": 229.0
+  },
+  "Shadow_01": {
+    "width": 87.0,
+    "height": 177.0
+  },
+  "Shadow_02": {
+    "width": 70.0,
+    "height": 207.0
+  },
+  "Shadow_03": {
+    "width": 145.0,
+    "height": 43.0
+  },
+  "Shadow_04": {
+    "width": 78.0,
+    "height": 89.0
+  },
+  "Shadow_04b": {
+    "width": 185.0,
+    "height": 74.0
+  },
+  "Shadow_05": {
+    "width": 212.0,
+    "height": 55.0
+  },
+  "Shadow_09": {
+    "width": 156.0,
+    "height": 136.0
+  },
+  "Shadow_10": {
+    "width": 210.0,
+    "height": 70.0
+  },
+  "Shadow_11": {
+    "width": 29.0,
+    "height": 112.0
+  },
+  "Shadow_12": {
+    "width": 210.0,
+    "height": 48.0
+  },
+  "Shadow_13": {
+    "width": 320.0,
+    "height": 74.0
+  },
+  "Shadow_14": {
+    "width": 29.0,
+    "height": 71.0
+  },
+  "Shadow_15": {
+    "width": 55.0,
+    "height": 66.0
+  },
+  "Shadow_16": {
+    "width": 122.0,
+    "height": 48.0
+  },
+  "Shadow_18": {
+    "width": 117.0,
+    "height": 45.0
+  },
+  "Shadow_19": {
+    "width": 80.0,
+    "height": 96.0
+  },
+  "Shadow_20": {
+    "width": 230.0,
+    "height": 65.0
+  },
+  "Shadow_21": {
+    "width": 110.0,
+    "height": 24.0
+  },
+  "Shadow_22": {
+    "width": 70.0,
+    "height": 95.0
+  },
+  "Shadow_23": {
+    "width": 52.0,
+    "height": 19.0
+  },
+  "Shadow_24": {
+    "width": 296.0,
+    "height": 34.0
+  },
+  "Shadow_25": {
+    "width": 29.0,
+    "height": 36.0
+  },
+  "Shadow_26": {
+    "width": 29.0,
+    "height": 113.0
+  },
+  "Shadow_27": {
+    "width": 205.0,
+    "height": 25.0
+  },
+  "Shadow_28": {
+    "width": 65.0,
+    "height": 34.0
+  },
+  "Shadow_Weavehome": {
+    "width": 177.0,
+    "height": 68.0
+  },
+  "Aqueduct_01": {
+    "width": 265.0,
+    "height": 42.0
+  },
+  "Aqueduct_02": {
+    "width": 29.0,
+    "height": 121.0
+  },
+  "Aqueduct_03": {
+    "width": 261.0,
+    "height": 44.0
+  },
+  "Aqueduct_04": {
+    "width": 185.0,
+    "height": 60.0
+  },
+  "Aqueduct_05": {
+    "width": 332.0,
+    "height": 100.0
+  },
+  "Aqueduct_06": {
+    "width": 150.0,
+    "height": 120.0
+  },
+  "Aqueduct_07": {
+    "width": 41.0,
+    "height": 40.0
+  },
+  "Wisp_02": {
+    "width": 230.0,
+    "height": 46.0
+  },
+  "Wisp_03": {
+    "width": 179.0,
+    "height": 47.0
+  },
+  "Wisp_04": {
+    "width": 79.0,
+    "height": 30.0
+  },
+  "Wisp_05": {
+    "width": 57.0,
+    "height": 69.0
+  },
+  "Wisp_06": {
+    "width": 35.0,
+    "height": 19.0
+  },
+  "Wisp_07": {
+    "width": 290.0,
+    "height": 39.0
+  },
+  "Wisp_08": {
+    "width": 30.0,
+    "height": 125.0
+  },
+  "Wisp_09": {
+    "width": 100.0,
+    "height": 39.0
+  },
+  "Shellwood_01": {
+    "width": 132.0,
+    "height": 98.0
+  },
+  "Shellwood_01b": {
+    "width": 48.0,
+    "height": 109.0
+  },
+  "Shellwood_02": {
+    "width": 80.0,
+    "height": 102.0
+  },
+  "Shellwood_03": {
+    "width": 40.0,
+    "height": 135.0
+  },
+  "Shellwood_04b": {
+    "width": 230.0,
+    "height": 26.0
+  },
+  "Shellwood_04c": {
+    "width": 29.0,
+    "height": 80.0
+  },
+  "Shellwood_08": {
+    "width": 98.0,
+    "height": 19.0
+  },
+  "Shellwood_08c": {
+    "width": 42.0,
+    "height": 24.0
+  },
+  "Shellwood_10": {
+    "width": 79.0,
+    "height": 102.0
+  },
+  "Shellwood_11": {
+    "width": 102.0,
+    "height": 78.0
+  },
+  "Shellwood_11b": {
+    "width": 120.0,
+    "height": 170.0
+  },
+  "Shellwood_13": {
+    "width": 141.0,
+    "height": 80.0
+  },
+  "Shellwood_14": {
+    "width": 135.0,
+    "height": 19.0
+  },
+  "Shellwood_15": {
+    "width": 135.0,
+    "height": 25.0
+  },
+  "Shellwood_16": {
+    "width": 85.0,
+    "height": 25.0
+  },
+  "Shellwood_18": {
+    "width": 140.0,
+    "height": 35.0
+  },
+  "Shellwood_19": {
+    "width": 127.0,
+    "height": 19.0
+  },
+  "Shellwood_20": {
+    "width": 95.0,
+    "height": 43.0
+  },
+  "Shellwood_22": {
+    "width": 182.0,
+    "height": 28.0
+  },
+  "Shellwood_25": {
+    "width": 290.0,
+    "height": 40.0
+  },
+  "Shellwood_25b": {
+    "width": 35.0,
+    "height": 20.0
+  },
+  "Shellwood_26": {
+    "width": 135.0,
+    "height": 130.0
+  },
+  "Shellwood_Witch": {
+    "width": 50.0,
+    "height": 30.0
+  },
+  "Shellwood_11b_Memory": {
+    "width": 120.0,
+    "height": 162.0
+  },
+  "Shellgrave": {
+    "width": 138.0,
+    "height": 22.0
+  },
+  "Coral_02": {
+    "width": 245.0,
+    "height": 80.0
+  },
+  "Coral_03": {
+    "width": 60.0,
+    "height": 215.0
+  },
+  "Coral_10": {
+    "width": 120.0,
+    "height": 35.0
+  },
+  "Coral_11": {
+    "width": 180.0,
+    "height": 31.0
+  },
+  "Coral_11b": {
+    "width": 100.0,
+    "height": 27.0
+  },
+  "Coral_12": {
+    "width": 94.0,
+    "height": 78.0
+  },
+  "Coral_19": {
+    "width": 427.0,
+    "height": 55.0
+  },
+  "Coral_19b": {
+    "width": 118.0,
+    "height": 117.0
+  },
+  "Coral_23": {
+    "width": 316.0,
+    "height": 102.0
+  },
+  "Coral_24": {
+    "width": 183.0,
+    "height": 55.0
+  },
+  "Coral_25": {
+    "width": 149.0,
+    "height": 98.0
+  },
+  "Coral_26": {
+    "width": 30.0,
+    "height": 141.0
+  },
+  "Coral_27": {
+    "width": 202.0,
+    "height": 46.0
+  },
+  "Coral_28": {
+    "width": 130.0,
+    "height": 56.0
+  },
+  "Coral_29": {
+    "width": 302.0,
+    "height": 92.0
+  },
+  "Coral_32": {
+    "width": 170.0,
+    "height": 115.0
+  },
+  "Coral_33": {
+    "width": 58.0,
+    "height": 74.0
+  },
+  "Coral_34": {
+    "width": 222.0,
+    "height": 83.0
+  },
+  "Coral_35": {
+    "width": 29.0,
+    "height": 153.0
+  },
+  "Coral_35b": {
+    "width": 29.0,
+    "height": 168.0
+  },
+  "Coral_36": {
+    "width": 70.0,
+    "height": 58.0
+  },
+  "Coral_37": {
+    "width": 80.0,
+    "height": 21.0
+  },
+  "Coral_38": {
+    "width": 131.0,
+    "height": 95.0
+  },
+  "Coral_39": {
+    "width": 192.0,
+    "height": 43.0
+  },
+  "Coral_40": {
+    "width": 60.0,
+    "height": 24.0
+  },
+  "Coral_41": {
+    "width": 153.0,
+    "height": 68.0
+  },
+  "Coral_42": {
+    "width": 62.0,
+    "height": 32.0
+  },
+  "Coral_43": {
+    "width": 110.0,
+    "height": 22.0
+  },
+  "Coral_Tower_01": {
+    "width": 138.0,
+    "height": 22.0
+  },
+  "Coral_Judge_Arena": {
+    "width": 62.0,
+    "height": 42.0
+  },
+  "Under_01": {
+    "width": 54.0,
+    "height": 160.0
+  },
+  "Under_01b": {
+    "width": 48.0,
+    "height": 20.0
+  },
+  "Under_02": {
+    "width": 42.0,
+    "height": 230.0
+  },
+  "Under_03": {
+    "width": 60.0,
+    "height": 25.0
+  },
+  "Under_03b": {
+    "width": 95.0,
+    "height": 32.0
+  },
+  "Under_03c": {
+    "width": 29.0,
+    "height": 66.0
+  },
+  "Under_03d": {
+    "width": 65.0,
+    "height": 30.0
+  },
+  "Under_04": {
+    "width": 120.0,
+    "height": 32.0
+  },
+  "Under_05": {
+    "width": 29.0,
+    "height": 141.0
+  },
+  "Under_06": {
+    "width": 155.0,
+    "height": 24.0
+  },
+  "Under_07": {
+    "width": 85.0,
+    "height": 27.0
+  },
+  "Under_07b": {
+    "width": 105.0,
+    "height": 100.0
+  },
+  "Under_07c": {
+    "width": 85.0,
+    "height": 106.0
+  },
+  "Under_08": {
+    "width": 135.0,
+    "height": 58.0
+  },
+  "Under_10": {
+    "width": 80.0,
+    "height": 20.0
+  },
+  "Under_11": {
+    "width": 80.0,
+    "height": 19.0
+  },
+  "Under_12": {
+    "width": 40.0,
+    "height": 20.0
+  },
+  "Under_13": {
+    "width": 52.0,
+    "height": 130.0
+  },
+  "Under_14": {
+    "width": 115.0,
+    "height": 25.0
+  },
+  "Under_16": {
+    "width": 80.0,
+    "height": 60.0
+  },
+  "Under_17": {
+    "width": 164.0,
+    "height": 48.0
+  },
+  "Under_18": {
+    "width": 160.0,
+    "height": 50.0
+  },
+  "Under_19": {
+    "width": 170.0,
+    "height": 24.0
+  },
+  "Under_19b": {
+    "width": 135.0,
+    "height": 22.0
+  },
+  "Under_19c": {
+    "width": 30.0,
+    "height": 64.0
+  },
+  "Under_20": {
+    "width": 71.0,
+    "height": 28.0
+  },
+  "Under_21": {
+    "width": 87.0,
+    "height": 26.0
+  },
+  "Under_22": {
+    "width": 81.0,
+    "height": 20.0
+  },
+  "Under_23": {
+    "width": 160.0,
+    "height": 35.0
+  },
+  "Song_01": {
+    "width": 162.0,
+    "height": 150.0
+  },
+  "Song_01b": {
+    "width": 124.0,
+    "height": 19.0
+  },
+  "Song_01c": {
+    "width": 44.0,
+    "height": 35.0
+  },
+  "Song_02": {
+    "width": 188.0,
+    "height": 34.0
+  },
+  "Song_03": {
+    "width": 140.0,
+    "height": 40.0
+  },
+  "Song_04": {
+    "width": 143.0,
+    "height": 68.0
+  },
+  "Song_05": {
+    "width": 50.0,
+    "height": 118.0
+  },
+  "Song_07": {
+    "width": 80.0,
+    "height": 24.0
+  },
+  "Song_08": {
+    "width": 76.0,
+    "height": 17.0
+  },
+  "Song_09": {
+    "width": 50.0,
+    "height": 85.0
+  },
+  "Song_09b": {
+    "width": 165.0,
+    "height": 146.0
+  },
+  "Song_10": {
+    "width": 127.0,
+    "height": 70.0
+  },
+  "Song_11": {
+    "width": 60.0,
+    "height": 188.0
+  },
+  "Song_12": {
+    "width": 35.0,
+    "height": 113.0
+  },
+  "Song_13": {
+    "width": 85.0,
+    "height": 21.0
+  },
+  "Song_14": {
+    "width": 72.0,
+    "height": 21.0
+  },
+  "Song_15": {
+    "width": 85.0,
+    "height": 41.0
+  },
+  "Song_17": {
+    "width": 135.0,
+    "height": 115.0
+  },
+  "Song_18": {
+    "width": 110.0,
+    "height": 72.0
+  },
+  "Song_19_entrance": {
+    "width": 75.0,
+    "height": 109.0
+  },
+  "Song_20": {
+    "width": 50.0,
+    "height": 165.0
+  },
+  "Song_20b": {
+    "width": 50.0,
+    "height": 243.0
+  },
+  "Song_24": {
+    "width": 61.0,
+    "height": 55.0
+  },
+  "Song_25": {
+    "width": 252.0,
+    "height": 28.0
+  },
+  "Song_26": {
+    "width": 35.0,
+    "height": 30.0
+  },
+  "Song_27": {
+    "width": 215.0,
+    "height": 25.0
+  },
+  "Song_Enclave": {
+    "width": 120.0,
+    "height": 33.0
+  },
+  "Song_Enclave_Tube": {
+    "width": 52.0,
+    "height": 22.0
+  },
+  "Tube_Hub": {
+    "width": 135.0,
+    "height": 145.0
+  },
+  "Ward_01": {
+    "width": 75.0,
+    "height": 111.0
+  },
+  "Ward_02": {
+    "width": 150.0,
+    "height": 90.0
+  },
+  "Ward_02b": {
+    "width": 151.0,
+    "height": 31.0
+  },
+  "Ward_03": {
+    "width": 240.0,
+    "height": 52.0
+  },
+  "Ward_04": {
+    "width": 35.0,
+    "height": 28.0
+  },
+  "Ward_05": {
+    "width": 140.0,
+    "height": 23.0
+  },
+  "Ward_06": {
+    "width": 120.0,
+    "height": 60.0
+  },
+  "Ward_07": {
+    "width": 130.0,
+    "height": 20.0
+  },
+  "Library_01": {
+    "width": 60.0,
+    "height": 112.0
+  },
+  "Library_02": {
+    "width": 120.0,
+    "height": 64.0
+  },
+  "Library_03": {
+    "width": 117.0,
+    "height": 64.0
+  },
+  "Library_04": {
+    "width": 67.0,
+    "height": 220.0
+  },
+  "Library_05": {
+    "width": 49.0,
+    "height": 79.0
+  },
+  "Library_06": {
+    "width": 66.0,
+    "height": 78.0
+  },
+  "Library_07": {
+    "width": 79.0,
+    "height": 172.0
+  },
+  "Library_08": {
+    "width": 115.0,
+    "height": 40.0
+  },
+  "Library_09": {
+    "width": 160.0,
+    "height": 106.0
+  },
+  "Library_10": {
+    "width": 150.0,
+    "height": 30.0
+  },
+  "Library_11": {
+    "width": 45.0,
+    "height": 274.0
+  },
+  "Library_11b": {
+    "width": 115.0,
+    "height": 158.0
+  },
+  "Library_12": {
+    "width": 136.0,
+    "height": 116.0
+  },
+  "Library_12b": {
+    "width": 202.0,
+    "height": 100.0
+  },
+  "Library_13": {
+    "width": 124.0,
+    "height": 56.0
+  },
+  "Library_13b": {
+    "width": 73.0,
+    "height": 25.0
+  },
+  "Library_14": {
+    "width": 65.0,
+    "height": 30.0
+  },
+  "Library_15": {
+    "width": 90.0,
+    "height": 25.0
+  },
+  "Library_16": {
+    "width": 67.0,
+    "height": 20.0
+  },
+  "Hang_01": {
+    "width": 50.0,
+    "height": 100.0
+  },
+  "Hang_02": {
+    "width": 114.0,
+    "height": 48.0
+  },
+  "Hang_03": {
+    "width": 30.0,
+    "height": 98.0
+  },
+  "Hang_03_top": {
+    "width": 30.0,
+    "height": 170.0
+  },
+  "Hang_04": {
+    "width": 71.0,
+    "height": 26.0
+  },
+  "Hang_06": {
+    "width": 86.0,
+    "height": 30.0
+  },
+  "Hang_06b": {
+    "width": 62.0,
+    "height": 22.0
+  },
+  "Hang_06_bank": {
+    "width": 129.0,
+    "height": 60.0
+  },
+  "Hang_07": {
+    "width": 148.0,
+    "height": 28.0
+  },
+  "Hang_08": {
+    "width": 30.0,
+    "height": 230.0
+  },
+  "Hang_09": {
+    "width": 114.0,
+    "height": 48.0
+  },
+  "Hang_10": {
+    "width": 92.0,
+    "height": 48.0
+  },
+  "Hang_12": {
+    "width": 64.0,
+    "height": 19.0
+  },
+  "Hang_13": {
+    "width": 92.0,
+    "height": 60.0
+  },
+  "Hang_14": {
+    "width": 105.0,
+    "height": 35.0
+  },
+  "Hang_15": {
+    "width": 93.0,
+    "height": 48.0
+  },
+  "Hang_16": {
+    "width": 104.0,
+    "height": 30.0
+  },
+  "Hang_17b": {
+    "width": 55.0,
+    "height": 21.0
+  },
+  "Arborium_01": {
+    "width": 29.0,
+    "height": 151.0
+  },
+  "Arborium_02": {
+    "width": 132.0,
+    "height": 29.0
+  },
+  "Arborium_03": {
+    "width": 29.0,
+    "height": 110.0
+  },
+  "Arborium_04": {
+    "width": 132.0,
+    "height": 34.0
+  },
+  "Arborium_05": {
+    "width": 132.0,
+    "height": 29.0
+  },
+  "Arborium_06": {
+    "width": 132.0,
+    "height": 29.0
+  },
+  "Arborium_07": {
+    "width": 180.0,
+    "height": 22.0
+  },
+  "Arborium_08": {
+    "width": 132.0,
+    "height": 60.0
+  },
+  "Arborium_09": {
+    "width": 66.0,
+    "height": 112.0
+  },
+  "Arborium_10": {
+    "width": 39.0,
+    "height": 28.0
+  },
+  "Arborium_11": {
+    "width": 222.0,
+    "height": 61.0
+  },
+  "Arborium_Tube": {
+    "width": 32.0,
+    "height": 22.0
+  },
+  "Cog_04": {
+    "width": 72.0,
+    "height": 150.0
+  },
+  "Cog_05": {
+    "width": 125.0,
+    "height": 50.0
+  },
+  "Cog_06": {
+    "width": 90.0,
+    "height": 42.0
+  },
+  "Cog_07": {
+    "width": 90.0,
+    "height": 87.0
+  },
+  "Cog_08": {
+    "width": 72.0,
+    "height": 160.0
+  },
+  "Cog_09": {
+    "width": 72.0,
+    "height": 117.0
+  },
+  "Cog_10": {
+    "width": 71.0,
+    "height": 60.0
+  },
+  "Cog_Bench": {
+    "width": 45.0,
+    "height": 40.0
+  },
+  "Cog_Pass": {
+    "width": 40.0,
+    "height": 68.0
+  },
+  "Cog_Dancers": {
+    "width": 80.0,
+    "height": 45.0
+  },
+  "Cog_Dancers_boss": {
+    "width": 80.0,
+    "height": 45.0
+  },
+  "Cradle_01": {
+    "width": 80.0,
+    "height": 68.0
+  },
+  "Cradle_02": {
+    "width": 81.0,
+    "height": 110.0
+  },
+  "Cradle_03": {
+    "width": 80.0,
+    "height": 160.0
+  },
+  "Song_Tower_01": {
+    "width": 130.0,
+    "height": 140.0
+  },
+  "Song_Tower_Destroyed": {
+    "width": 130.0,
+    "height": 144.0
+  },
+  "Cog_09_Destroyed": {
+    "width": 72.0,
+    "height": 117.0
+  },
+  "Cog_10_Destroyed": {
+    "width": 29.0,
+    "height": 187.0
+  },
+  "Cradle_01_Destroyed": {
+    "width": 80.0,
+    "height": 89.0
+  },
+  "Cradle_03_Destroyed": {
+    "width": 80.0,
+    "height": 190.0
+  },
+  "Cradle_Destroyed_Challenge_Bench": {
+    "width": 55.0,
+    "height": 28.0
+  },
+  "Cradle_Destroyed_Challenge_01": {
+    "width": 45.0,
+    "height": 560.0
+  },
+  "Abandoned_town": {
+    "width": 370.0,
+    "height": 60.0
+  },
+  "Slab_01": {
+    "width": 200.0,
+    "height": 38.0
+  },
+  "Slab_02": {
+    "width": 125.0,
+    "height": 31.0
+  },
+  "Slab_03": {
+    "width": 29.0,
+    "height": 285.0
+  },
+  "Slab_04": {
+    "width": 100.0,
+    "height": 37.0
+  },
+  "Slab_05": {
+    "width": 100.0,
+    "height": 36.0
+  },
+  "Slab_06": {
+    "width": 101.0,
+    "height": 35.0
+  },
+  "Slab_07": {
+    "width": 88.0,
+    "height": 40.0
+  },
+  "Slab_08": {
+    "width": 35.0,
+    "height": 40.0
+  },
+  "Slab_10b": {
+    "width": 60.0,
+    "height": 30.0
+  },
+  "Slab_10c": {
+    "width": 42.0,
+    "height": 65.0
+  },
+  "Slab_12": {
+    "width": 110.0,
+    "height": 40.0
+  },
+  "Slab_13": {
+    "width": 100.0,
+    "height": 25.0
+  },
+  "Slab_14": {
+    "width": 100.0,
+    "height": 29.0
+  },
+  "Slab_15": {
+    "width": 100.0,
+    "height": 25.0
+  },
+  "Slab_16": {
+    "width": 100.0,
+    "height": 80.0
+  },
+  "Slab_17": {
+    "width": 81.0,
+    "height": 77.0
+  },
+  "Slab_18": {
+    "width": 100.0,
+    "height": 76.0
+  },
+  "Slab_19b": {
+    "width": 44.0,
+    "height": 36.0
+  },
+  "Slab_20": {
+    "width": 94.0,
+    "height": 24.0
+  },
+  "Slab_21": {
+    "width": 40.0,
+    "height": 163.0
+  },
+  "Slab_22": {
+    "width": 260.0,
+    "height": 50.0
+  },
+  "Slab_23": {
+    "width": 102.0,
+    "height": 22.0
+  },
+  "Slab_Cell": {
+    "width": 100.0,
+    "height": 28.0
+  },
+  "Slab_Cell_Creature": {
+    "width": 100.0,
+    "height": 28.0
+  },
+  "Slab_Cell_Quiet": {
+    "width": 53.0,
+    "height": 60.0
+  },
+  "Peak_01": {
+    "width": 100.0,
+    "height": 300.0
+  },
+  "Peak_02": {
+    "width": 100.0,
+    "height": 212.0
+  },
+  "Peak_04": {
+    "width": 352.0,
+    "height": 41.0
+  },
+  "Peak_04c": {
+    "width": 105.0,
+    "height": 48.0
+  },
+  "Peak_04d": {
+    "width": 115.0,
+    "height": 22.0
+  },
+  "Peak_05": {
+    "width": 232.0,
+    "height": 179.0
+  },
+  "Peak_05c": {
+    "width": 268.0,
+    "height": 125.0
+  },
+  "Peak_05d": {
+    "width": 366.0,
+    "height": 262.0
+  },
+  "Peak_05e": {
+    "width": 115.0,
+    "height": 64.0
+  },
+  "Peak_06": {
+    "width": 51.0,
+    "height": 233.0
+  },
+  "Peak_07": {
+    "width": 115.0,
+    "height": 150.0
+  },
+  "Peak_08": {
+    "width": 343.0,
+    "height": 186.0
+  },
+  "Peak_08b": {
+    "width": 336.0,
+    "height": 138.0
+  },
+  "Peak_10": {
+    "width": 80.0,
+    "height": 50.0
+  },
+  "Peak_12": {
+    "width": 50.0,
+    "height": 22.0
+  },
+  "Peak_Mask_Maker": {
+    "width": 33.0,
+    "height": 30.0
+  },
+  "Weave_02": {
+    "width": 45.0,
+    "height": 217.0
+  },
+  "Weave_03": {
+    "width": 284.0,
+    "height": 35.0
+  },
+  "Weave_04": {
+    "width": 90.0,
+    "height": 127.0
+  },
+  "Weave_05b": {
+    "width": 221.0,
+    "height": 43.0
+  },
+  "Weave_07": {
+    "width": 60.0,
+    "height": 120.0
+  },
+  "Weave_08": {
+    "width": 77.0,
+    "height": 67.0
+  },
+  "Weave_10": {
+    "width": 100.0,
+    "height": 45.0
+  },
+  "Weave_11": {
+    "width": 130.0,
+    "height": 32.0
+  },
+  "Weave_12": {
+    "width": 55.0,
+    "height": 25.0
+  },
+  "Weave_13": {
+    "width": 60.0,
+    "height": 20.0
+  },
+  "Weave_14": {
+    "width": 76.0,
+    "height": 19.0
+  },
+  "Clover_01": {
+    "width": 175.0,
+    "height": 22.0
+  },
+  "Clover_01b": {
+    "width": 175.0,
+    "height": 21.0
+  },
+  "Clover_02c": {
+    "width": 209.0,
+    "height": 75.0
+  },
+  "Clover_03": {
+    "width": 30.0,
+    "height": 176.0
+  },
+  "Clover_04b": {
+    "width": 200.0,
+    "height": 95.0
+  },
+  "Clover_05c": {
+    "width": 31.0,
+    "height": 134.0
+  },
+  "Clover_06": {
+    "width": 270.0,
+    "height": 30.0
+  },
+  "Clover_10": {
+    "width": 136.0,
+    "height": 54.0
+  },
+  "Clover_10_web": {
+    "width": 60.0,
+    "height": 54.0
+  },
+  "Clover_11": {
+    "width": 75.0,
+    "height": 30.0
+  },
+  "Clover_16": {
+    "width": 140.0,
+    "height": 100.0
+  },
+  "Clover_18": {
+    "width": 195.0,
+    "height": 80.0
+  },
+  "Clover_19": {
+    "width": 100.0,
+    "height": 30.0
+  },
+  "Clover_20": {
+    "width": 150.0,
+    "height": 47.0
+  },
+  "Abyss_01": {
+    "width": 50.0,
+    "height": 161.0
+  },
+  "Abyss_02": {
+    "width": 192.0,
+    "height": 39.0
+  },
+  "Abyss_02b": {
+    "width": 228.0,
+    "height": 55.0
+  },
+  "Abyss_03": {
+    "width": 82.0,
+    "height": 85.0
+  },
+  "Abyss_04": {
+    "width": 115.0,
+    "height": 81.0
+  },
+  "Abyss_05": {
+    "width": 190.0,
+    "height": 105.0
+  },
+  "Abyss_06": {
+    "width": 60.0,
+    "height": 51.0
+  },
+  "Abyss_07": {
+    "width": 130.0,
+    "height": 20.0
+  },
+  "Abyss_08": {
+    "width": 164.0,
+    "height": 106.0
+  },
+  "Abyss_09": {
+    "width": 60.0,
+    "height": 1023.0
+  },
+  "Abyss_11": {
+    "width": 44.0,
+    "height": 58.0
+  },
+  "Abyss_12": {
+    "width": 33.0,
+    "height": 40.0
+  },
+  "Abyss_13": {
+    "width": 240.0,
+    "height": 36.0
+  },
+  "Bonetown_boss": {
+    "width": 240.0,
+    "height": 36.0
+  },
+  "Room_CrowCourt": {
+    "width": 70.0,
+    "height": 80.0
+  },
+  "Room_CrowCourt_02": {
+    "width": 70.0,
+    "height": 92.0
+  },
+  "Room_Pinstress": {
+    "width": 50.0,
+    "height": 26.0
+  },
+  "Room_Witch": {
+    "width": 33.0,
+    "height": 19.0
+  },
+  "Room_Caravan_Spa": {
+    "width": 33.0,
+    "height": 30.0
+  },
+  "Room_Caravan_Interior": {
+    "width": 33.0,
+    "height": 30.0
+  },
+  "Room_Huntress": {
+    "width": 35.0,
+    "height": 25.0
+  },
+  "Room_Diving_Bell": {
+    "width": 50.0,
+    "height": 26.0
+  },
+  "Room_Diving_Bell_Abyss": {
+    "width": 50.0,
+    "height": 26.0
+  },
+  "Room_Diving_Bell_Abyss_Fixed": {
+    "width": 50.0,
+    "height": 26.0
+  },
+  "Sprintmaster_Cave": {
+    "width": 236.0,
+    "height": 51.0
+  },
+  "City_Lace_cutscene": {
+    "width": 236.0,
+    "height": 51.0
+  },
+  "Chapel_Wanderer": {
+    "width": 87.0,
+    "height": 140.0
+  },
+  "Memory_Needolin": {
+    "width": 200.0,
+    "height": 210.0
+  },
+  "Memory_First_Sinner": {
+    "width": 205.0,
+    "height": 280.0
+  },
+  "Memory_Silk_Heart_BellBeast": {
+    "width": 50.0,
+    "height": 130.0
+  },
+  "Memory_Silk_Heart_WardBoss": {
+    "width": 50.0,
+    "height": 130.0
+  },
+  "Memory_Silk_Heart_LaceTower": {
+    "width": 50.0,
+    "height": 130.0
+  },
+  "Memory_Coral_Tower": {
+    "width": 110.0,
+    "height": 566.0
+  },
+  "Memory_Ant_Queen": {
+    "width": 200.0,
+    "height": 47.0
+  },
+  "Belltown_Room_Spare": {
+    "width": 55.0,
+    "height": 26.0
+  },
+  "Shadow_08": {
+    "width": 100.0,
+    "height": 55.0
+  },
+  "Cradle_02b": {
+    "width": 48.0,
+    "height": 47.0
+  },
+  "Slab_16b": {
+    "width": 80.0,
+    "height": 32.0
+  },
+  "Clover_21": {
+    "width": 170.0,
+    "height": 26.0
+  },
+  "Pre_Menu_Loader": {
+    "width": 170.0,
+    "height": 26.0
+  },
+  "Bone_East_08_boss_golem": {
+    "width": 170.0,
+    "height": 26.0
+  },
+  "Bone_East_08_boss_golem_rest": {
+    "width": 170.0,
+    "height": 26.0
+  },
+  "Bone_East_08_boss_beastfly": {
+    "width": 170.0,
+    "height": 26.0
+  },
+  "Song_28": {
+    "width": 41.0,
+    "height": 21.0
+  },
+  "Song_29": {
+    "width": 41.0,
+    "height": 21.0
+  },
+  "Aqueduct_08": {
+    "width": 60.0,
+    "height": 20.0
+  },
+  "Coral_44": {
+    "width": 183.0,
+    "height": 55.0
+  },
+  "Hang_04_boss": {
+    "width": 183.0,
+    "height": 55.0
+  },
+  "Shadow_Bilehaven_Room": {
+    "width": 40.0,
+    "height": 20.0
+  },
+  "Abyss_Cocoon": {
+    "width": 65.0,
+    "height": 1024.0
+  },
+  "Peak_06b": {
+    "width": 46.0,
+    "height": 55.0
+  },
+  "Bone_East_26": {
+    "width": 205.0,
+    "height": 48.0
+  },
+  "Bone_East_27": {
+    "width": 50.0,
+    "height": 63.0
+  },
+  "Memory_Red": {
+    "width": 950.0,
+    "height": 1024.0
+  },
+  "Ward_09": {
+    "width": 150.0,
+    "height": 18.0
+  },
+  "Bone_Steel_Servant": {
+    "width": 130.0,
+    "height": 40.0
+  },
+  "Cradle_Destroyed_Challenge_02": {
+    "width": 80.0,
+    "height": 120.0
+  },
+  "Under_27": {
+    "width": 130.0,
+    "height": 90.0
+  },
+  "Ward_02_boss": {
+    "width": 130.0,
+    "height": 90.0
+  }
+}

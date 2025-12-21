@@ -24,13 +24,15 @@ namespace Silksong.Rando
         
         public bool IsLoading = false;
 
-        public delegate void OnSceneCallback(Scene scene, int index);
+        public delegate void OnSceneCallback(string scene, int index);
         
         public IEnumerator LoadAll(List<string> scenes, OnSceneCallback OnScene, Action? OnComplete = null)
         {
+            Log.LogInfo($"Starting task on {scenes.Count} scenes.");
             if (!IsLoading)
             {
                 IsLoading = true;
+                GameCameras.instance.mainCamera.GetComponent<tk2dCamera>().ZoomFactor = 0.3f;
                 TimeManager.TimeScale = 0;
                 Time.timeScale = 0;
                 for (int i = 0; i < scenes.Count; i++)
@@ -46,7 +48,7 @@ namespace Silksong.Rando
 
                     if (OnScene != null)
                     {
-                        OnScene(task.Result.Scene, i);
+                        OnScene(scn, i);
                     }
                 
                     yield return null;
