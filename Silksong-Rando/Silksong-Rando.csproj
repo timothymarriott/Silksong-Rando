@@ -27,10 +27,10 @@
         <RepositoryUrl>https://github.com/timothymarriott/Silksong-Rando</RepositoryUrl>
     </PropertyGroup>
     <ItemGroup>
-        <None Remove="Images\**\*.png" />
+        <None Remove="Resources\**" />
     </ItemGroup>
     <ItemGroup>
-        <EmbeddedResource Include="Images\**\*.png" />
+        <EmbeddedResource Include="Resources\**" />
     </ItemGroup>
     <ItemGroup>
         <PackageReference Include="BepInEx.Analyzers" Version="1.0.8" PrivateAssets="all"/>
@@ -39,7 +39,10 @@
         <PackageReference Include="Harmonize" Version="1.0.2" />
         <PackageReference Include="Hamunii.BepInEx.AutoPlugin" Version="2.0.1" PrivateAssets="all"/>
         <PackageReference Include="Microsoft.Unity.Analyzers" Version="1.25.0" PrivateAssets="all"/>
+        <PackageReference Include="Silksong.DataManager" Version="1.0.2" />
         <PackageReference Include="Silksong.FsmUtil" Version="0.3.1" />
+        <PackageReference Include="Silksong.I18N" Version="1.0.1" />
+        <PackageReference Include="Silksong.PrepatcherPlugin" Version="1.2.0" />
         <PackageReference
                 Include="UnityEngine.Modules"
                 Version="6000.0.50"
@@ -64,7 +67,7 @@
 
     <ItemGroup>
         <Folder Remove="thunderstore/temp;thunderstore/dist"/>
-        <Folder Include="Images\" />
+        <Folder Include="Resources\" />
         <None Include="README.md" Pack="True" PackagePath="README.md"/>
         <None Include="thunderstore/icon.png" Pack="True" PackagePath="icon.png"/>
     </ItemGroup>

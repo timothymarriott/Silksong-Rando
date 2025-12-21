@@ -43,7 +43,7 @@ class ConsoleMover
         IntPtr console = GetConsoleWindow();
 
         // Move to (100, 100) and resize to 800x600
-        MoveWindow(console, 3833, 936, 1094, 943, true);
+        MoveWindow(console, 3833, 936, (int)(1094f * 1.5f), (int)(943f * 1.5f), true);
     }
     
     public static void PrintConsoleRect()

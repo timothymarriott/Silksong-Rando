@@ -12,11 +12,11 @@ public static class Utils
     private static Dictionary<string, Sprite> Images = new Dictionary<string, Sprite>();
     public static Sprite LoadSprite(string id, float pixelsPerUnit = 64f)
     {
-        if (!Images.ContainsKey(id))
+        if (!Images.TryGetValue(id, out var sprite))
         {
             return Sprite.Create(Texture2D.whiteTexture, new Rect(0, 0, 4, 4), Vector2.one * 0.5f, pixelsPerUnit);
         }
-        return Images[id];
+        return sprite;
     }
 
     public static void LoadResources()
@@ -26,8 +26,7 @@ public static class Utils
 
         foreach (string res in resourceNames)
         {
-            RandoPlugin.Log.LogInfo("Loading resource " + res);
-            if (res.StartsWith("Silksong-Rando.Images."))
+            if (res.EndsWith(".png") && res.StartsWith("Silksong-Rando.Resources."))
             {
                 try
                 {

@@ -46,6 +46,17 @@
         "resolved": "1.25.0",
         "contentHash": "jOclVb2PVoOdKafuzt3bJ3BHkbjsfuAx+60yqP4zCAhlNa1rwn1Jt05qrmqJgmBY42S08hXbps9KA6QR2Z7aOA=="
       },
+      "Silksong.DataManager": {
+        "type": "Direct",
+        "requested": "[1.0.2, )",
+        "resolved": "1.0.2",
+        "contentHash": "owpUrExEIzAynUleAhH9wfvRxNeXDIIpxHvslZ9NkXqrzS4O6jC5q5bYA7aJDksKw0cOTVuyK1drcmb2e+RVvw==",
+        "dependencies": {
+          "BepInEx.Core": "5.4.21",
+          "HarmonyX": "2.9.0",
+          "UnityEngine.Modules": "6000.0.50"
+        }
+      },
       "Silksong.FsmUtil": {
         "type": "Direct",
         "requested": "[0.3.1, )",
@@ -62,6 +73,28 @@
         "requested": "[*-*, )",
         "resolved": "1.2.0-silksong1.0.29315",
         "contentHash": "MwcUC0FMUn7aCwYHWgQegOBxNGgNBDie9nfg0GeodqbnfrHOjUZ06sZjq+0Iiz9/WBL8yd511YZujFS91FgVMw=="
+      },
+      "Silksong.I18N": {
+        "type": "Direct",
+        "requested": "[1.0.1, )",
+        "resolved": "1.0.1",
+        "contentHash": "73UWW6MFvluPynaUHh1bAWMZ4KXzG37UbgTjSXYnM3lCqiObqd8litkoRwNj3P/wyZtBUmYZgwKmprfJwjC4Sw==",
+        "dependencies": {
+          "BepInEx.Core": "5.4.21",
+          "HarmonyX": "2.9.0",
+          "UnityEngine.Modules": "6000.0.50"
+        }
+      },
+      "Silksong.PrepatcherPlugin": {
+        "type": "Direct",
+        "requested": "[1.2.0, )",
+        "resolved": "1.2.0",
+        "contentHash": "51ASSX+kExYKZUl470fR7R7qPFXANKrl/RpiXtLhB2RJl49v1RI6/9+e03bjD1zyGj/BF4ypPMOWeDTyOR8e+Q==",
+        "dependencies": {
+          "BepInEx.Core": "5.4.21",
+          "HarmonyX": "2.9.0",
+          "UnityEngine.Modules": "6000.0.50"
+        }
       },
       "UnityEngine.Modules": {
         "type": "Direct",
