@@ -32,10 +32,13 @@ public class RandoPlugin : BaseUnityPlugin
     public const string Version = "0.0.1";
     
     public static RandoPlugin instance;
+    
+    public static GameManager GM;
 
+    public ModResources resources;
+    public SceneLoader sceneLoader;
+    
     public static ManualLogSource Log => instance.Logger;
-
-    public Dictionary<string, ItemLocation> ItemLocations = new();
 
     public Dictionary<string, ItemLocationData> ItemLocationData = new();
     
@@ -43,9 +46,7 @@ public class RandoPlugin : BaseUnityPlugin
 
     public List<CollectableItemPickup> PickupsToIgnore = new();
 
-    public static GameManager GM;
-
-    public ModResources resources;
+    
     
     private void Awake()
     {
@@ -53,7 +54,9 @@ public class RandoPlugin : BaseUnityPlugin
         
         ConsoleMover.Move();
         resources = ModResources.LoadResources(Logger);
+        sceneLoader = SceneLoader.Setup();
         gameObject.AddComponent<RandoMap>();
+        gameObject.AddComponent<LocationFinder>();
         
         string replacementText = File.ReadAllText(Application.persistentDataPath + "\\rando\\replacements.json");
         var replacements = JsonConvert.DeserializeObject<Dictionary<string, string>>(replacementText);
@@ -77,12 +80,30 @@ public class RandoPlugin : BaseUnityPlugin
 
     private void OnGUI()
     {
-        if (GM == null) return;
+        if (!GM) return;
 
         GUI.skin.font = ModResources.GetFont();
         GUI.Label(new Rect(0, Screen.height - 30f, 100, 100), GM.GetSceneNameString(), ModResources.GetLabelStyle());
     }
 
+    
+    private void Update()
+    {
+        if (GameManager.SilentInstance && !GM)
+        {
+            GM = GameManager.instance;
+        }
+
+    }
+
+    private void OnDestroy()
+    {
+        if (instance == this)
+        {
+            instance = null;
+        }
+    }
+    
     public static SavedItem GetCollectableItem(string target)
     {
         if (CollectableItemManager.Instance.masterList.GetByName(target) != null)
@@ -191,71 +212,6 @@ public class RandoPlugin : BaseUnityPlugin
 
         return builder.Build();
     }
-
-    public bool IsLoading = false;
-
-    public IEnumerator LoadAll()
-    {
-        IsLoading = true;
-        TimeManager.TimeScale = 0;
-        Time.timeScale = 0;
-        string lastScene = GameManager._instance.sceneName;
-        for (int i = 0; i < GameScenes.Scenes.Count; i++)
-        {
-            
-            string scn = GameScenes.Scenes[i];
-            Log.LogInfo($"{scn} ({i}/{GameScenes.Scenes.Count}) {ItemLocations.Count} locations.");
-            lastScene = scn;
-            var task = Addressables.LoadSceneAsync("Scenes/" + scn, LoadSceneMode.Single, true);
-            while (!task.IsDone)
-            {
-                yield return null;
-            }
-            yield return null;
-            File.WriteAllLines(Application.persistentDataPath + "\\rando\\locations.txt", ItemLocations.Keys);
-            Dictionary<string, ItemLocationData> locations = new();
-            foreach (var loc in ItemLocations)
-            {
-                locations.Add(loc.Key, loc.Value.locationData);
-            }
-            File.WriteAllText(Application.persistentDataPath + "\\rando\\locations.json", JsonConvert.SerializeObject(locations, Formatting.Indented));
-            yield return null;
-        }
-        TimeManager.TimeScale = 1;
-        Time.timeScale = 1;
-        IsLoading = false;
-        GM.ReturnToMainMenuNoSave();
-    }
-
     
-    
-    private void Update()
-    {
-
-        if (GameManager.SilentInstance != null && GM == null)
-        {
-            GM = GM;
-        }
-        
-        if (Input.GetKeyDown(KeyCode.U))
-        {
-            ConsoleMover.PrintConsoleRect();
-        }
-        if (Input.GetKeyDown(KeyCode.Y) && !IsLoading)
-        {
-            StartCoroutine(LoadAll());
-        }
-
-        
-
-    }
-
-    private void OnDestroy()
-    {
-        if (instance == this)
-        {
-            instance = null;
-        }
-    }
     
 }

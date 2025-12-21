@@ -32,7 +32,8 @@ public abstract class ItemLocation
         var pos = GetPosition();
         locationData.PositionInSceneX = pos.x;
         locationData.PositionInSceneY = pos.y;
-        RandoPlugin.instance.ItemLocations.TryAdd(GetLocationID(), this);
+        if (LocationFinder.IsSearching)
+            LocationFinder.ItemLocations.TryAdd(GetLocationID(), this);
         
         RandoPlugin.Log.LogInfo(GetLocationID());
         if (RandoPlugin.instance.ItemReplacements.ContainsKey(GetLocationID()))
