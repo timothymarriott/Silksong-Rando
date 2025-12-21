@@ -38,14 +38,10 @@ public class RandoPlugin : BaseUnityPlugin
     public Dictionary<string, ItemLocation> ItemLocations = new();
 
     public Dictionary<string, ItemLocationData> ItemLocationData = new();
-
-    public int loadedScene = 0;
-
-    public bool StartedLoading = false;
-
+    
     public Dictionary<string, string> ItemReplacements = new();
 
-    public List<CollectableItemPickup> PickupsToIgnore = new List<CollectableItemPickup>();
+    public List<CollectableItemPickup> PickupsToIgnore = new();
     
     public Font trajanBold;
     public Font trajanNormal;
@@ -70,12 +66,18 @@ public class RandoPlugin : BaseUnityPlugin
         
 
         string replacementText = File.ReadAllText(Application.persistentDataPath + "\\rando\\replacements.json");
-
-        ItemReplacements = JsonConvert.DeserializeObject<Dictionary<string, string>>(replacementText);
-        ItemLocationData =
-            JsonConvert.DeserializeObject<Dictionary<string, ItemLocationData>>(
-                File.ReadAllText(Application.persistentDataPath + "\\rando\\locations.json"));
+        var replacements = JsonConvert.DeserializeObject<Dictionary<string, string>>(replacementText);
+        if (replacements != null)
+        {
+            ItemReplacements = replacements;
+        }
         
+        string locationDataText = File.ReadAllText(Application.persistentDataPath + "\\rando\\locations.json");
+        var locationData = JsonConvert.DeserializeObject<Dictionary<string, ItemLocationData>>(locationDataText);
+        if (locationData != null)
+        {
+            ItemLocationData = locationData;
+        }
 
 
     }
@@ -151,7 +153,13 @@ public class RandoPlugin : BaseUnityPlugin
             return CollectableItemManager.Instance.masterList.GetByName("Shard Pouch");
         }
 
-        var builder = GetRandoItem(target);
+        var builder = RandoItemBuilder.Create(target, target);
+        builder.SetDisplayName("Invalid Item");
+        builder.SetDescription("Internal Item for the randomiser");
+        builder.SetMaxAmount(int.MaxValue);
+        builder.SetIcon("missing");
+        builder.SetTinyIcon("missing");
+        
         
         RandoItem.OnCollectedCallback? callback = null;
 
@@ -225,15 +233,6 @@ public class RandoPlugin : BaseUnityPlugin
         }
 
         return builder.Build();
-    }
-
-    public static RandoItemBuilder GetRandoItem(string target)
-    {
-        var builder = RandoItemBuilder.Create(target, target);
-        builder.SetDisplayName(target);
-        builder.SetDescription("Cool Item");
-        builder.SetMaxAmount(int.MaxValue);
-        return builder;
     }
 
     public bool IsLoading = false;

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using UnityEngine;
@@ -10,7 +11,6 @@ public static class AssemblyExtensions
 {
     public static Sprite LoadEmbeddedSprite(this Assembly asm, string path, float pixelsPerUnit = 64f)
     {
-        Debug.Log(asm);
         using var stream = asm.GetManifestResourceStream(path);
         if (stream == null)
         {
@@ -26,5 +26,15 @@ public static class AssemblyExtensions
         tex.LoadImage(buffer, true);
 
         return Sprite.Create(tex, new Rect(0, 0, tex.width, tex.height), Vector2.one * 0.5f, pixelsPerUnit);
+    }
+
+    public static string LoadEmbeddedText(this Assembly asm, string path)
+    {
+        using Stream? stream = asm.GetManifestResourceStream(path);
+        if (stream == null)
+            throw new InvalidOperationException($"Resource not found: {path}");
+
+        using var reader = new StreamReader(stream);
+        return reader.ReadToEnd();
     }
 }

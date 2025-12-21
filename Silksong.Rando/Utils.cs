@@ -10,6 +10,7 @@ public static class Utils
 {
     public static ManualLogSource Logger;
     private static Dictionary<string, Sprite> Images = new Dictionary<string, Sprite>();
+    private static Dictionary<string, string> Data = new Dictionary<string, string>();
     public static Sprite LoadSprite(string id, float pixelsPerUnit = 64f)
     {
         if (!Images.TryGetValue(id, out var sprite))
@@ -26,7 +27,7 @@ public static class Utils
 
         foreach (string res in resourceNames)
         {
-            if (res.EndsWith(".png") && res.StartsWith("Silksong.Rando.Resources."))
+            if (res.EndsWith(".png") && res.StartsWith("Silksong.Rando.Resources.Images"))
             {
                 try
                 {
@@ -40,6 +41,13 @@ public static class Utils
                 {
                     Logger.LogInfo("Failed to load image: " + res + "\n" + e.ToString());
                 }
+            }
+
+            if (res.EndsWith(".json") && res.StartsWith("Silksong.Rando.Resources."))
+            {
+                string[] split = res.Split('.');
+                string internalName = split[^2];
+                Data.Add(internalName, Assembly.GetExecutingAssembly().LoadEmbeddedText(res));
             }
         }
     }

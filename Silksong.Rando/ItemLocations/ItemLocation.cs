@@ -41,7 +41,7 @@ public abstract class ItemLocation
         }
         else
         {
-            SetItem($"Error(\"{GetLocationID()}\") No item set.");
+            SetItem($"");
         }
     }
 
