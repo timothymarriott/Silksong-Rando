@@ -39,10 +39,8 @@ public class PlayerDataDelegateTestGroup : PlayerDataTest
     {
         if (self is PlayerDataDelegateTestGroup group)
         {
-            return group.callback(GameManager.instance.playerData); // assumes base exposes Data
+            return group.callback(RandoPlugin.GM.playerData);
         }
-
-        // fallback to original getter
         return orig(self);
     }
 }

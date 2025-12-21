@@ -6,11 +6,16 @@ using UnityEngine;
 
 namespace Silksong.Rando;
 
-public static class ModResources
+public class ModResources : MonoBehaviour
 {
     public static ManualLogSource Logger;
     private static Dictionary<string, Sprite> Images = new Dictionary<string, Sprite>();
     private static Dictionary<string, string> Data = new Dictionary<string, string>();
+    
+    public Font trajanBold;
+    public Font trajanNormal;
+    public Font arial;
+    
     public static Sprite LoadSprite(string id, float pixelsPerUnit = 64f)
     {
         if (!Images.TryGetValue(id, out var sprite))
@@ -20,8 +25,19 @@ public static class ModResources
         return sprite;
     }
 
-    public static void LoadResources()
+    public static string LoadText(string id)
     {
+        if (!Data.TryGetValue(id, out var text))
+        {
+            throw new KeyNotFoundException(id);
+        }
+
+        return text;
+    }
+
+    public static ModResources LoadResources(ManualLogSource logger)
+    {
+        Logger = logger;
         string[] resourceNames = Assembly.GetExecutingAssembly().GetManifestResourceNames();
         
 
@@ -50,5 +66,51 @@ public static class ModResources
                 Data.Add(internalName, Assembly.GetExecutingAssembly().LoadEmbeddedText(res));
             }
         }
+
+        return RandoPlugin.instance.gameObject.AddComponent<ModResources>();
+    }
+
+    private void Update()
+    {
+        if (trajanBold == null || trajanNormal == null || arial == null)
+        {
+            foreach (Font f in Resources.FindObjectsOfTypeAll<Font>())
+            {
+            
+                if (f != null && f.name == "TrajanPro-Bold")
+                {
+                    trajanBold = f;
+                }
+
+                if (f != null && f.name == "TrajanPro-Regular")
+                {
+                    trajanNormal = f;
+                }
+
+                //Just in case for some reason the computer doesn't have arial
+                if (f != null && f.name == "Perpetua")
+                {
+                    arial = f;
+                }
+            }
+        }
+    }
+
+    public static Font GetFont()
+    {
+        return RandoPlugin.instance.resources.arial;
+    }
+
+    public static GUIStyle GetLabelStyle()
+    {
+        return new GUIStyle()
+        {
+            fontSize = 30,
+            fontStyle = FontStyle.Normal,
+            normal = new GUIStyleState()
+            {
+                textColor = Color.white
+            }
+        };
     }
 }

@@ -42,29 +42,19 @@ public class RandoPlugin : BaseUnityPlugin
     public Dictionary<string, string> ItemReplacements = new();
 
     public List<CollectableItemPickup> PickupsToIgnore = new();
-    
-    public Font trajanBold;
-    public Font trajanNormal;
-    public Font arial;
 
     public static GameManager GM;
+
+    public ModResources resources;
     
     private void Awake()
     {
         instance = this;
         
         ConsoleMover.Move();
-        
-        ModResources.Logger = Logger;
-        ModResources.LoadResources();
-
+        resources = ModResources.LoadResources(Logger);
         gameObject.AddComponent<RandoMap>();
         
-        Logger.LogInfo($"Rando Loaded.");
-        
-        
-        
-
         string replacementText = File.ReadAllText(Application.persistentDataPath + "\\rando\\replacements.json");
         var replacements = JsonConvert.DeserializeObject<Dictionary<string, string>>(replacementText);
         if (replacements != null)
@@ -78,52 +68,19 @@ public class RandoPlugin : BaseUnityPlugin
         {
             ItemLocationData = locationData;
         }
-
-
     }
 
     private void Start()
     {
-        new Harmony(RandoPlugin.Id).PatchAll(typeof(RandoPlugin).Assembly);
-        
+        new Harmony(Id).PatchAll(typeof(RandoPlugin).Assembly);
     }
 
     private void OnGUI()
     {
-        if (trajanBold == null || trajanNormal == null || arial == null)
-        {
-            foreach (Font f in Resources.FindObjectsOfTypeAll<Font>())
-            {
-            
-                if (f != null && f.name == "TrajanPro-Bold")
-                {
-                    trajanBold = f;
-                }
+        if (GM == null) return;
 
-                if (f != null && f.name == "TrajanPro-Regular")
-                {
-                    trajanNormal = f;
-                }
-
-                //Just in case for some reason the computer doesn't have arial
-                if (f != null && f.name == "Perpetua")
-                {
-                    arial = f;
-                }
-            }
-        }
-        if (GameManager.SilentInstance == null) return;
-
-        GUI.skin.font = arial;
-        GUI.Label(new Rect(0, Screen.height - 30f, 100, 100), GameManager.instance.GetSceneNameString(), new GUIStyle()
-        {
-            fontSize = 30,
-            fontStyle = FontStyle.Normal,
-            normal = new GUIStyleState()
-            {
-                textColor = Color.white
-            }
-        });
+        GUI.skin.font = ModResources.GetFont();
+        GUI.Label(new Rect(0, Screen.height - 30f, 100, 100), GM.GetSceneNameString(), ModResources.GetLabelStyle());
     }
 
     public static SavedItem GetCollectableItem(string target)
@@ -185,7 +142,7 @@ public class RandoPlugin : BaseUnityPlugin
                     builder.SetIcon("Icon_SS_Clawline");
                     callback = item =>
                     {
-                        GameManager.instance.playerData.hasHarpoonDash = true;
+                        GM.playerData.hasHarpoonDash = true;
                     };
                     break;
                 case WeaverSpireAbility.Needolin:
@@ -194,7 +151,7 @@ public class RandoPlugin : BaseUnityPlugin
                     builder.SetIcon("Icon_SS_Needolin");
                     callback = item =>
                     {
-                        GameManager.instance.playerData.hasNeedolin = true;
+                        GM.playerData.hasNeedolin = true;
                     };
                     break;
                 case WeaverSpireAbility.Sprint:
@@ -203,7 +160,7 @@ public class RandoPlugin : BaseUnityPlugin
                     builder.SetIcon("Icon_SS_Swift_Step");
                     callback = item =>
                     {
-                        GameManager.instance.playerData.hasDash = true;
+                        GM.playerData.hasDash = true;
                     };
                     break;
                 case WeaverSpireAbility.SuperJump:
@@ -212,7 +169,7 @@ public class RandoPlugin : BaseUnityPlugin
                     builder.SetIcon("Icon_SS_Silk_Soar");
                     callback = item =>
                     {
-                        GameManager.instance.playerData.hasSuperJump = true;
+                        GM.playerData.hasSuperJump = true;
                     };
                     break;
                 case WeaverSpireAbility.Walljump:
@@ -221,7 +178,7 @@ public class RandoPlugin : BaseUnityPlugin
                     builder.SetIcon("Icon_SS_Cling_Grip");
                     callback = item =>
                     {
-                        GameManager.instance.playerData.hasWalljump = true;
+                        GM.playerData.hasWalljump = true;
                     };
                     break;
             }
@@ -267,7 +224,7 @@ public class RandoPlugin : BaseUnityPlugin
         TimeManager.TimeScale = 1;
         Time.timeScale = 1;
         IsLoading = false;
-        GameManager.instance.ReturnToMainMenuNoSave();
+        GM.ReturnToMainMenuNoSave();
     }
 
     
@@ -277,7 +234,7 @@ public class RandoPlugin : BaseUnityPlugin
 
         if (GameManager.SilentInstance != null && GM == null)
         {
-            GM = GameManager.instance;
+            GM = GM;
         }
         
         if (Input.GetKeyDown(KeyCode.U))

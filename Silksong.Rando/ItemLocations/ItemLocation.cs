@@ -22,13 +22,13 @@ public abstract class ItemLocation
 
     public string GetLocationID()
     {
-        return (GameManager.instance.sceneName + "|" + GetItem());
+        return (RandoPlugin.GM.sceneName + "|" + GetItem());
     }
     
     public void AddToCurrentScene()
     {
-        locationData.RoomSizeX = GameManager.instance.tilemap.width;
-        locationData.RoomSizeY = GameManager.instance.tilemap.height;
+        locationData.RoomSizeX = RandoPlugin.GM.tilemap.width;
+        locationData.RoomSizeY = RandoPlugin.GM.tilemap.height;
         var pos = GetPosition();
         locationData.PositionInSceneX = pos.x;
         locationData.PositionInSceneY = pos.y;
