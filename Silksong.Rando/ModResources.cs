@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace Silksong.Rando;
 
-public static class Utils
+public static class ModResources
 {
     public static ManualLogSource Logger;
     private static Dictionary<string, Sprite> Images = new Dictionary<string, Sprite>();

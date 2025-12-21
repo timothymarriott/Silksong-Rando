@@ -105,7 +105,7 @@ public class RandoItemBuilder : DataBuilder<RandoItem>
     
     public RandoItemBuilder SetIcon(string icon)
     {
-        return SetIcon(Utils.LoadSprite(icon));
+        return SetIcon(ModResources.LoadSprite(icon));
     }
     
     public RandoItemBuilder SetTinyIcon(Sprite sprite)
@@ -116,7 +116,7 @@ public class RandoItemBuilder : DataBuilder<RandoItem>
     
     public RandoItemBuilder SetTinyIcon(string icon)
     {
-        return SetTinyIcon(Utils.LoadSprite(icon));
+        return SetTinyIcon(ModResources.LoadSprite(icon));
     }
 
     public RandoItemBuilder SetCollectCallback(RandoItem.OnCollectedCallback action)

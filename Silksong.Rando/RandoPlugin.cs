@@ -55,8 +55,8 @@ public class RandoPlugin : BaseUnityPlugin
         
         ConsoleMover.Move();
         
-        Utils.Logger = Logger;
-        Utils.LoadResources();
+        ModResources.Logger = Logger;
+        ModResources.LoadResources();
 
         gameObject.AddComponent<RandoMap>();
         
