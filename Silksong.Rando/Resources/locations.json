@@ -1,0 +1,1017 @@
+﻿{
+  "Tut_01|Rosary_Set_Frayed": {
+    "locationType": "CollectableItemPickupLocation",
+    "item": "Rosary_Set_Frayed",
+    "scene": "Tut_01",
+    "positionInSceneX": 43.96,
+    "positionInSceneY": 20.2774963
+  },
+  "Mosstown_02|ability_Silkspear": {
+    "locationType": "ShrineWeaverAbilityLocation",
+    "item": "ability_Silkspear",
+    "scene": "Mosstown_02",
+    "positionInSceneX": 86.94,
+    "positionInSceneY": 52.31
+  },
+  "Mosstown_02|Rosary_Set_Frayed": {
+    "locationType": "CollectableItemPickupLocation",
+    "item": "Rosary_Set_Frayed",
+    "scene": "Mosstown_02",
+    "positionInSceneX": 35.32,
+    "positionInSceneY": 40.2774925
+  },
+  "Aspid_01|Seal Chit Aspid_01": {
+    "locationType": "CollectableItemPickupLocation",
+    "item": "Seal Chit Aspid_01",
+    "scene": "Aspid_01",
+    "positionInSceneX": 63.31,
+    "positionInSceneY": 65.27748
+  },
+  "Aspid_01|georock_Geo Rock 2_Basic": {
+    "locationType": "GeoRockLocation",
+    "item": "georock_Geo Rock 2_Basic",
+    "scene": "Aspid_01",
+    "positionInSceneX": 8.89,
+    "positionInSceneY": 7.27
+  },
+  "Crawl_01|Dead Mans Purse": {
+    "locationType": "CollectableItemPickupLocation",
+    "item": "Dead Mans Purse",
+    "scene": "Crawl_01",
+    "positionInSceneX": 54.5,
+    "positionInSceneY": 85.1
+  },
+  "Crawl_02|Rosary_Set_Frayed": {
+    "locationType": "CollectableItemPickupLocation",
+    "item": "Rosary_Set_Frayed",
+    "scene": "Crawl_02",
+    "positionInSceneX": 3.14,
+    "positionInSceneY": 142.2935
+  },
+  "Crawl_05|ability_SilkDash": {
+    "locationType": "ShrineWeaverAbilityLocation",
+    "item": "ability_SilkDash",
+    "scene": "Crawl_05",
+    "positionInSceneX": 22.8500023,
+    "positionInSceneY": 16.25
+  },
+  "Crawl_09|Crest Socket Unlocker": {
+    "locationType": "CollectableItemPickupLocation",
+    "item": "Crest Socket Unlocker",
+    "scene": "Crawl_09",
+    "positionInSceneX": 130.49,
+    "positionInSceneY": 3.27749968
+  },
+  "Belltown|Crest Socket Unlocker": {
+    "locationType": "CollectableItemPickupLocation",
+    "item": "Crest Socket Unlocker",
+    "scene": "Belltown",
+    "positionInSceneX": 59.1686859,
+    "positionInSceneY": 66.32154
+  },
+  "Belltown_08|Wisp Lantern": {
+    "locationType": "CollectableItemPickupLocation",
+    "item": "Wisp Lantern",
+    "scene": "Belltown_08",
+    "positionInSceneX": 54.55,
+    "positionInSceneY": 11.31
+  },
+  "Belltown_Room_shellwood|Harpoon": {
+    "locationType": "CollectableItemPickupLocation",
+    "item": "Harpoon",
+    "scene": "Belltown_Room_shellwood",
+    "positionInSceneX": 37.023,
+    "positionInSceneY": 7.07
+  },
+  "Bellway_City|Crest Socket Unlocker": {
+    "locationType": "CollectableItemPickupLocation",
+    "item": "Crest Socket Unlocker",
+    "scene": "Bellway_City",
+    "positionInSceneX": 67.57,
+    "positionInSceneY": 24.2774963
+  },
+  "Bellshrine_Coral|Simple Key": {
+    "locationType": "CollectableItemPickupLocation",
+    "item": "Simple Key",
+    "scene": "Bellshrine_Coral",
+    "positionInSceneX": 28.32,
+    "positionInSceneY": 16.54
+  },
+  "Bonetown|Weaver Totem Bonetown_upper_room": {
+    "locationType": "CollectableItemPickupLocation",
+    "item": "Weaver Totem Bonetown_upper_room",
+    "scene": "Bonetown",
+    "positionInSceneX": 132.73,
+    "positionInSceneY": 62.52
+  },
+  "Bone_01c|georock_Geo Rock 3_Basic": {
+    "locationType": "GeoRockLocation",
+    "item": "georock_Geo Rock 3_Basic",
+    "scene": "Bone_01c",
+    "positionInSceneX": 184.05,
+    "positionInSceneY": 58.46
+  },
+  "Bone_01c|georock_Geo Rock 1 (1)_Basic": {
+    "locationType": "GeoRockLocation",
+    "item": "georock_Geo Rock 1 (1)_Basic",
+    "scene": "Bone_01c",
+    "positionInSceneX": 180.03,
+    "positionInSceneY": 57.9842453
+  },
+  "Bone_04|georock_Geo Rock 3_Basic": {
+    "locationType": "GeoRockLocation",
+    "item": "georock_Geo Rock 3_Basic",
+    "scene": "Bone_04",
+    "positionInSceneX": 205.030228,
+    "positionInSceneY": 5.261952
+  },
+  "Bone_08|georock_Geo Rock 1_Basic": {
+    "locationType": "GeoRockLocation",
+    "item": "georock_Geo Rock 1_Basic",
+    "scene": "Bone_08",
+    "positionInSceneX": 33.1600037,
+    "positionInSceneY": 47.0747223
+  },
+  "Bone_08|georock_Geo Rock 2_Basic": {
+    "locationType": "GeoRockLocation",
+    "item": "georock_Geo Rock 2_Basic",
+    "scene": "Bone_08",
+    "positionInSceneX": 28.79,
+    "positionInSceneY": 47.13
+  },
+  "Bone_10|Rosary_Set_Frayed": {
+    "locationType": "CollectableItemPickupLocation",
+    "item": "Rosary_Set_Frayed",
+    "scene": "Bone_10",
+    "positionInSceneX": 98.98495,
+    "positionInSceneY": 41.2774925
+  },
+  "Bone_12|Straight Pin": {
+    "locationType": "CollectableItemPickupLocation",
+    "item": "Straight Pin",
+    "scene": "Bone_12",
+    "positionInSceneX": 41.13,
+    "positionInSceneY": 27.81
+  },
+  "Bone_14|georock_Geo Rock 1_Basic": {
+    "locationType": "GeoRockLocation",
+    "item": "georock_Geo Rock 1_Basic",
+    "scene": "Bone_14",
+    "positionInSceneX": 129.07,
+    "positionInSceneY": 8.01
+  },
+  "Bone_16|georock_Geo Rock 1_Basic": {
+    "locationType": "GeoRockLocation",
+    "item": "georock_Geo Rock 1_Basic",
+    "scene": "Bone_16",
+    "positionInSceneX": 28.46,
+    "positionInSceneY": 45.02278
+  },
+  "Bone_16|georock_Geo Rock 2 (1)_Basic": {
+    "locationType": "GeoRockLocation",
+    "item": "georock_Geo Rock 2 (1)_Basic",
+    "scene": "Bone_16",
+    "positionInSceneX": 112.02,
+    "positionInSceneY": 66.1443939
+  },
+  "Bone_16|georock_Geo Rock 2_Basic": {
+    "locationType": "GeoRockLocation",
+    "item": "georock_Geo Rock 2_Basic",
+    "scene": "Bone_16",
+    "positionInSceneX": 31.4882717,
+    "positionInSceneY": 45.1822929
+  },
+  "Bone_17|Bone Necklace": {
+    "locationType": "CollectableItemPickupLocation",
+    "item": "Bone Necklace",
+    "scene": "Bone_17",
+    "positionInSceneX": 12.701,
+    "positionInSceneY": 6.477
+  },
+  "Dock_02|Shard Pouch": {
+    "locationType": "CollectableItemPickupLocation",
+    "item": "Shard Pouch",
+    "scene": "Dock_02",
+    "positionInSceneX": 38.79,
+    "positionInSceneY": 3.27752876
+  },
+  "Dock_02b|Flintstone": {
+    "locationType": "CollectableItemPickupLocation",
+    "item": "Flintstone",
+    "scene": "Dock_02b",
+    "positionInSceneX": 26.57,
+    "positionInSceneY": 103.541954
+  },
+  "Dock_03b|Bell Bind": {
+    "locationType": "CollectableItemPickupLocation",
+    "item": "Bell Bind",
+    "scene": "Dock_03b",
+    "positionInSceneX": 154.09,
+    "positionInSceneY": 107.277481
+  },
+  "Dock_11|Great Shard": {
+    "locationType": "CollectableItemPickupLocation",
+    "item": "Great Shard",
+    "scene": "Dock_11",
+    "positionInSceneX": 100.63,
+    "positionInSceneY": 6.28
+  },
+  "Dock_13|Crest Socket Unlocker": {
+    "locationType": "CollectableItemPickupLocation",
+    "item": "Crest Socket Unlocker",
+    "scene": "Dock_13",
+    "positionInSceneX": 15.26,
+    "positionInSceneY": 3.27749968
+  },
+  "Room_Forge|Shard Pouch": {
+    "locationType": "CollectableItemPickupLocation",
+    "item": "Shard Pouch",
+    "scene": "Room_Forge",
+    "positionInSceneX": 5.08,
+    "positionInSceneY": 37.2774925
+  },
+  "Bone_East_04b|Rosary_Set_Frayed": {
+    "locationType": "CollectableItemPickupLocation",
+    "item": "Rosary_Set_Frayed",
+    "scene": "Bone_East_04b",
+    "positionInSceneX": 6.46195364,
+    "positionInSceneY": 87.27748
+  },
+  "Bone_East_05|ability_Sprint": {
+    "locationType": "ShrineWeaverAbilityLocation",
+    "item": "ability_Sprint",
+    "scene": "Bone_East_05",
+    "positionInSceneX": 100.03,
+    "positionInSceneY": 13.27
+  },
+  "Bone_East_08|georock_Geo Rock 2_Basic": {
+    "locationType": "GeoRockLocation",
+    "item": "georock_Geo Rock 2_Basic",
+    "scene": "Bone_East_08",
+    "positionInSceneX": 58.67,
+    "positionInSceneY": 21.1
+  },
+  "Bone_East_14|Bone Record Bone_East_14": {
+    "locationType": "CollectableItemPickupLocation",
+    "item": "Bone Record Bone_East_14",
+    "scene": "Bone_East_14",
+    "positionInSceneX": 42.2058868,
+    "positionInSceneY": 40.2774925
+  },
+  "Bone_East_14|Rosary_Set_Small": {
+    "locationType": "CollectableItemPickupLocation",
+    "item": "Rosary_Set_Small",
+    "scene": "Bone_East_14",
+    "positionInSceneX": 13.82,
+    "positionInSceneY": 7.27749872
+  },
+  "Bone_East_15|georock_Geo Rock 2_Basic": {
+    "locationType": "GeoRockLocation",
+    "item": "georock_Geo Rock 2_Basic",
+    "scene": "Bone_East_15",
+    "positionInSceneX": 48.47,
+    "positionInSceneY": 8.21
+  },
+  "Bone_East_15|georock_Geo Rock 1_Basic": {
+    "locationType": "GeoRockLocation",
+    "item": "georock_Geo Rock 1_Basic",
+    "scene": "Bone_East_15",
+    "positionInSceneX": 45.4855461,
+    "positionInSceneY": 7.98572826
+  },
+  "Bone_East_25|Crest Socket Unlocker": {
+    "locationType": "CollectableItemPickupLocation",
+    "item": "Crest Socket Unlocker",
+    "scene": "Bone_East_25",
+    "positionInSceneX": 151.952515,
+    "positionInSceneY": 6.27749872
+  },
+  "Bone_East_Weavehome|Weaver Record Sprint_Challenge": {
+    "locationType": "CollectableItemPickupLocation",
+    "item": "Weaver Record Sprint_Challenge",
+    "scene": "Bone_East_Weavehome",
+    "positionInSceneX": 51.32,
+    "positionInSceneY": 63.3246346
+  },
+  "Bone_East_Weavehome|Sprintmaster": {
+    "locationType": "CollectableItemPickupLocation",
+    "item": "Sprintmaster",
+    "scene": "Bone_East_Weavehome",
+    "positionInSceneX": 124.243004,
+    "positionInSceneY": 90.5460052
+  },
+  "Halfway_01|Crest Socket Unlocker": {
+    "locationType": "CollectableItemPickupLocation",
+    "item": "Crest Socket Unlocker",
+    "scene": "Halfway_01",
+    "positionInSceneX": 8.292786,
+    "positionInSceneY": 12.8676653
+  },
+  "Greymoor_01|georock_Geo Rock Deepnest_Basic": {
+    "locationType": "GeoRockLocation",
+    "item": "georock_Geo Rock Deepnest_Basic",
+    "scene": "Greymoor_01",
+    "positionInSceneX": 8.55,
+    "positionInSceneY": 16.88
+  },
+  "Greymoor_04|georock_Geo Rock Deepnest_Basic": {
+    "locationType": "GeoRockLocation",
+    "item": "georock_Geo Rock Deepnest_Basic",
+    "scene": "Greymoor_04",
+    "positionInSceneX": 32.72,
+    "positionInSceneY": 35.76
+  },
+  "Greymoor_05|Shard Pouch": {
+    "locationType": "CollectableItemPickupLocation",
+    "item": "Shard Pouch",
+    "scene": "Greymoor_05",
+    "positionInSceneX": 59.01,
+    "positionInSceneY": 62.74
+  },
+  "Greymoor_05|georock_Geo Rock Deepnest_Basic": {
+    "locationType": "GeoRockLocation",
+    "item": "georock_Geo Rock Deepnest_Basic",
+    "scene": "Greymoor_05",
+    "positionInSceneX": 95.09,
+    "positionInSceneY": 61.82
+  },
+  "Greymoor_06|georock_Geo Rock Deepnest_Basic": {
+    "locationType": "GeoRockLocation",
+    "item": "georock_Geo Rock Deepnest_Basic",
+    "scene": "Greymoor_06",
+    "positionInSceneX": 6.369603,
+    "positionInSceneY": 78.80082
+  },
+  "Greymoor_07|georock_Geo Rock Deepnest_Basic": {
+    "locationType": "GeoRockLocation",
+    "item": "georock_Geo Rock Deepnest_Basic",
+    "scene": "Greymoor_07",
+    "positionInSceneX": 68.53183,
+    "positionInSceneY": 71.8488541
+  },
+  "Greymoor_11|georock_Geo Rock Deepnest (1)_Basic": {
+    "locationType": "GeoRockLocation",
+    "item": "georock_Geo Rock Deepnest (1)_Basic",
+    "scene": "Greymoor_11",
+    "positionInSceneX": 64.61,
+    "positionInSceneY": 50.88
+  },
+  "Greymoor_12|Shard Pouch": {
+    "locationType": "CollectableItemPickupLocation",
+    "item": "Shard Pouch",
+    "scene": "Greymoor_12",
+    "positionInSceneX": 61.29,
+    "positionInSceneY": 14.2774982
+  },
+  "Greymoor_15|Rosary_Set_Frayed": {
+    "locationType": "CollectableItemPickupLocation",
+    "item": "Rosary_Set_Frayed",
+    "scene": "Greymoor_15",
+    "positionInSceneX": 64.41,
+    "positionInSceneY": 24.2774963
+  },
+  "Greymoor_15|georock_Geo Rock 1_Basic": {
+    "locationType": "GeoRockLocation",
+    "item": "georock_Geo Rock 1_Basic",
+    "scene": "Greymoor_15",
+    "positionInSceneX": 57.2882156,
+    "positionInSceneY": 74.01197
+  },
+  "Greymoor_15b|Tri Pin": {
+    "locationType": "CollectableItemPickupLocation",
+    "item": "Tri Pin",
+    "scene": "Greymoor_15b",
+    "positionInSceneX": 184.319992,
+    "positionInSceneY": 100.362526
+  },
+  "Greymoor_15b|Rosary_Set_Frayed": {
+    "locationType": "CollectableItemPickupLocation",
+    "item": "Rosary_Set_Frayed",
+    "scene": "Greymoor_15b",
+    "positionInSceneX": 91.86,
+    "positionInSceneY": 34.2774925
+  },
+  "Greymoor_16|Crest Socket Unlocker": {
+    "locationType": "CollectableItemPickupLocation",
+    "item": "Crest Socket Unlocker",
+    "scene": "Greymoor_16",
+    "positionInSceneX": 130.9,
+    "positionInSceneY": 51.2774925
+  },
+  "Greymoor_21|Bone Record Greymoor_flooded_corridor": {
+    "locationType": "CollectableItemPickupLocation",
+    "item": "Bone Record Greymoor_flooded_corridor",
+    "scene": "Greymoor_21",
+    "positionInSceneX": 72.17,
+    "positionInSceneY": 8.28
+  },
+  "Greymoor_22|ability_SilkSphere": {
+    "locationType": "ShrineWeaverAbilityLocation",
+    "item": "ability_SilkSphere",
+    "scene": "Greymoor_22",
+    "positionInSceneX": 39.82,
+    "positionInSceneY": 36.49
+  },
+  "Dust_01|Rosary_Set_Frayed": {
+    "locationType": "CollectableItemPickupLocation",
+    "item": "Rosary_Set_Frayed",
+    "scene": "Dust_01",
+    "positionInSceneX": 76.43,
+    "positionInSceneY": 2.27749968
+  },
+  "Dust_02|georock_Geo Rock Deepnest_Basic": {
+    "locationType": "GeoRockLocation",
+    "item": "georock_Geo Rock Deepnest_Basic",
+    "scene": "Dust_02",
+    "positionInSceneX": 3.64,
+    "positionInSceneY": 7.82
+  },
+  "Dust_06|Shard Pouch": {
+    "locationType": "CollectableItemPickupLocation",
+    "item": "Shard Pouch",
+    "scene": "Dust_06",
+    "positionInSceneX": 26.11,
+    "positionInSceneY": 96.27748
+  },
+  "Dust_10|georock_Geo Rock Deepnest_Basic": {
+    "locationType": "GeoRockLocation",
+    "item": "georock_Geo Rock Deepnest_Basic",
+    "scene": "Dust_10",
+    "positionInSceneX": 145.12,
+    "positionInSceneY": 53.66
+  },
+  "Dust_Barb|Barbed Wire": {
+    "locationType": "CollectableItemPickupLocation",
+    "item": "Barbed Wire",
+    "scene": "Dust_Barb",
+    "positionInSceneX": 28.95,
+    "positionInSceneY": 4.32
+  },
+  "Shadow_02|Rosary_Set_Frayed": {
+    "locationType": "CollectableItemPickupLocation",
+    "item": "Rosary_Set_Frayed",
+    "scene": "Shadow_02",
+    "positionInSceneX": 49.21,
+    "positionInSceneY": 161.277466
+  },
+  "Shadow_05|georock_Geo Rock Deepnest_Basic": {
+    "locationType": "GeoRockLocation",
+    "item": "georock_Geo Rock Deepnest_Basic",
+    "scene": "Shadow_05",
+    "positionInSceneX": 34.9644547,
+    "positionInSceneY": 16.89
+  },
+  "Shadow_11|Quick Sling": {
+    "locationType": "CollectableItemPickupLocation",
+    "item": "Quick Sling",
+    "scene": "Shadow_11",
+    "positionInSceneX": 7.59999943,
+    "positionInSceneY": 84.27748
+  },
+  "Shadow_14|georock_Geo Rock 1_Basic": {
+    "locationType": "GeoRockLocation",
+    "item": "georock_Geo Rock 1_Basic",
+    "scene": "Shadow_14",
+    "positionInSceneX": 25.14,
+    "positionInSceneY": 61.94682
+  },
+  "Shadow_19|georock_Geo Rock 1_Basic": {
+    "locationType": "GeoRockLocation",
+    "item": "georock_Geo Rock 1_Basic",
+    "scene": "Shadow_19",
+    "positionInSceneX": 40.05,
+    "positionInSceneY": 87.09
+  },
+  "Shadow_19|georock_Geo Rock 3_Basic": {
+    "locationType": "GeoRockLocation",
+    "item": "georock_Geo Rock 3_Basic",
+    "scene": "Shadow_19",
+    "positionInSceneX": 36.4,
+    "positionInSceneY": 87.41
+  },
+  "Shadow_20|Wood Witch Item": {
+    "locationType": "CollectableItemPickupLocation",
+    "item": "Wood Witch Item",
+    "scene": "Shadow_20",
+    "positionInSceneX": 107.983,
+    "positionInSceneY": 48.878
+  },
+  "Shadow_20|Crest Socket Unlocker": {
+    "locationType": "CollectableItemPickupLocation",
+    "item": "Crest Socket Unlocker",
+    "scene": "Shadow_20",
+    "positionInSceneX": 17.713,
+    "positionInSceneY": 23.86
+  },
+  "Shadow_20|georock_Geo Rock 1_Basic": {
+    "locationType": "GeoRockLocation",
+    "item": "georock_Geo Rock 1_Basic",
+    "scene": "Shadow_20",
+    "positionInSceneX": 169.965,
+    "positionInSceneY": 2.96016264
+  },
+  "Shadow_20|georock_Geo Rock 3_Basic": {
+    "locationType": "GeoRockLocation",
+    "item": "georock_Geo Rock 3_Basic",
+    "scene": "Shadow_20",
+    "positionInSceneX": 173.33,
+    "positionInSceneY": 3.34867239
+  },
+  "Shadow_Weavehome|Broken SilkShot": {
+    "locationType": "CollectableItemPickupLocation",
+    "item": "Broken SilkShot",
+    "scene": "Shadow_Weavehome",
+    "positionInSceneX": 76.642,
+    "positionInSceneY": 54.577
+  },
+  "Aqueduct_01|Rosary_Set_Frayed": {
+    "locationType": "CollectableItemPickupLocation",
+    "item": "Rosary_Set_Frayed",
+    "scene": "Aqueduct_01",
+    "positionInSceneX": 256.19,
+    "positionInSceneY": 14.3014212
+  },
+  "Aqueduct_06|Maggot Charm": {
+    "locationType": "CollectableItemPickupLocation",
+    "item": "Maggot Charm",
+    "scene": "Aqueduct_06",
+    "positionInSceneX": 126.24,
+    "positionInSceneY": 8.177498
+  },
+  "Aqueduct_07|Aqueduct Map": {
+    "locationType": "CollectableItemPickupLocation",
+    "item": "Aqueduct Map",
+    "scene": "Aqueduct_07",
+    "positionInSceneX": 28.93,
+    "positionInSceneY": 28.98
+  },
+  "Wisp_03|Rosary_Set_Frayed": {
+    "locationType": "CollectableItemPickupLocation",
+    "item": "Rosary_Set_Frayed",
+    "scene": "Wisp_03",
+    "positionInSceneX": 62.89,
+    "positionInSceneY": 35.2774925
+  },
+  "Wisp_08|Bone Record Wisp Top": {
+    "locationType": "CollectableItemPickupLocation",
+    "item": "Bone Record Wisp Top",
+    "scene": "Wisp_08",
+    "positionInSceneX": 10.18,
+    "positionInSceneY": 114.573372
+  },
+  "Shellwood_01|Rosary_Set_Frayed": {
+    "locationType": "CollectableItemPickupLocation",
+    "item": "Rosary_Set_Frayed",
+    "scene": "Shellwood_01",
+    "positionInSceneX": 48.99,
+    "positionInSceneY": 23.2774963
+  },
+  "Shellwood_01b|Rosary_Set_Small": {
+    "locationType": "CollectableItemPickupLocation",
+    "item": "Rosary_Set_Small",
+    "scene": "Shellwood_01b",
+    "positionInSceneX": 33.13,
+    "positionInSceneY": 72.19613
+  },
+  "Shellwood_10|ability_Walljump": {
+    "locationType": "ShrineWeaverAbilityLocation",
+    "item": "ability_Walljump",
+    "scene": "Shellwood_10",
+    "positionInSceneX": 40.59,
+    "positionInSceneY": 79.24
+  },
+  "Shellwood_13|Shard Pouch": {
+    "locationType": "CollectableItemPickupLocation",
+    "item": "Shard Pouch",
+    "scene": "Shellwood_13",
+    "positionInSceneX": 82.2927551,
+    "positionInSceneY": 67.27748
+  },
+  "Shellwood_25|Rosary_Set_Small": {
+    "locationType": "CollectableItemPickupLocation",
+    "item": "Rosary_Set_Small",
+    "scene": "Shellwood_25",
+    "positionInSceneX": 83.3,
+    "positionInSceneY": 25.2774963
+  },
+  "Shellwood_25|Weaver Totem Witch": {
+    "locationType": "CollectableItemPickupLocation",
+    "item": "Weaver Totem Witch",
+    "scene": "Shellwood_25",
+    "positionInSceneX": 281.47,
+    "positionInSceneY": 26.2774963
+  },
+  "Shellwood_26|georock_Geo Rock 3_Basic": {
+    "locationType": "GeoRockLocation",
+    "item": "georock_Geo Rock 3_Basic",
+    "scene": "Shellwood_26",
+    "positionInSceneX": 98.604,
+    "positionInSceneY": 75.319
+  },
+  "Coral_02|Crest Socket Unlocker": {
+    "locationType": "CollectableItemPickupLocation",
+    "item": "Crest Socket Unlocker",
+    "scene": "Coral_02",
+    "positionInSceneX": 202.32,
+    "positionInSceneY": 43.56
+  },
+  "Coral_03|Rosary_Set_Frayed": {
+    "locationType": "CollectableItemPickupLocation",
+    "item": "Rosary_Set_Frayed",
+    "scene": "Coral_03",
+    "positionInSceneX": 38.64,
+    "positionInSceneY": 5.27749872
+  },
+  "Coral_12|georock_Geo Rock Deepnest_Basic": {
+    "locationType": "GeoRockLocation",
+    "item": "georock_Geo Rock Deepnest_Basic",
+    "scene": "Coral_12",
+    "positionInSceneX": 86.77,
+    "positionInSceneY": 33.59
+  },
+  "Coral_23|Crest Socket Unlocker": {
+    "locationType": "CollectableItemPickupLocation",
+    "item": "Crest Socket Unlocker",
+    "scene": "Coral_23",
+    "positionInSceneX": 90.7400055,
+    "positionInSceneY": 50.31117
+  },
+  "Coral_33|Magnetite Dice": {
+    "locationType": "CollectableItemPickupLocation",
+    "item": "Magnetite Dice",
+    "scene": "Coral_33",
+    "positionInSceneX": 20.2100067,
+    "positionInSceneY": 60.29
+  },
+  "Coral_41|Coral Ingredient": {
+    "locationType": "CollectableItemPickupLocation",
+    "item": "Coral Ingredient",
+    "scene": "Coral_41",
+    "positionInSceneX": 7.120407,
+    "positionInSceneY": 36.44
+  },
+  "Coral_Tower_01|Conch Drill": {
+    "locationType": "CollectableItemPickupLocation",
+    "item": "Conch Drill",
+    "scene": "Coral_Tower_01",
+    "positionInSceneX": 80.87,
+    "positionInSceneY": 7.31000376
+  },
+  "Under_03|Shard Pouch": {
+    "locationType": "CollectableItemPickupLocation",
+    "item": "Shard Pouch",
+    "scene": "Under_03",
+    "positionInSceneX": 4.587628,
+    "positionInSceneY": 6.27749872
+  },
+  "Under_07c|Rosary_Set_Frayed": {
+    "locationType": "CollectableItemPickupLocation",
+    "item": "Rosary_Set_Frayed",
+    "scene": "Under_07c",
+    "positionInSceneX": 75.57,
+    "positionInSceneY": 75.28119
+  },
+  "Under_08|Psalm Cylinder Ward": {
+    "locationType": "CollectableItemPickupLocation",
+    "item": "Psalm Cylinder Ward",
+    "scene": "Under_08",
+    "positionInSceneX": 67.42,
+    "positionInSceneY": 47.48
+  },
+  "Under_08|Crest Socket Unlocker": {
+    "locationType": "CollectableItemPickupLocation",
+    "item": "Crest Socket Unlocker",
+    "scene": "Under_08",
+    "positionInSceneX": 61.07,
+    "positionInSceneY": 16.2774963
+  },
+  "Under_12|Rosary_Set_Frayed": {
+    "locationType": "CollectableItemPickupLocation",
+    "item": "Rosary_Set_Frayed",
+    "scene": "Under_12",
+    "positionInSceneX": 33.13,
+    "positionInSceneY": 10.2774982
+  },
+  "Under_14|Screw Attack": {
+    "locationType": "CollectableItemPickupLocation",
+    "item": "Screw Attack",
+    "scene": "Under_14",
+    "positionInSceneX": 72.1062851,
+    "positionInSceneY": 6.71430731
+  },
+  "Under_16|Bone Record Understore_Map_Room": {
+    "locationType": "CollectableItemPickupLocation",
+    "item": "Bone Record Understore_Map_Room",
+    "scene": "Under_16",
+    "positionInSceneX": 71.36,
+    "positionInSceneY": 15.2774982
+  },
+  "Under_16|Understore Map": {
+    "locationType": "CollectableItemPickupLocation",
+    "item": "Understore Map",
+    "scene": "Under_16",
+    "positionInSceneX": 65.09584,
+    "positionInSceneY": 35.32624
+  },
+  "Under_17|Pristine Core": {
+    "locationType": "CollectableItemPickupLocation",
+    "item": "Pristine Core",
+    "scene": "Under_17",
+    "positionInSceneX": 75.44,
+    "positionInSceneY": 23.2774963
+  },
+  "Under_18|ability_HarpoonDash": {
+    "locationType": "ShrineWeaverAbilityLocation",
+    "item": "ability_HarpoonDash",
+    "scene": "Under_18",
+    "positionInSceneX": 26.3499985,
+    "positionInSceneY": 13.23
+  },
+  "Under_18|Shard Pouch": {
+    "locationType": "CollectableItemPickupLocation",
+    "item": "Shard Pouch",
+    "scene": "Under_18",
+    "positionInSceneX": 34.14,
+    "positionInSceneY": 34.2774925
+  },
+  "Song_04|Rosary_Set_Large": {
+    "locationType": "CollectableItemPickupLocation",
+    "item": "Rosary_Set_Large",
+    "scene": "Song_04",
+    "positionInSceneX": 121.49,
+    "positionInSceneY": 37.2774925
+  },
+  "Song_07|Rosary_Set_Medium": {
+    "locationType": "CollectableItemPickupLocation",
+    "item": "Rosary_Set_Medium",
+    "scene": "Song_07",
+    "positionInSceneX": 3.83,
+    "positionInSceneY": 4.27749872
+  },
+  "Song_09|Rosary_Set_Medium": {
+    "locationType": "CollectableItemPickupLocation",
+    "item": "Rosary_Set_Medium",
+    "scene": "Song_09",
+    "positionInSceneX": 39.38,
+    "positionInSceneY": 8.277498
+  },
+  "Song_Enclave|Ward Key": {
+    "locationType": "CollectableItemPickupLocation",
+    "item": "Ward Key",
+    "scene": "Song_Enclave",
+    "positionInSceneX": 102.076004,
+    "positionInSceneY": 6.29
+  },
+  "Ward_02b|Seal Chit Ward Corpse": {
+    "locationType": "CollectableItemPickupLocation",
+    "item": "Seal Chit Ward Corpse",
+    "scene": "Ward_02b",
+    "positionInSceneX": 51.1199722,
+    "positionInSceneY": 3.97160482
+  },
+  "Ward_03|Quickbind": {
+    "locationType": "CollectableItemPickupLocation",
+    "item": "Quickbind",
+    "scene": "Ward_03",
+    "positionInSceneX": 96.49,
+    "positionInSceneY": 32.78
+  },
+  "Ward_05|Seal Chit Silk Siphon": {
+    "locationType": "CollectableItemPickupLocation",
+    "item": "Seal Chit Silk Siphon",
+    "scene": "Ward_05",
+    "positionInSceneX": 133.04,
+    "positionInSceneY": 4.27749872
+  },
+  "Library_03|Pale_Oil": {
+    "locationType": "CollectableItemPickupLocation",
+    "item": "Pale_Oil",
+    "scene": "Library_03",
+    "positionInSceneX": 8.18,
+    "positionInSceneY": 41.53
+  },
+  "Library_08|Crest Socket Unlocker": {
+    "locationType": "CollectableItemPickupLocation",
+    "item": "Crest Socket Unlocker",
+    "scene": "Library_08",
+    "positionInSceneX": 105.34,
+    "positionInSceneY": 33.2774925
+  },
+  "Library_08|Psalm Cylinder Librarian": {
+    "locationType": "CollectableItemPickupLocation",
+    "item": "Psalm Cylinder Librarian",
+    "scene": "Library_08",
+    "positionInSceneX": 93.69,
+    "positionInSceneY": 30.2774963
+  },
+  "Library_09|Rosary_Set_Large": {
+    "locationType": "CollectableItemPickupLocation",
+    "item": "Rosary_Set_Large",
+    "scene": "Library_09",
+    "positionInSceneX": 14.08,
+    "positionInSceneY": 36.3136673
+  },
+  "Library_09|Psalm Cylinder Library Roof": {
+    "locationType": "CollectableItemPickupLocation",
+    "item": "Psalm Cylinder Library Roof",
+    "scene": "Library_09",
+    "positionInSceneX": 25.5419712,
+    "positionInSceneY": 12.2116928
+  },
+  "Library_10|Librarian Melody Cylinder": {
+    "locationType": "CollectableItemPickupLocation",
+    "item": "Librarian Melody Cylinder",
+    "scene": "Library_10",
+    "positionInSceneX": 14.18,
+    "positionInSceneY": 3.87
+  },
+  "Library_12|Shard Pouch": {
+    "locationType": "CollectableItemPickupLocation",
+    "item": "Shard Pouch",
+    "scene": "Library_12",
+    "positionInSceneX": 126.39,
+    "positionInSceneY": 24.2774963
+  },
+  "Library_13|Dazzle Bind Upgraded": {
+    "locationType": "CollectableItemPickupLocation",
+    "item": "Dazzle Bind Upgraded",
+    "scene": "Library_13",
+    "positionInSceneX": 73.76,
+    "positionInSceneY": 13.23
+  },
+  "Library_13|Dazzle Bind": {
+    "locationType": "CollectableItemPickupLocation",
+    "item": "Dazzle Bind",
+    "scene": "Library_13",
+    "positionInSceneX": 73.61,
+    "positionInSceneY": 13.23
+  },
+  "Hang_10|Psalm Cylinder Hang": {
+    "locationType": "CollectableItemPickupLocation",
+    "item": "Psalm Cylinder Hang",
+    "scene": "Hang_10",
+    "positionInSceneX": 72.65701,
+    "positionInSceneY": 15.277503
+  },
+  "Hang_16|Rosary_Set_Frayed": {
+    "locationType": "CollectableItemPickupLocation",
+    "item": "Rosary_Set_Frayed",
+    "scene": "Hang_16",
+    "positionInSceneX": 67.8100052,
+    "positionInSceneY": 6.389403
+  },
+  "Arborium_05|Crest Socket Unlocker": {
+    "locationType": "CollectableItemPickupLocation",
+    "item": "Crest Socket Unlocker",
+    "scene": "Arborium_05",
+    "positionInSceneX": 3.95,
+    "positionInSceneY": 7.27749872
+  },
+  "Arborium_07|Materium": {
+    "locationType": "CollectableItemPickupLocation",
+    "item": "Materium",
+    "scene": "Arborium_07",
+    "positionInSceneX": 103.38,
+    "positionInSceneY": 11.11
+  },
+  "Arborium_11|Shard Pouch": {
+    "locationType": "CollectableItemPickupLocation",
+    "item": "Shard Pouch",
+    "scene": "Arborium_11",
+    "positionInSceneX": 211.22,
+    "positionInSceneY": 10.2974987
+  },
+  "Cog_10|Shard Pouch": {
+    "locationType": "CollectableItemPickupLocation",
+    "item": "Shard Pouch",
+    "scene": "Cog_10",
+    "positionInSceneX": 6.78,
+    "positionInSceneY": 44.67
+  },
+  "Slab_12|Weaver Totem Slab_Bottom": {
+    "locationType": "CollectableItemPickupLocation",
+    "item": "Weaver Totem Slab_Bottom",
+    "scene": "Slab_12",
+    "positionInSceneX": 98.51,
+    "positionInSceneY": 27.28058
+  },
+  "Slab_18|Rosary_Set_Frayed": {
+    "locationType": "CollectableItemPickupLocation",
+    "item": "Rosary_Set_Frayed",
+    "scene": "Slab_18",
+    "positionInSceneX": 17.2343845,
+    "positionInSceneY": 21.2774963
+  },
+  "Slab_20|Slab Map": {
+    "locationType": "CollectableItemPickupLocation",
+    "item": "Slab Map",
+    "scene": "Slab_20",
+    "positionInSceneX": 86.57,
+    "positionInSceneY": 14.07
+  },
+  "Slab_22|Rosary_Set_Frayed": {
+    "locationType": "CollectableItemPickupLocation",
+    "item": "Rosary_Set_Frayed",
+    "scene": "Slab_22",
+    "positionInSceneX": 28.3,
+    "positionInSceneY": 30.2774963
+  },
+  "Slab_Cell_Quiet|Crest Socket Unlocker": {
+    "locationType": "CollectableItemPickupLocation",
+    "item": "Crest Socket Unlocker",
+    "scene": "Slab_Cell_Quiet",
+    "positionInSceneX": 42.441864,
+    "positionInSceneY": 30.2774963
+  },
+  "Weave_08|Weaver Record Weave_08": {
+    "locationType": "CollectableItemPickupLocation",
+    "item": "Weaver Record Weave_08",
+    "scene": "Weave_08",
+    "positionInSceneX": 41.6772652,
+    "positionInSceneY": 54.1253242
+  },
+  "Weave_12|Weavehome Map": {
+    "locationType": "CollectableItemPickupLocation",
+    "item": "Weavehome Map",
+    "scene": "Weave_12",
+    "positionInSceneX": 14.0180006,
+    "positionInSceneY": 11.054
+  },
+  "Weave_14|Silk Snare": {
+    "locationType": "CollectableItemPickupLocation",
+    "item": "Silk Snare",
+    "scene": "Weave_14",
+    "positionInSceneX": 66.53,
+    "positionInSceneY": 6.716298
+  },
+  "Clover_20|Clover Map": {
+    "locationType": "CollectableItemPickupLocation",
+    "item": "Clover Map",
+    "scene": "Clover_20",
+    "positionInSceneX": 133.55,
+    "positionInSceneY": 16.2774963
+  },
+  "Abyss_04|Ancient Egg Abyss Middle": {
+    "locationType": "CollectableItemPickupLocation",
+    "item": "Ancient Egg Abyss Middle",
+    "scene": "Abyss_04",
+    "positionInSceneX": 98.2433548,
+    "positionInSceneY": 50.34
+  },
+  "Abyss_08|ability_SuperJump": {
+    "locationType": "ShrineWeaverAbilityLocation",
+    "item": "ability_SuperJump",
+    "scene": "Abyss_08",
+    "positionInSceneX": 86.91002,
+    "positionInSceneY": 9.861683
+  },
+  "Abyss_08|Farsight": {
+    "locationType": "CollectableItemPickupLocation",
+    "item": "Farsight",
+    "scene": "Abyss_08",
+    "positionInSceneX": 157.55,
+    "positionInSceneY": 90.38748
+  },
+  "Abyss_12|Abyss Map": {
+    "locationType": "CollectableItemPickupLocation",
+    "item": "Abyss Map",
+    "scene": "Abyss_12",
+    "positionInSceneX": 13.9400005,
+    "positionInSceneY": 26.83
+  },
+  "Room_CrowCourt_02|Crawbell": {
+    "locationType": "CollectableItemPickupLocation",
+    "item": "Crawbell",
+    "scene": "Room_CrowCourt_02",
+    "positionInSceneX": 19.41,
+    "positionInSceneY": 44.2774925
+  },
+  "Aqueduct_08|georock_Geo Rock 1 (1)_Basic": {
+    "locationType": "GeoRockLocation",
+    "item": "georock_Geo Rock 1 (1)_Basic",
+    "scene": "Aqueduct_08",
+    "positionInSceneX": 47.27,
+    "positionInSceneY": 4.08
+  },
+  "Aqueduct_08|georock_Geo Rock 1_Basic": {
+    "locationType": "GeoRockLocation",
+    "item": "georock_Geo Rock 1_Basic",
+    "scene": "Aqueduct_08",
+    "positionInSceneX": 36.23,
+    "positionInSceneY": 4.08
+  },
+  "Aqueduct_08|georock_Geo Rock 3_Basic": {
+    "locationType": "GeoRockLocation",
+    "item": "georock_Geo Rock 3_Basic",
+    "scene": "Aqueduct_08",
+    "positionInSceneX": 39.37,
+    "positionInSceneY": 4.31755352
+  },
+  "Shadow_Bilehaven_Room|Snare Soul Swamp Bug": {
+    "locationType": "CollectableItemPickupLocation",
+    "item": "Snare Soul Swamp Bug",
+    "scene": "Shadow_Bilehaven_Room",
+    "positionInSceneX": 26.111969,
+    "positionInSceneY": 6.27749872
+  }
+}

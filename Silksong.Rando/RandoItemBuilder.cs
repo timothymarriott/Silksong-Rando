@@ -99,9 +99,74 @@ public class RandoItemBuilder : DataBuilder<RandoItem>
     
     public RandoItemBuilder SetIcon(Sprite sprite)
     {
-        result.icon = sprite;
+        if (sprite == null)
+            return this;
+
+        const int MaxSize = 120;
+
+        int srcWidth = (int)sprite.rect.width;
+        int srcHeight = (int)sprite.rect.height;
+
+        // If it already fits, don't touch it
+        if (srcWidth <= MaxSize && srcHeight <= MaxSize)
+        {
+            result.icon = sprite;
+            result.tinyIcon = sprite;
+            return this;
+        }
+
+        // Compute downscale factor (never upscale)
+        float scale = Mathf.Min(
+            (float)MaxSize / srcWidth,
+            (float)MaxSize / srcHeight
+        );
+
+        int dstWidth = Mathf.RoundToInt(srcWidth * scale);
+        int dstHeight = Mathf.RoundToInt(srcHeight * scale);
+
+        // Extract source pixels
+        Texture2D srcTex = sprite.texture;
+        Rect r = sprite.rect;
+        Color[] pixels = srcTex.GetPixels(
+            (int)r.x,
+            (int)r.y,
+            (int)r.width,
+            (int)r.height
+        );
+
+        // Create scaled texture
+        Texture2D dstTex = new Texture2D(dstWidth, dstHeight, srcTex.format, false);
+        dstTex.filterMode = FilterMode.Bilinear;
+
+        // Manual scale
+        for (int y = 0; y < dstHeight; y++)
+        {
+            for (int x = 0; x < dstWidth; x++)
+            {
+                float u = x / (float)(dstWidth - 1);
+                float v = y / (float)(dstHeight - 1);
+
+                int sx = Mathf.RoundToInt(u * (srcWidth - 1));
+                int sy = Mathf.RoundToInt(v * (srcHeight - 1));
+
+                dstTex.SetPixel(x, y, pixels[sy * srcWidth + sx]);
+            }
+        }
+
+        dstTex.Apply();
+
+        Sprite scaledSprite = Sprite.Create(
+            dstTex,
+            new Rect(0, 0, dstWidth, dstHeight),
+            new Vector2(0.5f, 0.5f),
+            sprite.pixelsPerUnit
+        );
+
+        result.icon = scaledSprite;
+        result.tinyIcon = scaledSprite;
         return this;
     }
+
     
     public RandoItemBuilder SetIcon(string icon)
     {

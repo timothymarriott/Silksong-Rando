@@ -25,7 +25,7 @@ public class ModResources : MonoBehaviour
         return sprite;
     }
 
-    public static string LoadText(string id)
+    public static string LoadData(string id)
     {
         if (!Data.TryGetValue(id, out var text))
         {
@@ -40,15 +40,17 @@ public class ModResources : MonoBehaviour
         Logger = logger;
         string[] resourceNames = Assembly.GetExecutingAssembly().GetManifestResourceNames();
         
+        const string imagePrefix = "Silksong.Rando.Resources.Images.";
+        const string dataPrefix = "Silksong.Rando.Resources.";
 
         foreach (string res in resourceNames)
         {
-            if (res.EndsWith(".png") && res.StartsWith("Silksong.Rando.Resources.Images"))
+            if (res.EndsWith(".png") && res.StartsWith(imagePrefix))
             {
                 try
                 {
-                    string[] split = res.Split('.');
-                    string internalName = split[split.Length - 2];
+                    string relativeName = res.Substring(imagePrefix.Length).Replace(".png", "");
+                    string internalName = relativeName.Replace('.', '/');
                     Images.Add(internalName, Assembly.GetExecutingAssembly().LoadEmbeddedSprite(res));
 
                     Logger.LogInfo("Loaded image: " + internalName);
@@ -61,8 +63,8 @@ public class ModResources : MonoBehaviour
 
             if (res.EndsWith(".json") && res.StartsWith("Silksong.Rando.Resources."))
             {
-                string[] split = res.Split('.');
-                string internalName = split[^2];
+                string relativeName = res.Substring(dataPrefix.Length).Replace(".json", "");
+                string internalName = relativeName.Replace('.', '/');
                 Data.Add(internalName, Assembly.GetExecutingAssembly().LoadEmbeddedText(res));
             }
         }

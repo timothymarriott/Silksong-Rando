@@ -14,7 +14,7 @@ public static class GameScenes
 
     public static void Load()
     {
-        var text = ModResources.LoadText("scenes");
+        var text = ModResources.LoadData("scenes");
 
         var data = JsonConvert.DeserializeObject<Dictionary<string, SceneInfo>>(text);
         if (data != null)

@@ -7,10 +7,13 @@ namespace Silksong.Rando.Locations;
 [Serializable]
 public class ItemLocationData
 {
-    public float RoomSizeX;
-    public float RoomSizeY;
-    public float PositionInSceneX;
-    public float PositionInSceneY;
+    public string locationType;
+    public string item;
+    public string scene;
+    public float positionInSceneX;
+    public float positionInSceneY;
+
+    public Vector2 PositionInScene => new Vector2(positionInSceneX, positionInSceneY);
 }
 
 public abstract class ItemLocation
@@ -27,23 +30,27 @@ public abstract class ItemLocation
     
     public void AddToCurrentScene()
     {
-        locationData.RoomSizeX = RandoPlugin.GM.tilemap.width;
-        locationData.RoomSizeY = RandoPlugin.GM.tilemap.height;
+        locationData.locationType = GetType().Name;
+        locationData.item = GetItem();
+        locationData.scene = RandoPlugin.GM.sceneName;
         var pos = GetPosition();
-        locationData.PositionInSceneX = pos.x;
-        locationData.PositionInSceneY = pos.y;
+        locationData.positionInSceneX = pos.x;
+        locationData.positionInSceneY = pos.y;
         if (LocationFinder.IsSearching)
             LocationFinder.ItemLocations.TryAdd(GetLocationID(), this);
+
+        if (RandoPlugin.instance.GameMode.Enabled)
+        {
+            if (RandoPlugin.instance.ItemReplacements.ContainsKey(GetLocationID()))
+            {
+                SetItem(RandoPlugin.instance.ItemReplacements[GetLocationID()]);
+            }
+            else
+            {
+                //SetItem($"");
+            }
+        }
         
-        RandoPlugin.Log.LogInfo(GetLocationID());
-        if (RandoPlugin.instance.ItemReplacements.ContainsKey(GetLocationID()))
-        {
-            SetItem(RandoPlugin.instance.ItemReplacements[GetLocationID()]);
-        }
-        else
-        {
-            SetItem($"");
-        }
     }
 
     public virtual Vector2 GetPosition()

@@ -23,7 +23,7 @@ public static class AssemblyExtensions
 
         var tex = new Texture2D(2, 2);
 
-        tex.LoadImage(buffer, true);
+        tex.LoadImage(buffer, false);
 
         return Sprite.Create(tex, new Rect(0, 0, tex.width, tex.height), Vector2.one * 0.5f, pixelsPerUnit);
     }

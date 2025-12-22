@@ -60,12 +60,9 @@
     </ItemGroup>
     
     <ItemGroup>
-      <Reference Include="RandomizerCore">
-        <HintPath>$(SilksongFolder)/BepInEx/plugins/RandomizerCore/RandomizerCore.dll</HintPath>
-      </Reference>
-      <Reference Include="RandomizerCore.Json">
-        <HintPath>$(SilksongFolder)/BepInEx/plugins/RandomizerCore.Json/RandomizerCore.Json.dll</HintPath>
-      </Reference>
+        <Reference Include="SkongGamemodes">
+            <HintPath>$(SilksongFolder)/BepInEx/plugins/SkongGamemodes.dll</HintPath>
+        </Reference>
     </ItemGroup>
 
     <ItemGroup>

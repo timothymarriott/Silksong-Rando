@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Linq;
 using BepInEx;
@@ -9,7 +10,7 @@ using GlobalEnums;
 using HarmonyLib;
 using Newtonsoft.Json;
 using PrepatcherPlugin;
-using RandomizerCore.Extensions;
+using Silksong.DataManager;
 using Silksong.Rando.Map;
 using Silksong.FsmUtil;
 using Silksong.Rando.Data;
@@ -21,13 +22,18 @@ using UnityEngine.ResourceManagement.ResourceProviders;
 using UnityEngine.SceneManagement;
 using Object = UnityEngine.Object;
 using Silksong.Rando.Locations;
+using Silksong.Rando.Logic;
+using SkongGamemodes;
 
 namespace Silksong.Rando;
 
 [BepInPlugin(Id, Name, Version)]
 [BepInDependency("org.silksong-modding.datamanager")]
-public class RandoPlugin : BaseUnityPlugin
+[BepInDependency("dervorce.hkss.gamemodemanager")]
+public class RandoPlugin : BaseUnityPlugin, ISaveDataMod<SaveData>
 {
+    
+    
     
     public const string Id = "com.lem00ns.Silksong.Rando";
     public const string Name = "Randomiser";
@@ -39,15 +45,22 @@ public class RandoPlugin : BaseUnityPlugin
 
     public ModResources resources;
     public SceneLoader sceneLoader;
+
+    public Logic.LogicFile logic;
+    
+    SaveData? ISaveDataMod<SaveData>.SaveData
+    {
+        get => SaveData.Instance;
+        set => SaveData.Instance = value;
+    }
     
     public static ManualLogSource Log => instance.Logger;
-
-    public Dictionary<string, ItemLocationData> ItemLocationData = new();
-    
-    public Dictionary<string, string> ItemReplacements = new();
+    public Dictionary<string, string> ItemReplacements => SaveData.Instance.ItemReplacements;
 
     public List<CollectableItemPickup> PickupsToIgnore = new();
 
+    public GameModeManager.GameModeData GameMode;
+    
     
     
     private void Awake()
@@ -61,20 +74,15 @@ public class RandoPlugin : BaseUnityPlugin
         gameObject.AddComponent<RandoMap>();
         gameObject.AddComponent<LocationFinder>();
         gameObject.AddComponent<SceneDumper>();
+
+        logic = LogicFile.Load("logic");
         
-        string replacementText = File.ReadAllText(Application.persistentDataPath + "\\rando\\replacements.json");
-        var replacements = JsonConvert.DeserializeObject<Dictionary<string, string>>(replacementText);
-        if (replacements != null)
-        {
-            ItemReplacements = replacements;
-        }
+        GameMode = GameModeManagerPlugin.Instance.Manager.Init(
+            this,
+            "Randomiser",
+            "Basic randomiser"
+        );
         
-        string locationDataText = File.ReadAllText(Application.persistentDataPath + "\\rando\\locations.json");
-        var locationData = JsonConvert.DeserializeObject<Dictionary<string, ItemLocationData>>(locationDataText);
-        if (locationData != null)
-        {
-            ItemLocationData = locationData;
-        }
     }
 
     private void Start()
@@ -96,6 +104,26 @@ public class RandoPlugin : BaseUnityPlugin
         {
             GM = GameManager.instance;
         }
+
+        if (Input.GetKeyDown(KeyCode.U))
+        {
+            foreach (var collectableItem in CollectableItemManager.Instance.masterList)
+            {
+                try
+                {
+                    Log.LogInfo(collectableItem.GetDisplayName(CollectableItem.ReadSource.Inventory).ToString());
+                    Log.LogInfo("  - GetPopup" + collectableItem.GetIcon(CollectableItem.ReadSource.GetPopup).rect.size);
+                    Log.LogInfo("  - Inventory" + collectableItem.GetIcon(CollectableItem.ReadSource.Inventory).rect.size);
+                    Log.LogInfo("  - Tiny" + collectableItem.GetIcon(CollectableItem.ReadSource.Tiny).rect.size);
+                }
+                catch
+                {
+                    
+                }
+                
+            }
+        }
+        
     }
 
     private void OnDestroy()
@@ -127,6 +155,7 @@ public class RandoPlugin : BaseUnityPlugin
         {
             return CollectableItemManager.Instance.masterList.GetByName("Rosary_Set_Small");
         }
+        
 
         if (target.StartsWith("shardrock_"))
         {
@@ -137,8 +166,15 @@ public class RandoPlugin : BaseUnityPlugin
         builder.SetDisplayName("Invalid Item");
         builder.SetDescription("Internal Item for the randomiser");
         builder.SetMaxAmount(int.MaxValue);
-        builder.SetIcon("missing");
-        builder.SetTinyIcon("missing");
+        
+        if (target.EndsWith(" Map"))
+        {
+            builder.SetIcon("Icons/Item/Map");
+        }
+        else
+        {
+            builder.SetIcon("missing");
+        }
         
         
         RandoItem.OnCollectedCallback? callback = null;
@@ -161,7 +197,6 @@ public class RandoPlugin : BaseUnityPlugin
                     return ToolItemManager.GetToolByName("Thread Sphere");
                 case WeaverSpireAbility.HarpoonDash:
                     builder.SetDisplayName("Clawline");
-                    builder.SetTinyIcon("Icon_SS_Clawline");
                     builder.SetIcon("Icon_SS_Clawline");
                     callback = item =>
                     {
@@ -170,7 +205,6 @@ public class RandoPlugin : BaseUnityPlugin
                     break;
                 case WeaverSpireAbility.Needolin:
                     builder.SetDisplayName("Needolin");
-                    builder.SetTinyIcon("Icon_SS_Needolin");
                     builder.SetIcon("Icon_SS_Needolin");
                     callback = item =>
                     {
@@ -179,7 +213,6 @@ public class RandoPlugin : BaseUnityPlugin
                     break;
                 case WeaverSpireAbility.Sprint:
                     builder.SetDisplayName("Swift Step");
-                    builder.SetTinyIcon("Icon_SS_Swift_Step");
                     builder.SetIcon("Icon_SS_Swift_Step");
                     callback = item =>
                     {
@@ -188,7 +221,6 @@ public class RandoPlugin : BaseUnityPlugin
                     break;
                 case WeaverSpireAbility.SuperJump:
                     builder.SetDisplayName("Silk Soar");
-                    builder.SetTinyIcon("Icon_SS_Silk_Soar");
                     builder.SetIcon("Icon_SS_Silk_Soar");
                     callback = item =>
                     {
@@ -197,7 +229,6 @@ public class RandoPlugin : BaseUnityPlugin
                     break;
                 case WeaverSpireAbility.Walljump:
                     builder.SetDisplayName("Cling Grip");
-                    builder.SetTinyIcon("Icon_SS_Cling_Grip");
                     builder.SetIcon("Icon_SS_Cling_Grip");
                     callback = item =>
                     {
@@ -214,6 +245,33 @@ public class RandoPlugin : BaseUnityPlugin
 
         return builder.Build();
     }
+
+
     
-    
+}
+
+
+public class SaveData
+{
+    private static SaveData? _instance;
+
+    [AllowNull]
+    public static SaveData Instance
+    {
+        get
+        {
+            if (_instance == null)
+            {
+                _instance = new();
+            }
+            return _instance;
+        }
+        internal set
+        {
+            _instance = value;
+        }
+    }
+
+    public int RandoSeed { get; set; } = -1;
+    public Dictionary<string, string> ItemReplacements { get; set; } = [];
 }
