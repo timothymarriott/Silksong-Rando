@@ -79,8 +79,26 @@ public class RandoMap : MonoBehaviour
         obj.transform.localScale = Vector3.one * 0.4f;
 
         SpriteRenderer sr = obj.GetComponent<SpriteRenderer>();
-        SavedItem itm = RandoPlugin.GetCollectableItem(loc.item);
-        sr.sprite = itm.GetPopupIcon();
+        
+        
+        if (SaveData.Instance.ItemReplacements.ContainsKey(loc.scene + "|" + loc.item))
+        {
+            //SavedItem itm = RandoPlugin.GetCollectableItem(SaveData.Instance.ItemReplacements[loc.scene + "|" + loc.item]);
+            SavedItem itm = RandoPlugin.GetCollectableItem(loc.item);
+            sr.sprite = itm.GetPopupIcon();
+        }
+        else
+        {
+            SavedItem itm = RandoPlugin.GetCollectableItem(loc.item);
+            sr.sprite = itm.GetPopupIcon();
+            sr.color = Color.green;
+        }
+        
+
+        if (!RandoPlugin.instance.logic.HasCheck(loc.scene + "|" + loc.item))
+        {
+            sr.color = Color.red;
+        }
         
         
         obj.transform.SetLocalPosition2D(new Vector3(position.x, position.y, -1f));

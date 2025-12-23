@@ -90,7 +90,7 @@
 				"Shadow_20|Crest Socket Unlocker",
 
 				"Coral_02|Crest Socket Unlocker",
-				"Coral_03|Rosary_Set_Frayed",
+				"Coral_03|Rosary_Set_Frayed"
 
 
 			]
@@ -170,6 +170,10 @@
 			]
 		}
 	},
-
-	"start": "Start"
+	"start": "Start",
+	"required": [
+		"melody_Vault",
+		"melody_Architect",
+		"melody_Conductor"
+	]
 }

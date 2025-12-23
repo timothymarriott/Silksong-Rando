@@ -48,6 +48,7 @@ public class MossberryLocation : ItemLocation
         else if (locType == MossberryLocationType.Aspid)
         {
             RandoPlugin.Log.LogInfo(aspid);
+            RandoPlugin.Log.LogInfo(fsm);
             var state = fsm.fsm.GetState("Collect");
             var action = state.GetAction<CollectableItemCollect>(2);
             action.Item.RawValue = RandoPlugin.GetCollectableItem(item);

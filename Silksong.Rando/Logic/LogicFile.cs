@@ -11,6 +11,8 @@ namespace Silksong.Rando.Logic
     {
         public string start;
 
+        public string[] required;
+        
         public Dictionary<string, LogicNode> nodes;
 
         [JsonIgnore]
@@ -43,7 +45,6 @@ namespace Silksong.Rando.Logic
         public Dictionary<string, string> GenerateSeed(int seed = -1)
         {
             var rng = new Random();
-
             if (seed != -1)
             {
                 rng = new Random(seed);
@@ -52,8 +53,11 @@ namespace Silksong.Rando.Logic
             var locationData = JsonConvert.DeserializeObject<Dictionary<string, ItemLocationData>>(ModResources.LoadData("locations"));
             
             var allLocations = locationData.Keys;
+            
+            var placements = new Dictionary<string, string>();
 
-
+            var reachable = new HashSet<string> { start };
+            
             var nodeChecks = new Dictionary<string, List<string>>();
             foreach (var (nodeId, node) in nodes)
             {
@@ -68,24 +72,66 @@ namespace Silksong.Rando.Logic
                 Shuffle(list, rng);
                 nodeChecks[nodeId] = list;
             }
+            
+            var obtainedItems = new HashSet<string>();
+
+            void RefreshReachable(ref bool progress)
+            {
+                foreach (var from in reachable.ToArray())
+                {
+                    foreach (var edge in nodes[from].edges ?? Array.Empty<NodeEdge>())
+                    {
+                        if (!reachable.Contains(edge.to) && EdgeSatisfied(edge, obtainedItems))
+                        {
+                            reachable.Add(edge.to);
+                            progress = true;
+                        }
+                    }
+                }
+            }
+            
+            List<string> GetReachableChecks(ref bool progress)
+            {
+                List<string> res = new List<string>();
+                
+                RefreshReachable(ref progress);
+
+                foreach (var node in reachable.ToArray())
+                {
+                    foreach (var check in nodeChecks[node])
+                    {
+                        if (!placements.ContainsKey(check))
+                        {
+                            res.Add(check);
+                        }
+                    }
+
+                    
+                }
+                Shuffle(res, rng);
+
+                return res;
+            }
+            
+            
 
             var allItems = new HashSet<string>();
             foreach (var checks in nodeChecks.Values)
                 foreach (var c in checks)
                     allItems.Add(c.Split('|')[1]);
 
-            var placements = new Dictionary<string, string>();
-            var obtainedItems = new HashSet<string>();
+            
+            
 
-            var reachable = new HashSet<string> { start };
 
             bool progress;
 
             do
             {
                 progress = false;
-
-                // 1. Find blocking edges
+                
+                placed:
+                RefreshReachable(ref progress);
                 foreach (var from in reachable.ToArray())
                 {
                     foreach (var edge in nodes[from].edges ?? Array.Empty<NodeEdge>())
@@ -98,34 +144,57 @@ namespace Silksong.Rando.Logic
                             if (obtainedItems.Contains(req))
                                 continue;
 
-                            if (!ForcePlaceItem(req, reachable, nodeChecks, placements))
-                                throw new Exception($"Cannot place required item: {req}");
-
+                            ForcePlaceItem(req, placements, nodes[from].checks.ToList(), rng);
                             obtainedItems.Add(req);
                             progress = true;
+                            goto placed;
                         }
                     }
                 }
 
-                // 2. Recompute reachability
-                foreach (var from in reachable.ToArray())
-                {
-                    foreach (var edge in nodes[from].edges ?? Array.Empty<NodeEdge>())
-                    {
-                        if (!reachable.Contains(edge.to) && EdgeSatisfied(edge, obtainedItems))
-                        {
-                            reachable.Add(edge.to);
-                            progress = true;
-                        }
-                    }
-                }
-
+                RefreshReachable(ref progress);
             } while (progress);
 
             if (reachable.Count != nodes.Count)
                 throw new Exception("Unreachable nodes remain after placement");
+            
+            foreach (var item in required)
+            {
+                placements[GetReachableChecks(ref progress)[0]] = item;
+                obtainedItems.Add(item);
+            }
 
-            // 3. Fill remaining checks arbitrarily
+            var remainingItems = new List<string>();
+
+            foreach (var node in nodes)
+            {
+                foreach (var check in node.Value.checks)
+                {
+                    if (!placements.ContainsKey(check))
+                    {
+                        remainingItems.Add(check.Split("|", 2)[1]);
+                    }
+                }
+            }
+
+            foreach (var check in GetReachableChecks(ref progress))
+            {
+                if (!placements.ContainsKey(check))
+                {
+                    if (remainingItems.Count > 0)
+                    {
+                        placements[check] = remainingItems[0];
+                        remainingItems.RemoveAt(0);
+                    }
+                    else
+                    {
+                        RandoPlugin.Log.LogWarning("Ran out of items");
+                    }
+
+                }
+            }
+
+            /*
             var remainingItems = new List<string>();
             foreach (var item in allItems)
                 if (!obtainedItems.Contains(item))
@@ -133,25 +202,23 @@ namespace Silksong.Rando.Logic
 
             Shuffle(remainingItems, rng);
 
-            foreach (var (nodeId, checks) in nodeChecks)
+            foreach (var check in GetReachableChecks(ref progress))
             {
-                foreach (var check in checks)
+                if (!placements.ContainsKey(check))
                 {
-                    if (!placements.ContainsKey(check))
+                    if (remainingItems.Count > 0)
                     {
-                        if (remainingItems.Count > 0)
-                        {
-                            placements[check] = remainingItems[0];
-                            remainingItems.RemoveAt(0);
-                        }
-                        else
-                        {
-                            RandoPlugin.Log.LogWarning("Ran out of items");
-                        }
-                        
+                        placements[check] = remainingItems[0];
+                        remainingItems.RemoveAt(0);
                     }
+                    else
+                    {
+                        RandoPlugin.Log.LogWarning("Ran out of items");
+                    }
+
                 }
             }
+            */
 
             return placements;
         }
@@ -166,21 +233,17 @@ namespace Silksong.Rando.Logic
 
         private static bool ForcePlaceItem(
             string item,
-            HashSet<string> reachable,
-            Dictionary<string, List<string>> nodeChecks,
-            Dictionary<string, string> placements)
+            Dictionary<string, string> placements,
+            List<string> reachable, 
+            Random rng)
         {
-            
-            foreach (var node in reachable)
+            foreach (var check in Shuffled(reachable, rng))
             {
-                foreach (var check in nodeChecks[node])
+                if (!placements.ContainsKey(check))
                 {
-                    if (!placements.ContainsKey(check))
-                    {
-                        placements[check] = item;
-                        RandoPlugin.Log.LogInfo("Force placed " + item);
-                        return true;
-                    }
+                    placements[check] = item;
+                    RandoPlugin.Log.LogInfo("Force placed " + item);
+                    return true;
                 }
             }
             return false;
@@ -207,6 +270,13 @@ namespace Silksong.Rando.Logic
                 int j = rng.Next(i + 1);
                 (list[i], list[j]) = (list[j], list[i]);
             }
+        }
+        
+        private static IList<T> Shuffled<T>(IList<T> list, Random rng)
+        {
+            var res = list.ToList();
+            Shuffle(res, rng);
+            return res;
         }
         
     }
