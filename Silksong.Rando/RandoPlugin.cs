@@ -179,7 +179,43 @@ public class RandoPlugin : BaseUnityPlugin, ISaveDataMod<SaveData>
         
         RandoItem.OnCollectedCallback? callback = null;
 
-        
+        if (target == "Brolly")
+        {
+            builder.SetDisplayName("Float Cloak");
+            builder.SetIcon("Icons/Skill/DriftersCloak");
+            callback = item =>
+            {
+                GM.playerData.hasBrolly = true;
+            };
+        }
+
+        if (target == "melody_Vault")
+        {
+            builder.SetDisplayName("Vaultkeeper's Melody");
+            builder.SetIcon("Icons/Melody/VaultkeepersMelody");
+            callback = item =>
+            {
+                GM.playerData.HasMelodyLibrarian = true;
+            };
+        }
+        if (target == "melody_Conductor")
+        {
+            builder.SetDisplayName("Conductor's Melody");
+            builder.SetIcon("Icons/Melody/ConductorsMelody");
+            callback = item =>
+            {
+                GM.playerData.HasMelodyConductor = true;
+            };
+        }
+        if (target == "melody_Architect")
+        {
+            builder.SetDisplayName("Architects's Melody");
+            builder.SetIcon("Icons/Melody/ArchitectsMelody");
+            callback = item =>
+            {
+                GM.playerData.HasMelodyArchitect = true;
+            };
+        }
         
         if (target.StartsWith("ability_"))
         {

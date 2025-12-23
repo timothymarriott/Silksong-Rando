@@ -47,7 +47,7 @@ public abstract class ItemLocation
             }
             else
             {
-                //SetItem($"");
+                SetItem(GetItem());
             }
         }
         
