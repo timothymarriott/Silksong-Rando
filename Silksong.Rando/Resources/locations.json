@@ -65,17 +65,6 @@
       "y": 65.27748
     }
   },
-  "Aspid_01|georock_Geo Rock 2_Basic": {
-    "locationType": "GeoRockLocation",
-    "item": "georock_Geo Rock 2_Basic",
-    "scene": "Aspid_01",
-    "positionInSceneX": 8.89,
-    "positionInSceneY": 7.27,
-    "PositionInScene": {
-      "x": 8.89,
-      "y": 7.27
-    }
-  },
   "Crawl_01|Dead Mans Purse": {
     "locationType": "CollectableItemPickupLocation",
     "item": "Dead Mans Purse",
@@ -219,39 +208,6 @@
       "y": 42.33
     }
   },
-  "Bone_01c|georock_Geo Rock 3_Basic": {
-    "locationType": "GeoRockLocation",
-    "item": "georock_Geo Rock 3_Basic",
-    "scene": "Bone_01c",
-    "positionInSceneX": 184.05,
-    "positionInSceneY": 58.46,
-    "PositionInScene": {
-      "x": 184.05,
-      "y": 58.46
-    }
-  },
-  "Bone_01c|georock_Geo Rock 1 (1)_Basic": {
-    "locationType": "GeoRockLocation",
-    "item": "georock_Geo Rock 1 (1)_Basic",
-    "scene": "Bone_01c",
-    "positionInSceneX": 180.03,
-    "positionInSceneY": 57.9842453,
-    "PositionInScene": {
-      "x": 180.03,
-      "y": 57.9842453
-    }
-  },
-  "Bone_04|georock_Geo Rock 3_Basic": {
-    "locationType": "GeoRockLocation",
-    "item": "georock_Geo Rock 3_Basic",
-    "scene": "Bone_04",
-    "positionInSceneX": 205.030228,
-    "positionInSceneY": 5.261952,
-    "PositionInScene": {
-      "x": 205.030228,
-      "y": 5.261952
-    }
-  },
   "Bone_05b|Mossberry": {
     "locationType": "MossberryLocation",
     "item": "Mossberry",
@@ -261,28 +217,6 @@
     "PositionInScene": {
       "x": 60.18,
       "y": 25.08
-    }
-  },
-  "Bone_08|georock_Geo Rock 1_Basic": {
-    "locationType": "GeoRockLocation",
-    "item": "georock_Geo Rock 1_Basic",
-    "scene": "Bone_08",
-    "positionInSceneX": 33.1600037,
-    "positionInSceneY": 47.0747223,
-    "PositionInScene": {
-      "x": 33.1600037,
-      "y": 47.0747223
-    }
-  },
-  "Bone_08|georock_Geo Rock 2_Basic": {
-    "locationType": "GeoRockLocation",
-    "item": "georock_Geo Rock 2_Basic",
-    "scene": "Bone_08",
-    "positionInSceneX": 28.79,
-    "positionInSceneY": 47.13,
-    "PositionInScene": {
-      "x": 28.79,
-      "y": 47.13
     }
   },
   "Bone_10|Rosary_Set_Frayed": {
@@ -305,50 +239,6 @@
     "PositionInScene": {
       "x": 41.13,
       "y": 27.81
-    }
-  },
-  "Bone_14|georock_Geo Rock 1_Basic": {
-    "locationType": "GeoRockLocation",
-    "item": "georock_Geo Rock 1_Basic",
-    "scene": "Bone_14",
-    "positionInSceneX": 129.07,
-    "positionInSceneY": 8.01,
-    "PositionInScene": {
-      "x": 129.07,
-      "y": 8.01
-    }
-  },
-  "Bone_16|georock_Geo Rock 1_Basic": {
-    "locationType": "GeoRockLocation",
-    "item": "georock_Geo Rock 1_Basic",
-    "scene": "Bone_16",
-    "positionInSceneX": 28.46,
-    "positionInSceneY": 45.02278,
-    "PositionInScene": {
-      "x": 28.46,
-      "y": 45.02278
-    }
-  },
-  "Bone_16|georock_Geo Rock 2 (1)_Basic": {
-    "locationType": "GeoRockLocation",
-    "item": "georock_Geo Rock 2 (1)_Basic",
-    "scene": "Bone_16",
-    "positionInSceneX": 112.02,
-    "positionInSceneY": 66.1443939,
-    "PositionInScene": {
-      "x": 112.02,
-      "y": 66.1443939
-    }
-  },
-  "Bone_16|georock_Geo Rock 2_Basic": {
-    "locationType": "GeoRockLocation",
-    "item": "georock_Geo Rock 2_Basic",
-    "scene": "Bone_16",
-    "positionInSceneX": 31.4882717,
-    "positionInSceneY": 45.1822929,
-    "PositionInScene": {
-      "x": 31.4882717,
-      "y": 45.1822929
     }
   },
   "Bone_17|Bone Necklace": {
@@ -450,17 +340,6 @@
       "y": 13.27
     }
   },
-  "Bone_East_08|georock_Geo Rock 2_Basic": {
-    "locationType": "GeoRockLocation",
-    "item": "georock_Geo Rock 2_Basic",
-    "scene": "Bone_East_08",
-    "positionInSceneX": 58.67,
-    "positionInSceneY": 21.1,
-    "PositionInScene": {
-      "x": 58.67,
-      "y": 21.1
-    }
-  },
   "Bone_East_14|Bone Record Bone_East_14": {
     "locationType": "CollectableItemPickupLocation",
     "item": "Bone Record Bone_East_14",
@@ -481,28 +360,6 @@
     "PositionInScene": {
       "x": 13.82,
       "y": 7.27749872
-    }
-  },
-  "Bone_East_15|georock_Geo Rock 2_Basic": {
-    "locationType": "GeoRockLocation",
-    "item": "georock_Geo Rock 2_Basic",
-    "scene": "Bone_East_15",
-    "positionInSceneX": 48.47,
-    "positionInSceneY": 8.21,
-    "PositionInScene": {
-      "x": 48.47,
-      "y": 8.21
-    }
-  },
-  "Bone_East_15|georock_Geo Rock 1_Basic": {
-    "locationType": "GeoRockLocation",
-    "item": "georock_Geo Rock 1_Basic",
-    "scene": "Bone_East_15",
-    "positionInSceneX": 45.4855461,
-    "positionInSceneY": 7.98572826,
-    "PositionInScene": {
-      "x": 45.4855461,
-      "y": 7.98572826
     }
   },
   "Bone_East_25|Crest Socket Unlocker": {
@@ -560,28 +417,6 @@
       "y": 12.8676653
     }
   },
-  "Greymoor_01|georock_Geo Rock Deepnest_Basic": {
-    "locationType": "GeoRockLocation",
-    "item": "georock_Geo Rock Deepnest_Basic",
-    "scene": "Greymoor_01",
-    "positionInSceneX": 8.55,
-    "positionInSceneY": 16.88,
-    "PositionInScene": {
-      "x": 8.55,
-      "y": 16.88
-    }
-  },
-  "Greymoor_04|georock_Geo Rock Deepnest_Basic": {
-    "locationType": "GeoRockLocation",
-    "item": "georock_Geo Rock Deepnest_Basic",
-    "scene": "Greymoor_04",
-    "positionInSceneX": 32.72,
-    "positionInSceneY": 35.76,
-    "PositionInScene": {
-      "x": 32.72,
-      "y": 35.76
-    }
-  },
   "Greymoor_05|Shard Pouch": {
     "locationType": "CollectableItemPickupLocation",
     "item": "Shard Pouch",
@@ -591,50 +426,6 @@
     "PositionInScene": {
       "x": 59.01,
       "y": 62.74
-    }
-  },
-  "Greymoor_05|georock_Geo Rock Deepnest_Basic": {
-    "locationType": "GeoRockLocation",
-    "item": "georock_Geo Rock Deepnest_Basic",
-    "scene": "Greymoor_05",
-    "positionInSceneX": 95.09,
-    "positionInSceneY": 61.82,
-    "PositionInScene": {
-      "x": 95.09,
-      "y": 61.82
-    }
-  },
-  "Greymoor_06|georock_Geo Rock Deepnest_Basic": {
-    "locationType": "GeoRockLocation",
-    "item": "georock_Geo Rock Deepnest_Basic",
-    "scene": "Greymoor_06",
-    "positionInSceneX": 6.369603,
-    "positionInSceneY": 78.80082,
-    "PositionInScene": {
-      "x": 6.369603,
-      "y": 78.80082
-    }
-  },
-  "Greymoor_07|georock_Geo Rock Deepnest_Basic": {
-    "locationType": "GeoRockLocation",
-    "item": "georock_Geo Rock Deepnest_Basic",
-    "scene": "Greymoor_07",
-    "positionInSceneX": 68.53183,
-    "positionInSceneY": 71.8488541,
-    "PositionInScene": {
-      "x": 68.53183,
-      "y": 71.8488541
-    }
-  },
-  "Greymoor_11|georock_Geo Rock Deepnest (1)_Basic": {
-    "locationType": "GeoRockLocation",
-    "item": "georock_Geo Rock Deepnest (1)_Basic",
-    "scene": "Greymoor_11",
-    "positionInSceneX": 64.61,
-    "positionInSceneY": 50.88,
-    "PositionInScene": {
-      "x": 64.61,
-      "y": 50.88
     }
   },
   "Greymoor_12|Shard Pouch": {
@@ -657,17 +448,6 @@
     "PositionInScene": {
       "x": 64.41,
       "y": 24.2774963
-    }
-  },
-  "Greymoor_15|georock_Geo Rock 1_Basic": {
-    "locationType": "GeoRockLocation",
-    "item": "georock_Geo Rock 1_Basic",
-    "scene": "Greymoor_15",
-    "positionInSceneX": 57.2882156,
-    "positionInSceneY": 74.01197,
-    "PositionInScene": {
-      "x": 57.2882156,
-      "y": 74.01197
     }
   },
   "Greymoor_15b|Tri Pin": {
@@ -736,17 +516,6 @@
       "y": 2.27749968
     }
   },
-  "Dust_02|georock_Geo Rock Deepnest_Basic": {
-    "locationType": "GeoRockLocation",
-    "item": "georock_Geo Rock Deepnest_Basic",
-    "scene": "Dust_02",
-    "positionInSceneX": 3.64,
-    "positionInSceneY": 7.82,
-    "PositionInScene": {
-      "x": 3.64,
-      "y": 7.82
-    }
-  },
   "Dust_06|Shard Pouch": {
     "locationType": "CollectableItemPickupLocation",
     "item": "Shard Pouch",
@@ -756,17 +525,6 @@
     "PositionInScene": {
       "x": 26.11,
       "y": 96.27748
-    }
-  },
-  "Dust_10|georock_Geo Rock Deepnest_Basic": {
-    "locationType": "GeoRockLocation",
-    "item": "georock_Geo Rock Deepnest_Basic",
-    "scene": "Dust_10",
-    "positionInSceneX": 145.12,
-    "positionInSceneY": 53.66,
-    "PositionInScene": {
-      "x": 145.12,
-      "y": 53.66
     }
   },
   "Dust_Barb|Barbed Wire": {
@@ -791,17 +549,6 @@
       "y": 161.277466
     }
   },
-  "Shadow_05|georock_Geo Rock Deepnest_Basic": {
-    "locationType": "GeoRockLocation",
-    "item": "georock_Geo Rock Deepnest_Basic",
-    "scene": "Shadow_05",
-    "positionInSceneX": 34.9644547,
-    "positionInSceneY": 16.89,
-    "PositionInScene": {
-      "x": 34.9644547,
-      "y": 16.89
-    }
-  },
   "Shadow_11|Quick Sling": {
     "locationType": "CollectableItemPickupLocation",
     "item": "Quick Sling",
@@ -811,39 +558,6 @@
     "PositionInScene": {
       "x": 7.59999943,
       "y": 84.27748
-    }
-  },
-  "Shadow_14|georock_Geo Rock 1_Basic": {
-    "locationType": "GeoRockLocation",
-    "item": "georock_Geo Rock 1_Basic",
-    "scene": "Shadow_14",
-    "positionInSceneX": 25.14,
-    "positionInSceneY": 61.94682,
-    "PositionInScene": {
-      "x": 25.14,
-      "y": 61.94682
-    }
-  },
-  "Shadow_19|georock_Geo Rock 1_Basic": {
-    "locationType": "GeoRockLocation",
-    "item": "georock_Geo Rock 1_Basic",
-    "scene": "Shadow_19",
-    "positionInSceneX": 40.05,
-    "positionInSceneY": 87.09,
-    "PositionInScene": {
-      "x": 40.05,
-      "y": 87.09
-    }
-  },
-  "Shadow_19|georock_Geo Rock 3_Basic": {
-    "locationType": "GeoRockLocation",
-    "item": "georock_Geo Rock 3_Basic",
-    "scene": "Shadow_19",
-    "positionInSceneX": 36.4,
-    "positionInSceneY": 87.41,
-    "PositionInScene": {
-      "x": 36.4,
-      "y": 87.41
     }
   },
   "Shadow_20|Wood Witch Item": {
@@ -866,28 +580,6 @@
     "PositionInScene": {
       "x": 17.713,
       "y": 23.86
-    }
-  },
-  "Shadow_20|georock_Geo Rock 1_Basic": {
-    "locationType": "GeoRockLocation",
-    "item": "georock_Geo Rock 1_Basic",
-    "scene": "Shadow_20",
-    "positionInSceneX": 169.965,
-    "positionInSceneY": 2.96016264,
-    "PositionInScene": {
-      "x": 169.965,
-      "y": 2.96016264
-    }
-  },
-  "Shadow_20|georock_Geo Rock 3_Basic": {
-    "locationType": "GeoRockLocation",
-    "item": "georock_Geo Rock 3_Basic",
-    "scene": "Shadow_20",
-    "positionInSceneX": 173.33,
-    "positionInSceneY": 3.34867239,
-    "PositionInScene": {
-      "x": 173.33,
-      "y": 3.34867239
     }
   },
   "Shadow_Weavehome|Broken SilkShot": {
@@ -1088,17 +780,6 @@
       "y": 84.21512
     }
   },
-  "Shellwood_26|georock_Geo Rock 3_Basic": {
-    "locationType": "GeoRockLocation",
-    "item": "georock_Geo Rock 3_Basic",
-    "scene": "Shellwood_26",
-    "positionInSceneX": 98.604,
-    "positionInSceneY": 75.319,
-    "PositionInScene": {
-      "x": 98.604,
-      "y": 75.319
-    }
-  },
   "Coral_02|Crest Socket Unlocker": {
     "locationType": "CollectableItemPickupLocation",
     "item": "Crest Socket Unlocker",
@@ -1119,17 +800,6 @@
     "PositionInScene": {
       "x": 38.64,
       "y": 5.27749872
-    }
-  },
-  "Coral_12|georock_Geo Rock Deepnest_Basic": {
-    "locationType": "GeoRockLocation",
-    "item": "georock_Geo Rock Deepnest_Basic",
-    "scene": "Coral_12",
-    "positionInSceneX": 86.77,
-    "positionInSceneY": 33.59,
-    "PositionInScene": {
-      "x": 86.77,
-      "y": 33.59
     }
   },
   "Coral_23|Crest Socket Unlocker": {
@@ -1746,39 +1416,6 @@
     "PositionInScene": {
       "x": 19.41,
       "y": 44.2774925
-    }
-  },
-  "Aqueduct_08|georock_Geo Rock 1 (1)_Basic": {
-    "locationType": "GeoRockLocation",
-    "item": "georock_Geo Rock 1 (1)_Basic",
-    "scene": "Aqueduct_08",
-    "positionInSceneX": 47.27,
-    "positionInSceneY": 4.08,
-    "PositionInScene": {
-      "x": 47.27,
-      "y": 4.08
-    }
-  },
-  "Aqueduct_08|georock_Geo Rock 1_Basic": {
-    "locationType": "GeoRockLocation",
-    "item": "georock_Geo Rock 1_Basic",
-    "scene": "Aqueduct_08",
-    "positionInSceneX": 36.23,
-    "positionInSceneY": 4.08,
-    "PositionInScene": {
-      "x": 36.23,
-      "y": 4.08
-    }
-  },
-  "Aqueduct_08|georock_Geo Rock 3_Basic": {
-    "locationType": "GeoRockLocation",
-    "item": "georock_Geo Rock 3_Basic",
-    "scene": "Aqueduct_08",
-    "positionInSceneX": 39.37,
-    "positionInSceneY": 4.31755352,
-    "PositionInScene": {
-      "x": 39.37,
-      "y": 4.31755352
     }
   },
   "Shadow_Bilehaven_Room|Snare Soul Swamp Bug": {

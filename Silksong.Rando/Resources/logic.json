@@ -1,161 +1,175 @@
 {
 	"nodes": {
-		"Tut": {
+		"Start": {
 			"edges": [
-				{ "to": "Tut.Silkspear", "req": "ability_Silkspear" }
+				{"to": "PostSilkspear", "req":"ability_Silkspear"}
 			],
 			"checks": [
+				"Tut_02|Mossberry",
 				"Tut_01|Rosary_Set_Frayed",
-				"Tut_01|shardrock_Shell Shard Fossil Large Uni",
-				"Tut_01b|shardrock_Shell Shard Fossil Tiny Egg",
-				"Tut_01b|shardrock_Shell Shard Fossil Mid (1)",
-				"Tut_01b|shardrock_Shell Shard Fossil Tiny Front",
-				"Tut_02|shardrock_Shell Shard Fossil Tiny Bumpy",
-				"Tut_02|shardrock_Shell Shard Fossil Tiny Egg",
-				"Tut_02|shardrock_Shell Shard Fossil Tiny Front",
-				"Bonetown|Weaver Totem Bonetown_upper_room",
-				"Aspid_01|georock_Geo Rock 2_Basic",
+				"Tut_01b|Mossberry",
+
+
 				"Aspid_01|Seal Chit Aspid_01",
+
 				"Mosstown_02|ability_Silkspear",
-				"Bone_04|shardrock_Shell Shard Fossil Tiny Front (3)",
-				"Bone_04|shardrock_Shell Shard Fossil Tiny Front (2)",
-				"Bone_04|georock_Geo Rock 3_Basic",
-				"Bone_01|shardrock_Shell Shard Fossil Tiny Egg",
-				"Bone_01c|georock_Geo Rock 3_Basic",
-				"Bone_01c|georock_Geo Rock 1 (1)_Basic",
+
 				"Bone_17|Bone Necklace",
 				"Bone_10|Rosary_Set_Frayed",
-				"Bone_14|shardrock_Shell Shard Fossil Tiny Bumpy",
-				"Bone_14|shardrock_Shell Shard Fossil Tiny Front",
-				"Bone_14|georock_Geo Rock 1_Basic"
+
+				"Bonetown|Mossberry"
 			]
 		},
-		"Tut.Silkspear": {
+		"PostSilkspear": {
 			"edges": [
-				{ "to": "Tut" },
-				{ "to": "Docks" }
+				{"to":"Sprint", "req":"ability_Sprint"}
 			],
 			"checks": [
 				"Mosstown_02|Rosary_Set_Frayed",
-				"Bone_07|shardrock_Shell Shard Fossil Large Uni",
-				"Bone_08|georock_Geo Rock 1_Basic",
-				"Bone_08|georock_Geo Rock 2_Basic",
+
+				"Bone_05b|Mossberry",
+
 				"Bone_12|Straight Pin",
-				"Ant_02|shardrock_Shell Shard Fossil Tiny Egg",
-				"Ant_02|shardrock_Shell Shard Fossil Tiny Front"
-			]
-		},
-		"Docks": {
-			"edges": [
-				{ "to": "Tut.Silkspear" },
-				{ "to": "Tut" },
-				{ "to": "FarFields", "req":"ability_Sprint" }
-			],
-			"checks": [
 				"Bone_East_04b|Rosary_Set_Frayed",
-				"Bone_East_05|ability_Sprint",
+
 				"Room_Forge|Shard Pouch",
-				"Bone_East_13|shardrock_Shell Shard Fossil Dock (2)",
-				"Bone_East_13|shardrock_Shell Shard Fossil Dock (1)",
-				"Bone_East_13|shardrock_Shell Shard Fossil Dock (3)"
+
+				"Bone_East_05|ability_Sprint"
 			]
 		},
-		"FarFields": {
+		"Sprint": {
 			"edges": [
-				{ "to": "Tut.Silkspear" },
-				{ "to": "Tut" },
-				{ "to": "Docks" },
-				{ "to": "Grey" }
+				{"to":"PostBrolly", "req":"Brolly"}
 			],
 			"checks": [
-				"Bone_East_02b|shardrock_Shell Shard Fossil Mid",
+				"Bonetown|Weaver Totem Bonetown_upper_room",
 				"Dock_03b|Bell Bind",
-				"Bone_East_14|Bone Record Bone_East_14",
-				"Bone_East_14|Rosary_Set_Small",
-				"Bone_East_08|georock_Geo Rock 2_Basic"
+				"Bone_East_Umbrella|Brolly"
 			]
 		},
-		"Grey": {
+		"PostBrolly": {
 			"edges": [
-				{ "to": "Tut.Silkspear" },
-				{ "to": "Tut" },
-				{ "to": "Docks" },
-				{ "to": "FarFields" },
-				{ "to": "Shell" }
+				{"to":"PostWalljump", "req":"ability_Walljump"}
 			],
 			"checks": [
+				"Bone_East_14|Bone Record Bone_East_14",
+				"Greymoor_15|Rosary_Set_Frayed",
 				"Greymoor_15b|Tri Pin",
 				"Greymoor_15b|Rosary_Set_Frayed",
 				"Greymoor_22|ability_SilkSphere",
-				"Greymoor_21|Bone Record Greymoor_flooded_corridor",
-				"Greymoor_16|shardrock_Shell Shard Fossil Tiny Bumpy",
-				"Greymoor_16|Crest Socket Unlocker",
-				"Greymoor_16|shardrock_Shell Shard Fossil Tiny Egg (1)",
-				"Greymoor_06|georock_Geo Rock Deepnest_Basic",
-				"Greymoor_07|georock_Geo Rock Deepnest_Basic",
 				"Greymoor_05|Shard Pouch",
-				"Greymoor_05|georock_Geo Rock Deepnest_Basic"
+				"Greymoor_16|Crest Socket Unlocker",
 
-			]
-		},
-		"Shell": {
-			"edges": [
-				{ "to": "Grey" },
-				{ "to": "ShellPostWalljump", "req": "ability_Walljump" }
-			],
-			"checks": [
-				"Belltown_Room_shellwood|Harpoon",
-				"Shellwood_01|shardrock_Shell Shard Fossil Tiny Bumpy (1)",
-				"Shellwood_01|shardrock_Shell Shard Fossil Tiny Bumpy",
 				"Shellwood_01|Rosary_Set_Frayed",
-				"Shellwood_01|shardrock_Shell Shard Fossil Tiny Front",
-				"Shellwood_10|ability_Walljump"
+				"Belltown_Room_shellwood|Harpoon",
 
+				"Shellwood_02|Shell Flower",
+				"Shellwood_20|Shell Flower",
+				"Shellwood_10|ability_Walljump",
+				"Shellwood_10|Shell Flower"
 			]
 		},
-		"ShellPostWalljump": {
+		"PostWalljump": {
 			"edges": [
-				{ "to": "Shell" },
-				{ "to": "Sinner" }
+				{"to":"PostNeedolin","req":"ability_Needolin"}
 			],
 			"checks": [
-				"Shellwood_26|georock_Geo Rock 3_Basic",
+				"Shellwood_26|Shell Flower",
 				"Shellwood_13|Shard Pouch",
-				"Belltown_04|Shiny Bell Goomba",
-				
-				
+				"Shellwood_15|Shell Flower",
+				"Shellwood_01|Shell Flower",
+				"Belltown_Shrine|ability_Needolin",
+
 				"Wisp_03|Rosary_Set_Frayed",
 				"Greymoor_12|Shard Pouch",
-				"Greymoor_01|georock_Geo Rock Deepnest_Basic",
-				"Greymoor_17|shardrock_Shell Shard Fossil Tiny Egg (3)",
-				"Greymoor_17|shardrock_Shell Shard Fossil Tiny Egg (1)",
-				"Greymoor_17|shardrock_Shell Shard Fossil Tiny Front (1)",
-				"Greymoor_17|shardrock_Shell Shard Fossil Tiny Front",
-				"Greymoor_17|shardrock_Shell Shard Fossil Tiny Front (2)"
 
-				
+				"Dust_01|Rosary_Set_Frayed",
+				"Dust_Barb|Barbed Wire",
+				"Dust_06|Shard Pouch",
+
+				"Shadow_20|Crest Socket Unlocker",
+
+				"Coral_02|Crest Socket Unlocker",
+				"Coral_03|Rosary_Set_Frayed",
+
+
 			]
 		},
-		"Sinner": {
+		"PostNeedolin": {
 			"edges": [
-				{ "to": "ShellPostWalljump" }
+				{"to":"Act2"}
 			],
 			"checks": [
-				"Dust_01|Rosary_Set_Frayed",
-				"Dust_02|georock_Geo Rock Deepnest_Basic",
-				"Dust_03|shardrock_Shell Shard Fossil Tiny Bumpy",
-				"Dust_03|shardrock_Shell Shard Fossil Tiny Egg",
-				"Dust_03|shardrock_Shell Shard Fossil Tiny Front",
-				"Dust_Barb|Barbed Wire",
-				"Dust_04|shardrock_Shell Shard Fossil Tiny Bumpy (1)",
-				"Dust_04|shardrock_Shell Shard Fossil Tiny Front",
-				"Dust_10|georock_Geo Rock Deepnest_Basic",
-				"Dust_06|Shard Pouch"
+				"Shadow_Weavehome|Broken SilkShot",
+				"Bone_East_Weavehome|Sprintmaster",
 
+				"Weave_12|Weavehome Map",
+				"Weave_03|Mossberry"
+			]
+		},
+		"Act2": {
+			"edges": [
+				{"to":"Ward","req":"Ward Key"},
+				{"to":"VaultMelody","req":"Librarian Melody Cylinder"},
+				{"to":"PostHarpoon","req":"ability_HarpoonDash"}
+			],
+			"checks": [
+				"Song_07|Rosary_Set_Medium",
+				"Song_04|Rosary_Set_Large",
+				"Song_09|Rosary_Set_Medium",
+				"Song_Enclave|Ward Key",
+				"Library_08|Psalm Cylinder Librarian",
+				"Library_03|Pale_Oil",
+				"Library_13|Dazzle Bind",
 
+				"Under_12|Rosary_Set_Frayed",
+				"Under_07c|Rosary_Set_Frayed",
+				"Under_16|Bone Record Understore_Map_Room",
+				"Under_16|Understore Map",
+				"Under_14|Screw Attack",
+				"Under_03|Shard Pouch",
+
+				"Under_18|ability_HarpoonDash",
+
+				"Bellway_City|Crest Socket Unlocker",
+				"Library_12|Shard Pouch",
+				"Library_10|Librarian Melody Cylinder",
+				"Library_08|Crest Socket Unlocker"
+			]
+		},
+		"VaultMelody": {
+			"edges": [
+
+			],
+			"checks": [
+				"Library_08|melody_Vault"
+			]
+		},
+		"Ward": {
+			"edges": [
+
+			],
+			"checks": [
+				"Ward_02b|Seal Chit Ward Corpse",
+				"Ward_03|Quickbind"
+			]
+		},
+		"PostHarpoon": {
+			"edges": [
+
+			],
+			"checks": [
+				"Under_18|Shard Pouch",
+				"Cog_09|melody_Architect",
+				"Hang_12|melody_Conductor",
+				"Hang_16|Rosary_Set_Frayed",
+				"Hang_10|Psalm Cylinder Hang",
+				"Library_09|Psalm Cylinder Library Roof",
+
+				"Shadow_20|Wood Witch Item"
 			]
 		}
 	},
 
-	"start": "Tut"
+	"start": "Start"
 }

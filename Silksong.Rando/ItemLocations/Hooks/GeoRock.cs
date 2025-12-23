@@ -7,7 +7,7 @@ class GeoRock_Start_Patch
 {
     public static void Prefix(GeoRock __instance)
     {
-        GeoRockLocation loc = new GeoRockLocation(__instance);
-        loc.AddToCurrentScene();
+        //GeoRockLocation loc = new GeoRockLocation(__instance);
+        //loc.AddToCurrentScene();
     }
 }
