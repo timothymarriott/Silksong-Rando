@@ -73,6 +73,7 @@ jobs:
       id: attest
       uses: actions/attest-build-provenance@v3
       if: github.event_name == 'push' && steps.needs-release.outputs.exists == 'false'
+      continue-on-error: true
       with:
         subject-path: |
           thunderstore/dist/*.zip
