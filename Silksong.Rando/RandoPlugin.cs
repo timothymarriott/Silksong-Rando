@@ -255,7 +255,7 @@ public class RandoPlugin : BaseUnityPlugin, ISaveDataMod<SaveData>
         if (target.EndsWith(" Map"))
         {
             builder.SetDisplayName(target);
-            builder.SetIcon("Icons/Item/Map");
+            builder.SetIcon("Map");
         }
         else
         {
@@ -268,7 +268,7 @@ public class RandoPlugin : BaseUnityPlugin, ISaveDataMod<SaveData>
         if (target == "Brolly")
         {
             builder.SetDisplayName("Float Cloak");
-            builder.SetIcon("Icons/Skill/DriftersCloak");
+            builder.SetIcon("DriftersCloak");
             callback = item =>
             {
                 GM.playerData.hasBrolly = true;
@@ -278,7 +278,7 @@ public class RandoPlugin : BaseUnityPlugin, ISaveDataMod<SaveData>
         if (target == "Faydown")
         {
             builder.SetDisplayName("Faydown Cloak");
-            builder.SetIcon("Icons/Skill/FaydownCloak");
+            builder.SetIcon("FaydownCloak");
             callback = item =>
             {
                 GM.playerData.hasDoubleJump = true;
@@ -288,7 +288,7 @@ public class RandoPlugin : BaseUnityPlugin, ISaveDataMod<SaveData>
         if (target == "melody_Vault")
         {
             builder.SetDisplayName("Vaultkeeper's Melody");
-            builder.SetIcon("Icons/Melody/VaultkeepersMelody");
+            builder.SetIcon("VaultkeepersMelody");
             callback = item =>
             {
                 GM.playerData.HasMelodyLibrarian = true;
@@ -297,7 +297,7 @@ public class RandoPlugin : BaseUnityPlugin, ISaveDataMod<SaveData>
         if (target == "melody_Conductor")
         {
             builder.SetDisplayName("Conductor's Melody");
-            builder.SetIcon("Icons/Melody/ConductorsMelody");
+            builder.SetIcon("ConductorsMelody");
             callback = item =>
             {
                 GM.playerData.HasMelodyConductor = true;
@@ -306,7 +306,7 @@ public class RandoPlugin : BaseUnityPlugin, ISaveDataMod<SaveData>
         if (target == "melody_Architect")
         {
             builder.SetDisplayName("Architects's Melody");
-            builder.SetIcon("Icons/Melody/ArchitectsMelody");
+            builder.SetIcon("ArchitectsMelody");
             callback = item =>
             {
                 GM.playerData.HasMelodyArchitect = true;
