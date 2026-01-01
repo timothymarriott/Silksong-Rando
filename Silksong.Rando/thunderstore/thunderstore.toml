@@ -24,7 +24,7 @@ DerVorce-SkongGamemodes = "1.2.0"
 # by other build scripts
 [build]
 icon = "./icon.png"
-readme = "../README.md"
+readme = "../../README.md"
 outdir = "./dist"
 
 [[build.copy]]

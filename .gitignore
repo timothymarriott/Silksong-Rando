@@ -53,3 +53,4 @@ CodeCoverage/
 TestResult.xml
 nunit-*.xml
 Silksong-Rando.sln.DotSettings.user
+/.idea
