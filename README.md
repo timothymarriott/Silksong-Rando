@@ -52,6 +52,10 @@ When in the map screen, press `T` to switch the map mode.
   - [ ] Quests
   - [ ] Mask shards
   - [ ] Spool fragment
+  - [ ] Fleas
+  - [ ] Shops
+  - [ ] Bell Stations
+  - [ ] Ventrica Stations
 - [ ] Switch to [Randomizer Core](https://github.com/homothetyhk/RandomizerCore) for logic
 - [ ] Add ability to toggle location types
 - [ ] Menu when creating a save to configure settings

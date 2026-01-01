@@ -58,7 +58,7 @@
 				"Greymoor_15b|Tri Pin",
 				"Greymoor_15b|Rosary_Set_Frayed",
 				"Greymoor_22|ability_SilkSphere",
-				"Greymoor_05|Shard Pouch",
+				
 				"Greymoor_16|Crest Socket Unlocker",
 
 				"Shellwood_01|Rosary_Set_Frayed",
@@ -78,6 +78,7 @@
 				{"to":"PostNeedolin","req":"ability_Needolin"}
 			],
 			"checks": [
+				"Greymoor_05|Shard Pouch",
 				"Shellwood_26|Shell Flower",
 				"Shellwood_13|Shard Pouch",
 				"Shellwood_15|Shell Flower",
