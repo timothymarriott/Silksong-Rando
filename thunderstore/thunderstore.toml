@@ -31,10 +31,9 @@ outdir = "./dist"
 source = "./temp"
 target = "/"
 
-# additional files and directories can be added to the package like this:
-# [[build.copy]]
-# source = "./CHANGELOG.md"
-# target = "/"
+[[build.copy]]
+source = "./LICENSE.txt"
+target = "/"
 
 
 [publish]
