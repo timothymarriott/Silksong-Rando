@@ -6,6 +6,7 @@ using System.IO;
 using System.Linq;
 using BepInEx;
 using BepInEx.Logging;
+using Generated;
 using GlobalEnums;
 using HarmonyLib;
 using Newtonsoft.Json;
@@ -27,7 +28,7 @@ using SkongGamemodes;
 
 namespace Silksong.Rando;
 
-[BepInPlugin(Id, Name, Version)]
+[BepInPlugin(Id, Name, BuildConstants.Version)]
 [BepInDependency("org.silksong-modding.datamanager")]
 [BepInDependency("dervorce.hkss.gamemodemanager")]
 [BepInDependency("io.github.flibber-hk.filteredlogs", BepInDependency.DependencyFlags.SoftDependency)]
@@ -38,7 +39,6 @@ public class RandoPlugin : BaseUnityPlugin, ISaveDataMod<SaveData>
     
     public const string Id = "com.lem00ns.Silksong.Rando";
     public const string Name = "Randomiser";
-    public const string Version = "0.1.2";
     
     public static RandoPlugin instance;
     
@@ -49,6 +49,11 @@ public class RandoPlugin : BaseUnityPlugin, ISaveDataMod<SaveData>
     public RandoMap map;
     
     public Logic.LogicFile logic;
+
+    public long versionStatus = 0;
+    private string versionStatusText;
+    private bool versionOutOfDate;
+    private string latestVersion;
     
     SaveData? ISaveDataMod<SaveData>.SaveData
     {
@@ -96,6 +101,14 @@ public class RandoPlugin : BaseUnityPlugin, ISaveDataMod<SaveData>
         
         MossberryLocation.InstallHooks();
         CollectableItemPickupLocation.InstallHooks();
+        
+        VersionInfo.FetchInfo(((status, statusText, outOfDate, latest) =>
+        {
+            latestVersion = latest;
+            versionOutOfDate = outOfDate;
+            versionStatusText = statusText;
+            versionStatus = status;
+        }));
 
     }
 
@@ -111,15 +124,41 @@ public class RandoPlugin : BaseUnityPlugin, ISaveDataMod<SaveData>
 
         GUI.skin.font = ModResources.GetFont();
 
-        List<string> DebugTexts = new List<string>();
-        
-        
-        DebugTexts.Add("Randomiser by Lem00ns - alpha v" + Version + " - Expect Bugs!");
+        List<(string txt, Color color)> DebugTexts = new();
 
+        void AddColoredLine(string txt, Color color)
+        {
+            DebugTexts.Add((txt, color));
+        }
+
+        void AddLine(string txt)
+        {
+            AddColoredLine(txt, Color.white);
+        }
+        
+        AddLine("Randomiser by Lem00ns - alpha v" + BuildConstants.Version + " - Expect Bugs!");
+
+
+        if (versionStatus == 0)
+        {
+            AddLine("Fetching latest version info...");
+        } else if (versionStatus == 200)
+        {
+            if (versionOutOfDate)
+            {
+                AddColoredLine($"Randomiser out of date, latest version is {latestVersion} your version is {BuildConstants.Version} please update the mod.", Color.red);
+            }
+        }
+        else
+        {
+            AddColoredLine(versionStatusText, Color.red);
+        }
+        
+        
 
         if (ShowSceneDebug)
         {
-            DebugTexts.Add(GM.GetSceneNameString());
+            AddLine(GM.GetSceneNameString());
         }
         
         if (PlayerData.instance != null)
@@ -145,20 +184,22 @@ public class RandoPlugin : BaseUnityPlugin, ISaveDataMod<SaveData>
 
                 if (nearest != null)
                 {
-                    DebugTexts.Add($"{nearest.name} - {nearestDistance}m");
+                    AddLine($"{nearest.name} - {nearestDistance}m");
                 }
             }
 
             
             if (PlayerData.instance.isInventoryOpen)
             {
-                DebugTexts.Add($"{map.mode} map.");
+                AddLine($"{map.mode} map.");
             }
         }
 
         for (int i = 0; i < DebugTexts.Count; i++)
         {
-            GUI.Label(new Rect(10f, Screen.height - (40f + i * 30), 100, 100), DebugTexts[i], ModResources.GetLabelStyle());
+            var style = ModResources.GetLabelStyle();
+            GUI.contentColor = DebugTexts[i].color;
+            GUI.Label(new Rect(10f, Screen.height - (40f + i * 30), 100, 100), DebugTexts[i].txt, style);
         }
     }
     

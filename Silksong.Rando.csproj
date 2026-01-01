@@ -71,6 +71,13 @@
         </Reference>
     </ItemGroup>
 
+    <Target Name="GenerateConstants" BeforeTargets="BeforeCompile">
+        <WriteLinesToFile
+                File="BuildConstants.g.cs"
+                Lines="namespace Generated { public static class BuildConstants { public const string Version = &quot;$(Version)&quot;%3b public const string GitHubRepo = &quot;$(GitHubRepo)&quot;%3b } }"
+                Overwrite="true" />
+    </Target>
+
     <ItemGroup>
         <Folder Remove="thunderstore/temp;thunderstore/dist"/>
         <None Include="README.md" Pack="True" PackagePath="README.md"/>
