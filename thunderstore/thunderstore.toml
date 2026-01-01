@@ -32,7 +32,7 @@ source = "./temp"
 target = "/"
 
 [[build.copy]]
-source = "./LICENSE.txt"
+source = "../LICENSE.txt"
 target = "/"
 
 
