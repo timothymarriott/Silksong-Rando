@@ -63,5 +63,19 @@ class PlayMakerFSM_Start_Patch
             loc.AddToCurrentScene();
         }
 
+        if (__instance.name == "DJ Get Sequence")
+        {
+            var loc = new DJLocation(__instance);
+            loc.AddToCurrentScene();
+        }
+
+        /*
+        if (__instance.fsm.name == "Heart Container Control")
+        {
+            var loc = new HeartPieceLocation(__instance);
+            loc.AddToCurrentScene();
+            loc.SetReplacement("Brolly");
+        }
+        */
     }
 }

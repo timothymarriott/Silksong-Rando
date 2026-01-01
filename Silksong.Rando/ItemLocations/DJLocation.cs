@@ -9,25 +9,41 @@ namespace Silksong.Rando.Locations;
 
 
 
-public class BrollyLocation : ItemLocation
+public class DJLocation : ItemLocation
 {
     private PlayMakerFSM fsm;
-    public BrollyLocation(PlayMakerFSM fsm)
+    public DJLocation(PlayMakerFSM fsm)
     {
         this.fsm = fsm;
     }
 
     public override string GetItem()
     {
-        return "Brolly";
+        return "Faydown";
     }
 
     public override void SetItem(string item)
     {
+
+        var checkState = fsm.GetState("Has DJ?");
+        checkState.RemoveAction(0);
+        checkState.AddLambdaMethod((fin) =>
+        {
+            if (IsChecked())
+            {
+                fsm.Fsm.Event(checkState.GetTransitionEvent(0));
+            }
+            else
+            {
+                fsm.Fsm.Event(checkState.GetTransitionEvent(1));
+            }
+            
+        });
+
         var state = fsm.GetState("Msg");
-        state.RemoveAction(3);
-        state.RemoveAction(2);
-        state.RemoveAction(1);
+        state.RemoveAction(13);
+        state.RemoveAction(12);
+        state.RemoveAction(11);
         state.AddAction(new Wait()
         {
             time = 0.5f,
@@ -38,9 +54,9 @@ public class BrollyLocation : ItemLocation
             AwardCollectable();
             fin();
         });
-        state.RemoveTransitionsTo("Fade Up");
-        state.AddTransition("FINISHED", "Fade Up");
-            
+        state.RemoveTransitionsTo("Fade Back Pause");
+        state.AddTransition("FINISHED", "Fade Back Pause");
+
     }
 
     public override GameObject GetObj()

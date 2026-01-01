@@ -30,6 +30,7 @@ namespace Silksong.Rando;
 [BepInPlugin(Id, Name, Version)]
 [BepInDependency("org.silksong-modding.datamanager")]
 [BepInDependency("dervorce.hkss.gamemodemanager")]
+[BepInDependency("io.github.flibber-hk.filteredlogs", BepInDependency.DependencyFlags.SoftDependency)]
 public class RandoPlugin : BaseUnityPlugin, ISaveDataMod<SaveData>
 {
     
@@ -45,7 +46,8 @@ public class RandoPlugin : BaseUnityPlugin, ISaveDataMod<SaveData>
 
     public ModResources resources;
     public SceneLoader sceneLoader;
-
+    public RandoMap map;
+    
     public Logic.LogicFile logic;
     
     SaveData? ISaveDataMod<SaveData>.SaveData
@@ -60,18 +62,26 @@ public class RandoPlugin : BaseUnityPlugin, ISaveDataMod<SaveData>
     public List<CollectableItemPickup> PickupsToIgnore = new();
 
     public GameModeManager.GameModeData GameMode;
+
+    public Dictionary<string, SavedItem> AddressableItems = new();
     
     
     
     private void Awake()
     {
         instance = this;
+        FilteredLogs.API.ApplyFilter((args =>
+        {
+            return args.Source.SourceName == "Unity Log" || args.Source == Logger;
+        }));
         
+        #if DEBUG
         ConsoleMover.Move();
+        #endif
         resources = ModResources.LoadResources(Logger);
         GameScenes.Load();
         sceneLoader = SceneLoader.Setup();
-        gameObject.AddComponent<RandoMap>();
+        map = gameObject.AddComponent<RandoMap>();
         gameObject.AddComponent<LocationFinder>();
         gameObject.AddComponent<SceneDumper>();
 
@@ -83,11 +93,15 @@ public class RandoPlugin : BaseUnityPlugin, ISaveDataMod<SaveData>
             "Basic randomiser"
         );
         
+        MossberryLocation.InstallHooks();
+        CollectableItemPickupLocation.InstallHooks();
+
     }
 
     private void Start()
     {
         new Harmony(Id).PatchAll(typeof(RandoPlugin).Assembly);
+        
     }
 
     private void OnGUI()
@@ -95,7 +109,33 @@ public class RandoPlugin : BaseUnityPlugin, ISaveDataMod<SaveData>
         if (!GM) return;
 
         GUI.skin.font = ModResources.GetFont();
-        GUI.Label(new Rect(0, Screen.height - 30f, 100, 100), GM.GetSceneNameString(), ModResources.GetLabelStyle());
+        GUI.Label(new Rect(10f, Screen.height - 40f, 100, 100), GM.GetSceneNameString(), ModResources.GetLabelStyle());
+        TransitionPoint? nearest = null;
+        float nearestDistance = float.MaxValue;
+        foreach (var transitionPoint in TransitionPoint.TransitionPoints)
+        {
+            if (transitionPoint.gameObject.scene.name == GM.GetSceneNameString())
+            {
+                float dist = Vector2.Distance(transitionPoint.transform.position, GM.hero_ctrl.transform.position);
+                if (dist < nearestDistance)
+                {
+                    nearestDistance = dist;
+                    nearest = transitionPoint;
+                }
+            }
+        }
+        if (nearest != null)
+            GUI.Label(new Rect(10f, Screen.height - 70f, 100, 100), $"{nearest.name} - {nearestDistance}m", ModResources.GetLabelStyle());
+
+        if (PlayerData.instance != null)
+        {
+            if (PlayerData.instance.isInventoryOpen)
+            {
+                GUI.Label(new Rect(10f, Screen.height - 100f, 100, 100), $"{map.mode} map.", ModResources.GetLabelStyle());
+    
+            }
+        }
+        
     }
     
     private void Update()
@@ -105,27 +145,71 @@ public class RandoPlugin : BaseUnityPlugin, ISaveDataMod<SaveData>
             GM = GameManager.instance;
         }
 
-        if (Input.GetKeyDown(KeyCode.U))
+        if (Input.GetKeyDown(KeyCode.B) && Input.GetKey(KeyCode.F11))
         {
-            foreach (var collectableItem in CollectableItemManager.Instance.masterList)
+            Dictionary<string, List<string>> bundles = new Dictionary<string, List<string>>();
+            foreach (var b in AssetBundle.GetAllLoadedAssetBundles())
             {
                 try
                 {
-                    Log.LogInfo(collectableItem.GetDisplayName(CollectableItem.ReadSource.Inventory).ToString());
-                    Log.LogInfo("  - GetPopup" + collectableItem.GetIcon(CollectableItem.ReadSource.GetPopup).rect.size);
-                    Log.LogInfo("  - Inventory" + collectableItem.GetIcon(CollectableItem.ReadSource.Inventory).rect.size);
-                    Log.LogInfo("  - Tiny" + collectableItem.GetIcon(CollectableItem.ReadSource.Tiny).rect.size);
+                    Log.LogInfo(b.name);
+                    bundles.Add(b.name, b.GetAllAssetNames().ToList());
+                    foreach (var allAssetName in b.GetAllAssetNames())
+                    {
+                        Log.LogInfo($"  - {allAssetName}");
+                    }
+                
+
+                    //if (res)
+                    //    return bundle;
+
                 }
                 catch
                 {
-                    
                 }
-                
             }
+        
+            File.WriteAllText(Application.persistentDataPath + "/rando/bundles.json", JsonConvert.SerializeObject(bundles, Formatting.Indented));
+
         }
         
     }
+    
+    AssetBundle FindBundleContaining(string req)
+    {
+        foreach (var bundle in AssetBundle.GetAllLoadedAssetBundles())
+        {
+            try
+            {
+                
+                foreach (var asset in bundle.GetAllAssetNames())
+                {
+                    if (asset.Contains(req))
+                    {
+                        return bundle;
+                    }
+                }
 
+            }
+            catch
+            {
+            }
+        }
+        return null;
+    }
+
+    public void LoadFakeCollectables()
+    {
+        
+        AddressableItems.Clear();
+
+        AssetBundle bundle = FindBundleContaining("Fake Collectables");
+        var collectables = bundle.LoadAllAssets<FakeCollectable>();
+        foreach (var fakeCollectable in collectables)
+        {
+            AddressableItems.Add(fakeCollectable.name, fakeCollectable);
+        }
+    }
     private void OnDestroy()
     {
         if (instance == this)
@@ -133,42 +217,44 @@ public class RandoPlugin : BaseUnityPlugin, ISaveDataMod<SaveData>
             instance = null;
         }
     }
-    
-    public static SavedItem GetCollectableItem(string target)
+
+    public List<(string target, string check, SavedItem itm)> CollectableCache = new();
+
+    private static SavedItem CreateCollectableItem(string target, string check)
     {
         if (CollectableItemManager.Instance.masterList.GetByName(target) != null)
         {
-            return CollectableItemManager.Instance.masterList.GetByName(target);
+            return RandoItem.Wrap(target, check, CollectableItemManager.Instance.masterList.GetByName(target));
         }
 
         if (ToolItemManager.Instance.toolItems.GetByName(target) != null)
         {
-            return ToolItemManager.Instance.toolItems.GetByName(target);
+            return RandoItem.Wrap(target, check, ToolItemManager.Instance.toolItems.GetByName(target));
         }
 
         if (CollectableRelicManager.GetRelic(target) != null)
         {
-            return CollectableRelicManager.GetRelic(target);
+            return RandoItem.Wrap(target, check, CollectableRelicManager.GetRelic(target));
+        }
+
+        if (instance.AddressableItems.ContainsKey(target))
+        {
+            return RandoItem.Wrap(target, check, instance.AddressableItems[target]);
         }
         
         if (target.StartsWith("georock_"))
         {
-            return CollectableItemManager.Instance.masterList.GetByName("Rosary_Set_Small");
-        }
-        
-
-        if (target.StartsWith("shardrock_"))
-        {
-            return CollectableItemManager.Instance.masterList.GetByName("Shard Pouch");
+            return RandoItem.Wrap(target, check, CollectableItemManager.Instance.masterList.GetByName("Rosary_Set_Small"));
         }
 
-        var builder = RandoItemBuilder.Create(target, target);
+        var builder = RandoItemBuilder.Create(target, check);
         builder.SetDisplayName("Invalid Item");
         builder.SetDescription("Internal Item for the randomiser");
         builder.SetMaxAmount(int.MaxValue);
         
         if (target.EndsWith(" Map"))
         {
+            builder.SetDisplayName(target);
             builder.SetIcon("Icons/Item/Map");
         }
         else
@@ -189,6 +275,16 @@ public class RandoPlugin : BaseUnityPlugin, ISaveDataMod<SaveData>
             };
         }
 
+        if (target == "Faydown")
+        {
+            builder.SetDisplayName("Faydown Cloak");
+            builder.SetIcon("Icons/Skill/FaydownCloak");
+            callback = item =>
+            {
+                GM.playerData.hasDoubleJump = true;
+            };
+        }
+        
         if (target == "melody_Vault")
         {
             builder.SetDisplayName("Vaultkeeper's Melody");
@@ -224,13 +320,13 @@ public class RandoPlugin : BaseUnityPlugin, ISaveDataMod<SaveData>
             switch (ability)
             {
                 case WeaverSpireAbility.Silkspear:
-                    return ToolItemManager.GetToolByName("Silk Spear");
+                    return RandoItem.Wrap(target, check, ToolItemManager.GetToolByName("Silk Spear"));
                 case WeaverSpireAbility.RuneBomb:
-                    return ToolItemManager.GetToolByName("Silk Bomb");
+                    return RandoItem.Wrap(target, check, ToolItemManager.GetToolByName("Silk Bomb"));
                 case WeaverSpireAbility.SilkDash:
-                    return ToolItemManager.GetToolByName("Silk Charge");
+                    return RandoItem.Wrap(target, check, ToolItemManager.GetToolByName("Silk Charge"));
                 case WeaverSpireAbility.SilkSphere:
-                    return ToolItemManager.GetToolByName("Thread Sphere");
+                    return RandoItem.Wrap(target, check, ToolItemManager.GetToolByName("Thread Sphere"));
                 case WeaverSpireAbility.HarpoonDash:
                     builder.SetDisplayName("Clawline");
                     builder.SetIcon("Icon_SS_Clawline");
@@ -281,6 +377,24 @@ public class RandoPlugin : BaseUnityPlugin, ISaveDataMod<SaveData>
 
         return builder.Build();
     }
+    
+    public static SavedItem GetCollectableItem(string target, string check)
+    {
+
+        foreach (var itm in instance.CollectableCache)
+        {
+            if (itm.target == target && itm.check == check)
+            {
+                return itm.itm;
+            }
+        }
+        
+        var res = CreateCollectableItem(target, check);
+        
+        instance.CollectableCache.Add((target, check, res));
+        
+        return res;
+    }
 
 
     
@@ -308,6 +422,12 @@ public class SaveData
         }
     }
 
+    public static void Clear()
+    {
+        Instance = new();
+    }
+
     public int RandoSeed { get; set; } = -1;
     public Dictionary<string, string> ItemReplacements { get; set; } = [];
+    public List<string> CollectedChecks { get; set; } = [];
 }

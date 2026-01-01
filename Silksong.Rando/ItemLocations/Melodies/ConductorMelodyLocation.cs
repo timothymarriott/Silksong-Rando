@@ -1,6 +1,7 @@
 ﻿using System;
 using GlobalEnums;
 using HutongGames.PlayMaker.Actions;
+using QuestPlaymakerActions;
 using Silksong.FsmUtil;
 using UnityEngine;
 using Object = UnityEngine.Object;
@@ -22,6 +23,21 @@ public class ConductorMelodyLocation : ItemLocation
 
     public override void SetItem(string item)
     {
+
+        
+        var checkState = fsm.GetState("Has Item?");
+        checkState.ReplaceAction(3, new SetBoolValue()
+        {
+            boolVariable = fsm.GetBoolVariable("Is Melody Quest Active"),
+            boolValue = false
+        });
+
+        fsm.GetState("Quest Active?").GetAction<CheckQuestStateV2>(0).NotTrackedEvent =
+            fsm.GetState("Quest Active?").GetTransitionEvent(1);
+        
+        
+        
+        
         var state = fsm.GetState("Run Melody Play Prompted");
         var giveFsm = state.GetAction<RunFSM>(5).fsmTemplateControl;
         var giveState = giveFsm.RunFsm.GetState("Give Item");
@@ -33,8 +49,7 @@ public class ConductorMelodyLocation : ItemLocation
         });
         giveState.AddLambdaMethod((fin) =>
         {
-            // Make sure to check if its already obtained.
-            RandoPlugin.GetCollectableItem(item).Get(1, true);
+            AwardCollectable();
             fin();
         });
 

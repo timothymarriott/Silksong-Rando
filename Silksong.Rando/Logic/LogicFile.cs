@@ -170,9 +170,10 @@ namespace Silksong.Rando.Logic
             {
                 foreach (var check in node.Value.checks)
                 {
-                    if (!placements.ContainsKey(check))
+                    string itm = check.Split("|", 2)[1];
+                    if (!obtainedItems.Contains(itm))
                     {
-                        remainingItems.Add(check.Split("|", 2)[1]);
+                        remainingItems.Add(itm);
                     }
                 }
             }
@@ -184,6 +185,7 @@ namespace Silksong.Rando.Logic
                     if (remainingItems.Count > 0)
                     {
                         placements[check] = remainingItems[0];
+                        obtainedItems.Add(remainingItems[0]);
                         remainingItems.RemoveAt(0);
                     }
                     else

@@ -24,8 +24,19 @@ public class PollipBulbLocation : ItemLocation
 
     public override void SetItem(string item)
     {
-        fsm.fsm.GetState("Collect").GetAction<CollectableItemCollect>(6).Item.RawValue =
-            RandoPlugin.GetCollectableItem(item);
+        Object.Destroy(fsm.transform.parent.GetComponent<PersistentBoolItem>());
+        if (IsChecked())
+        {
+            fsm.transform.parent.gameObject.SetActive(false);
+        }
+        var state = fsm.fsm.GetState("Collect");
+        state.RemoveAction(6);
+        state.InsertLambdaMethod(6, (fin) =>
+        {
+            // Make sure to check if its already obtained.
+            AwardCollectable();
+            fin();
+        });
     }
 
     public override GameObject GetObj()

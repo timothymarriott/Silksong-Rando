@@ -13,12 +13,10 @@ class HealthManager_Start_Patch
     {
         if (__instance.gameObject.name.StartsWith("Aspid Collector"))
         {
-            RandoPlugin.Log.LogInfo(__instance.gameObject.name + "AAA");
             for (int i = 0; i < __instance.transform.childCount; i++) 
             {
                 if (__instance.transform.GetChild(i).gameObject.name == "Mossberry Pickup")
                 {
-                    RandoPlugin.Log.LogInfo("We ballin");
                     MossberryLocation loc = new MossberryLocation(__instance, __instance.transform.GetChild(i).GetComponent<PlayMakerFSM>());
                     loc.AddToCurrentScene();
                 }

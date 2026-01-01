@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Reflection;
 using BepInEx.Logging;
 using UnityEngine;
@@ -27,12 +28,65 @@ public class ModResources : MonoBehaviour
 
     public static string LoadData(string id)
     {
+        #if DEBUG
+
+        return File.ReadAllText(Path.Combine(@"E:\Games\Silksong\Mods\Silksong-Rando\Silksong.Rando\Resources", id + ".json"));
+
+#else
         if (!Data.TryGetValue(id, out var text))
         {
             throw new KeyNotFoundException(id);
         }
 
         return text;
+#endif
+    }
+
+    public static Stream GetResourceStream(string id)
+    {
+        string[] resourceNames = Assembly.GetExecutingAssembly().GetManifestResourceNames();
+        const string dataPrefix = "Silksong.Rando.Resources.";
+
+        foreach (string res in resourceNames)
+        {
+            if (res.EndsWith(".json") && res.StartsWith("Silksong.Rando.Resources."))
+            {
+                string relativeName = res.Substring(dataPrefix.Length).Replace(".json", "").Replace(".png", "");
+                string internalName = relativeName.Replace('.', '/');
+                if (internalName == id)
+                {
+                    return Assembly.GetExecutingAssembly().GetManifestResourceStream(res);
+                }
+            }
+        }
+
+        throw new FileNotFoundException();
+    }
+
+    public static AssetBundle LoadAssetBundle(string id)
+    {
+        string[] resourceNames = Assembly.GetExecutingAssembly().GetManifestResourceNames();
+        const string dataPrefix = "Silksong.Rando.Resources.";
+
+        foreach (string res in resourceNames)
+        {
+            if (res.EndsWith(".bundle") && res.StartsWith("Silksong.Rando.Resources."))
+            {
+                string relativeName = res.Substring(dataPrefix.Length).Replace(".bundle", "");
+                string internalName = relativeName.Replace('.', '/');
+                if (internalName == id)
+                {
+                    var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream(res);
+                    using var ms = new MemoryStream();
+                    stream.CopyTo(ms);
+                    byte[] data = ms.ToArray();
+
+                    return AssetBundle.LoadFromMemory(data);
+                }
+            }
+        }
+
+        throw new FileNotFoundException();
     }
 
     public static ModResources LoadResources(ManualLogSource logger)

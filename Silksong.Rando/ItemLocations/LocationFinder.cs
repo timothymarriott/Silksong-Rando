@@ -11,11 +11,13 @@ namespace Silksong.Rando.Locations
     {
         public static Dictionary<string, ItemLocation> ItemLocations = new();
 
+        public static Dictionary<string, Dictionary<string, Dictionary<string, string>>> RoomChecks = new();
+
         public static bool IsSearching = false;
         
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.Y) && !IsSearching)
+            if (Input.GetKeyDown(KeyCode.Y) && Input.GetKey(KeyCode.F11) && !IsSearching)
             {
                 IsSearching = true;
                 SceneLoader.ExecuteLoad(GameScenes.SceneNames, (scene, i) =>
@@ -28,6 +30,39 @@ namespace Silksong.Rando.Locations
                         locations.Add(loc.Key, loc.Value.locationData);
                     }
                     File.WriteAllText(Application.persistentDataPath + "\\rando\\locations.json", JsonConvert.SerializeObject(locations, Formatting.Indented));
+
+                    List<string> RoomGates = new();
+                    foreach (var transition in TransitionPoint.TransitionPoints)
+                    {
+                        if (transition.gameObject.scene.name == scene)
+                        {
+                            RoomGates.Add(transition.name);
+                        }
+                    }
+
+                    Dictionary<string, Dictionary<string, string>> trans =
+                        new Dictionary<string, Dictionary<string, string>>();
+
+                    foreach (var gate in RoomGates)
+                    {
+                        var dict = new Dictionary<string, string>();
+                        foreach (var roomGate in RoomGates)
+                        {
+                            dict.Add(roomGate, "TRANSITION_NOTSET");
+                        }
+                        foreach (var loc in ItemLocations)
+                        {
+                            if (loc.Value.locationData.scene == scene)
+                            {
+                                dict.Add(loc.Value.locationData.item, "ITEM_NOTSET");
+                            }
+                        }
+                        trans.Add(gate, dict);
+                    }
+                    
+                    RoomChecks.Add(scene, trans);
+                    File.WriteAllText(Application.persistentDataPath + "\\rando\\room_logic.json", JsonConvert.SerializeObject(RoomChecks, Formatting.Indented));
+
 
                 }, () =>
                 {

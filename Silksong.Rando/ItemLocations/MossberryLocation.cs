@@ -1,6 +1,7 @@
 ﻿using System;
 using GlobalEnums;
 using HutongGames.PlayMaker.Actions;
+using PrepatcherPlugin;
 using Silksong.FsmUtil;
 using UnityEngine;
 using Object = UnityEngine.Object;
@@ -39,19 +40,40 @@ public class MossberryLocation : ItemLocation
 
     public override void SetItem(string item)
     {
+        Object.Destroy(fsm.GetComponent<PersistentBoolItem>());
         if (locType == MossberryLocationType.Vine)
         {
-            var obj = Object.Instantiate(fsm.fsm.GetState("Init").GetAction<CreateObject>(3).gameObject.Value, fsm.transform);
-            obj.GetComponent<PlayMakerFSM>().fsm.GetState("Collect").GetAction<CollectableItemCollect>(2).Item.RawValue = RandoPlugin.GetCollectableItem(item);
-            fsm.fsm.GetState("Init").GetAction<CreateObject>(3).gameObject.Value = obj;
+            if (SaveData.Instance.CollectedChecks.Contains(GetLocationID()))
+            {
+                fsm.gameObject.SetActive(false);
+            }
+            fsm.fsm.GetState("Init").InsertLambdaMethod(4, fin =>
+            {
+                var state = fsm.fsm.GetGameObjectVariable("Fruit").Value.GetComponent<PlayMakerFSM>().fsm.GetState("Collect");
+                state.RemoveAction(2);
+                state.InsertLambdaMethod(2, (fin) =>
+                {
+                    // Make sure to check if its already obtained.
+                    AwardCollectable();
+                    fin();
+                });
+                fin();
+            });
+            
+            //fsm.fsm.GetState("Init").GetAction<CreateObject>(3).gameObject.Value = obj;
         }
         else if (locType == MossberryLocationType.Aspid)
         {
             RandoPlugin.Log.LogInfo(aspid);
             RandoPlugin.Log.LogInfo(fsm);
             var state = fsm.fsm.GetState("Collect");
-            var action = state.GetAction<CollectableItemCollect>(2);
-            action.Item.RawValue = RandoPlugin.GetCollectableItem(item);
+            state.RemoveAction(2);
+            state.InsertLambdaMethod(2, (fin) =>
+            {
+                // Make sure to check if its already obtained.
+                AwardCollectable();
+                fin();
+            });
         }
         
     }
@@ -63,6 +85,37 @@ public class MossberryLocation : ItemLocation
         if (locType == MossberryLocationType.Aspid)
             return aspid.gameObject;
         return fsm.gameObject;
+    }
+
+    public static void InstallHooks()
+    {
+        
+        PlayerDataVariableEvents.OnGetBool += ((pd, name, current) =>
+        {
+            if (RandoPlugin.instance.GameMode.Enabled)
+            {
+                
+                if (name == "mosstownAspidBerryCollected")
+                {
+                    return SaveData.Instance.CollectedChecks.Contains("Bone_05b|Mossberry");
+                }
+
+                if (name == "bonegraveAspidBerryCollected")
+                {
+                    return SaveData.Instance.CollectedChecks.Contains("Bonegrave|Mossberry");
+                }
+
+                if (name == "bonetownAspidBerryCollected")
+                {
+                    return SaveData.Instance.CollectedChecks.Contains("Bonetown|Mossberry");
+                }
+
+                
+            }
+            
+            return current;
+        });
+    
     }
 
 }

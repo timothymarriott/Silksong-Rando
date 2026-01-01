@@ -14,6 +14,11 @@ public class ItemLocationData
     public float positionInSceneY;
 
     public Vector2 PositionInScene => new Vector2(positionInSceneX, positionInSceneY);
+
+    public string GetID()
+    {
+        return scene + "|" + item;
+    }
 }
 
 public abstract class ItemLocation
@@ -22,6 +27,8 @@ public abstract class ItemLocation
     public ItemLocationData locationData = new();
 
     public abstract string GetItem();
+
+    private string replacement;
 
     public string GetLocationID()
     {
@@ -43,14 +50,25 @@ public abstract class ItemLocation
         {
             if (RandoPlugin.instance.ItemReplacements.ContainsKey(GetLocationID()))
             {
-                SetItem(RandoPlugin.instance.ItemReplacements[GetLocationID()]);
-            }
-            else
-            {
-                SetItem(GetItem());
+                if (!SaveData.Instance.CollectedChecks.Contains(GetLocationID()))
+                {
+                    SetReplacement(RandoPlugin.instance.ItemReplacements[GetLocationID()]);
+                }
+                else
+                {
+                    SetReplacement("Already Collected");
+                }
+                
             }
         }
         
+    }
+
+    public void SetReplacement(string id)
+    {
+        replacement = id;
+        RandoPlugin.Log.LogInfo(GetLocationID() + " -> " + replacement + (IsChecked() ? " checked" : " unchecked"));
+        SetItem(id);
     }
 
     public virtual Vector2 GetPosition()
@@ -62,8 +80,28 @@ public abstract class ItemLocation
 
     public virtual void SetItem(string item)
     {
-        var res = CreateItemPickup(item);
-        res.transform.position = GetObj().transform.position;
+        if (!IsChecked())
+        {
+            var res = CreateItemPickup(item);
+            res.transform.position = GetObj().transform.position;
+        }
+    }
+
+    public void AwardCollectable()
+    {
+        if (!IsChecked())
+        {
+            RandoPlugin.GetCollectableItem(replacement, GetLocationID()).Get(1, true);
+        }
+        else
+        {
+            
+        }
+    }
+
+    public bool IsChecked()
+    {
+        return SaveData.Instance.CollectedChecks.Contains(GetLocationID());
     }
 
     public CollectableItemPickup CreateItemPickup(string item)
@@ -74,7 +112,7 @@ public abstract class ItemLocation
         RandoPlugin.instance.PickupsToIgnore.Add(pickup);
         
         
-        pickup.SetItem(RandoPlugin.GetCollectableItem(item));
+        pickup.SetItem(RandoPlugin.GetCollectableItem(item, GetLocationID()));
 
         return pickup;
     }

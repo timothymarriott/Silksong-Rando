@@ -24,7 +24,7 @@ namespace Silksong.Rando.Data.Extractors
         
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.T))
+            if (Input.GetKeyDown(KeyCode.T) && Input.GetKey(KeyCode.F11))
             {
                 RandoPlugin.Log.LogInfo("Starting to laod scene sizes");
                 Dictionary<string, SceneInfo> sceneSizes = new Dictionary<string, SceneInfo>();

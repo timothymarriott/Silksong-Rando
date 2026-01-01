@@ -27,7 +27,6 @@ public class ShrineWeaverAbilityLocation : ItemLocation
         base.SetItem(item);
         Object.Destroy(fsm.GetComponent<PlayMakerNPC>());
         Object.Destroy(fsm);
-        
     }
 
     public override GameObject GetObj()

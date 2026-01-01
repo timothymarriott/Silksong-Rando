@@ -1,4 +1,5 @@
 ﻿using System;
+using PrepatcherPlugin;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
@@ -27,7 +28,25 @@ public class CollectableItemPickupLocation : ItemLocation
 
     public override void SetItem(string item)
     {
+        if (IsChecked())
+        {
+            Object.Destroy(pickup.gameObject);
+            return;
+        }
         RandoPlugin.Log.LogInfo("Setting item to " + item);
-        pickup.SetItem(RandoPlugin.GetCollectableItem(item));
+        pickup.SetItem(RandoPlugin.GetCollectableItem(item, GetLocationID()));
+    }
+
+    public static void InstallHooks()
+    {
+        PlayerDataVariableEvents.OnGetInt += (pd, name, current) =>
+        {
+            if (name == nameof(PlayerData.dicePilgrimState) && RandoPlugin.instance.GameMode.Enabled)
+            {
+                return 1;
+            }
+
+            return current;
+        };
     }
 }

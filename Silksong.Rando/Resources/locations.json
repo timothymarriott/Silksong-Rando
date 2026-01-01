@@ -1308,6 +1308,17 @@
       "y": 30.2774963
     }
   },
+  "Peak_08b|Faydown": {
+    "locationType": "DJLocation",
+    "item": "Faydown",
+    "scene": "Peak_08b",
+    "positionInSceneX": 279.5,
+    "positionInSceneY": 105.53,
+    "PositionInScene": {
+      "x": 279.5,
+      "y": 105.53
+    }
+  },
   "Weave_03|Mossberry": {
     "locationType": "MossberryLocation",
     "item": "Mossberry",

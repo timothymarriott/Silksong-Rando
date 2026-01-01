@@ -8,15 +8,38 @@ namespace Silksong.Rando;
 public class RandoItem : CollectableItemBasic
 {
     public string targetItem;
+    public string check;
+
+    public SavedItem wrapped = null;
+    
     public delegate void OnCollectedCallback(RandoItem item);
     public OnCollectedCallback? CollectCallback;
     public override void OnCollected()
     {
         base.OnCollected();
         RandoPlugin.Log.LogInfo("Collected " + targetItem);
+        Rando.SaveData.Instance.CollectedChecks.Add(check);
+        if (wrapped != null)
+        {
+            Take(showCounter:false);
+            wrapped.Get(false);
+        }
         if (CollectCallback != null)
             CollectCallback(this);
+        
+        RandoPlugin.instance.map.Refresh();
 
+    }
+
+    public static RandoItem Wrap(string targetItem, string check, SavedItem template)
+    {
+        RandoItemBuilder res = RandoItemBuilder.Create(targetItem, check);
+        res.result.name = targetItem + "_wrap";
+        res.result.icon = template.GetPopupIcon();
+        res.result.tinyIcon = template.GetPopupIcon();
+        res.result.wrapped = template;
+        res.SetDisplayName(template.GetPopupName());
+        return res.Build();
     }
 }
 
@@ -29,13 +52,14 @@ public class RandoItemBuilder : DataBuilder<RandoItem>
 
     
     
-    public static RandoItemBuilder Create(string name, string targetItem)
+    public static RandoItemBuilder Create(string targetItem, string check)
     {
         RandoItemBuilder res = new RandoItemBuilder();
         res.result = ScriptableObject.CreateInstance<RandoItem>();
-        res.result.name = name;
+        res.result.name = targetItem;
         res.result.targetItem = targetItem;
         res.result.isHidden = true;
+        res.result.check = check;
         res.Setup();
         
         created.Add(res);

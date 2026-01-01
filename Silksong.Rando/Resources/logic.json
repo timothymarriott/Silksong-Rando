@@ -44,7 +44,8 @@
 			"checks": [
 				"Bonetown|Weaver Totem Bonetown_upper_room",
 				"Dock_03b|Bell Bind",
-				"Bone_East_Umbrella|Brolly"
+				"Bone_East_Umbrella|Brolly",
+				"Bone_East_14|Rosary_Set_Small"
 			]
 		},
 		"PostBrolly": {
@@ -62,11 +63,14 @@
 
 				"Shellwood_01|Rosary_Set_Frayed",
 				"Belltown_Room_shellwood|Harpoon",
+				"Bonegrave|Mossberry",
 
 				"Shellwood_02|Shell Flower",
 				"Shellwood_20|Shell Flower",
 				"Shellwood_10|ability_Walljump",
-				"Shellwood_10|Shell Flower"
+				"Shellwood_10|Shell Flower",
+				
+				"Crawl_01|Dead Mans Purse"
 			]
 		},
 		"PostWalljump": {
@@ -90,14 +94,22 @@
 				"Shadow_20|Crest Socket Unlocker",
 
 				"Coral_02|Crest Socket Unlocker",
-				"Coral_03|Rosary_Set_Frayed"
+				"Coral_03|Rosary_Set_Frayed",
+				"Shellwood_01b|Rosary_Set_Small",
+				
+				"Crawl_02|Rosary_Set_Frayed",
+				
+				"Crawl_09|Crest Socket Unlocker",
+				
+				"Coral_33|Magnetite Dice"
 
 
 			]
 		},
 		"PostNeedolin": {
 			"edges": [
-				{"to":"Act2"}
+				{"to":"Act2"},
+				{"to":"AtlaHarp", "req":"ability_Walljump"}
 			],
 			"checks": [
 				"Shadow_Weavehome|Broken SilkShot",
@@ -105,6 +117,14 @@
 
 				"Weave_12|Weavehome Map",
 				"Weave_03|Mossberry"
+			]
+		},
+		"AtlaHarp": {
+			"edges": [
+				{"to":"PostNeedolin"}
+			],
+			"checks": [
+				"Weave_08|Weaver Record Weave_08"
 			]
 		},
 		"Act2": {
@@ -156,7 +176,7 @@
 		},
 		"PostHarpoon": {
 			"edges": [
-
+				{"to":"PostFaydown","req":"Faydown"}
 			],
 			"checks": [
 				"Under_18|Shard Pouch",
@@ -166,7 +186,41 @@
 				"Hang_10|Psalm Cylinder Hang",
 				"Library_09|Psalm Cylinder Library Roof",
 
-				"Shadow_20|Wood Witch Item"
+				"Shadow_20|Wood Witch Item",
+				
+				"Crawl_05|ability_SilkDash",
+				"Coral_23|Crest Socket Unlocker",
+				"Coral_41|Coral Ingredient",
+				"Bellshrine_Coral|Simple Key",
+				
+				"Coral_Tower_01|Conch Drill",
+				"Peak_08b|Faydown"
+			]
+		},
+		"PostFaydown": {
+			"edges": [
+
+			],
+			"checks": [
+				"Belltown_08|Wisp Lantern",
+				"Wisp_08|Bone Record Wisp Top",
+				"Halfway_01|Crest Socket Unlocker",
+				"Weave_14|Silk Snare",
+				"Cog_10|Shard Pouch",
+				"Under_08|Psalm Cylinder Ward",
+				"Under_08|Crest Socket Unlocker",
+				"Arborium_04|Mossberry",
+				"Arborium_05|Crest Socket Unlocker",
+				"Arborium_07|Materium",
+				"Arborium_11|Shard Pouch",
+				
+				"Aqueduct_01|Rosary_Set_Frayed",
+				"Aqueduct_07|Aqueduct Map",
+				"Aqueduct_06|Maggot Charm",
+				
+				"Shadow_Bilehaven_Room|Snare Soul Swamp Bug",
+				"Shadow_11|Quick Sling",
+				"Shadow_02|Rosary_Set_Frayed"
 			]
 		}
 	},

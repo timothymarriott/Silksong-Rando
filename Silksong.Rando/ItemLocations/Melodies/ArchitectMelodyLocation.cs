@@ -22,7 +22,7 @@ public class ArchitectMelodyLocation : ItemLocation
 
     public override void SetItem(string item)
     {
-        bool hasChecked = true;
+        bool hasChecked = IsChecked();
             
         var notifyState = fsm.GetState("Wait For Notify");
             
@@ -45,11 +45,9 @@ public class ArchitectMelodyLocation : ItemLocation
         });
         state.AddLambdaMethod((fin) =>
         {
-            // Make sure to check if its already obtained.
             HeroController.instance.RelinquishControl();
             RandoPlugin.GM.playerData.disableInventory = false;
-            RandoPlugin.GetCollectableItem(item).Get(1, true);
-                
+            AwardCollectable();
             HeroController.instance.RegainControl();
             fin();
         });

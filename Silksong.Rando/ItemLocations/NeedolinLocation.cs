@@ -33,7 +33,7 @@ public class NeedolinLocation : ItemLocation
         });
         state.AddLambdaMethod((fin) =>
         {
-            RandoPlugin.GetCollectableItem(item).Get(1, true);
+            AwardCollectable();
             fin();
         });
             

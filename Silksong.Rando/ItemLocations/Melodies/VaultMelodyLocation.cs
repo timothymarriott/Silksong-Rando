@@ -32,8 +32,7 @@ public class VaultMelodyLocation : ItemLocation
         });
         giveState.AddLambdaMethod((fin) =>
         {
-            // Make sure to check if its already obtained.
-            RandoPlugin.GetCollectableItem(item).Get(1, true);
+            AwardCollectable();
             fin();
         });
 

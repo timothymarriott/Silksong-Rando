@@ -3,6 +3,7 @@ using System.Runtime.InteropServices;
  
 namespace Silksong.Rando;
 
+#if DEBUG
 class ConsoleMover
 {
     [DllImport("kernel32.dll")]
@@ -75,3 +76,4 @@ class ConsoleMover
         RandoPlugin.Log.LogInfo($"Height = {height}");
     }
 }
+#endif
