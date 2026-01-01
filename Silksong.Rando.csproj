@@ -72,11 +72,15 @@
         </Reference>
     </ItemGroup>
 
-    <Target Name="GenerateConstants" BeforeTargets="Build">
+    <Target Name="GenerateConstants" BeforeTargets="PrepareForBuild">
+        <Message Importance="high" Text="Generating constants..." />
         <WriteLinesToFile
-                File="BuildConstants.g.cs"
+                File="$(IntermediateOutputPath)BuildConstants.g.cs"
                 Lines="namespace Generated { public static class BuildConstants { public const string Version = &quot;$(Version)&quot;%3b public const string GitHubRepo = &quot;$(GitHubRepo)&quot;%3b } }"
                 Overwrite="true" />
+        <ItemGroup>
+            <Compile Include="$(IntermediateOutputPath)BuildConstants.g.cs" />
+        </ItemGroup>
     </Target>
 
     <ItemGroup>
