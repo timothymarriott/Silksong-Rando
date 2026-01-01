@@ -51,6 +51,11 @@ public class ArchitectMelodyLocation : ItemLocation
             HeroController.instance.RegainControl();
             fin();
         });
+        state.AddAction(new Wait()
+        {
+            time = 0.5f,
+            realTime = false
+        });
         state.RemoveTransitionsTo("Singing End");
         state.AddTransition("FINISHED", "Singing End");
     }

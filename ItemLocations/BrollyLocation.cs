@@ -38,6 +38,11 @@ public class BrollyLocation : ItemLocation
             AwardCollectable();
             fin();
         });
+        state.AddAction(new Wait()
+        {
+            time = 0.5f,
+            realTime = false
+        });
         state.RemoveTransitionsTo("Fade Up");
         state.AddTransition("FINISHED", "Fade Up");
             

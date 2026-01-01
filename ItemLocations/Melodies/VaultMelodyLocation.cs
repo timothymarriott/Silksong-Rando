@@ -35,6 +35,11 @@ public class VaultMelodyLocation : ItemLocation
             AwardCollectable();
             fin();
         });
+        giveState.AddAction(new Wait()
+        {
+            time = 0.5f,
+            realTime = false
+        });
 
         var uiState = giveFsm.RunFsm.GetState("UI Msg");
         uiState.RemoveAction(4);

@@ -38,7 +38,7 @@ public class RandoPlugin : BaseUnityPlugin, ISaveDataMod<SaveData>
     
     public const string Id = "com.lem00ns.Silksong.Rando";
     public const string Name = "Randomiser";
-    public const string Version = "0.1.1";
+    public const string Version = "0.1.2";
     
     public static RandoPlugin instance;
     
@@ -65,7 +65,7 @@ public class RandoPlugin : BaseUnityPlugin, ISaveDataMod<SaveData>
 
     public Dictionary<string, SavedItem> AddressableItems = new();
 
-    public bool ShowNearestTransition = false;
+    public bool ShowSceneDebug = false;
     
     
     private void Awake()
@@ -110,13 +110,23 @@ public class RandoPlugin : BaseUnityPlugin, ISaveDataMod<SaveData>
         if (!GM) return;
 
         GUI.skin.font = ModResources.GetFont();
-        GUI.Label(new Rect(10f, Screen.height - 40f, 100, 100), GM.GetSceneNameString(), ModResources.GetLabelStyle());
+
+        List<string> DebugTexts = new List<string>();
+        
+        
+        DebugTexts.Add("Randomiser by Lem00ns - alpha v" + Version + " - Expect Bugs!");
+
+
+        if (ShowSceneDebug)
+        {
+            DebugTexts.Add(GM.GetSceneNameString());
+        }
         
         if (PlayerData.instance != null)
         {
             
             
-            if (ShowNearestTransition)
+            if (ShowSceneDebug)
             {
                 TransitionPoint? nearest = null;
                 float nearestDistance = float.MaxValue;
@@ -132,19 +142,24 @@ public class RandoPlugin : BaseUnityPlugin, ISaveDataMod<SaveData>
                         }
                     }
                 }
-                if (nearest != null)
-                    GUI.Label(new Rect(10f, Screen.height - (PlayerData.instance.isInventoryOpen ? 100f : 70), 100, 100), $"{nearest.name} - {nearestDistance}m", ModResources.GetLabelStyle());
 
+                if (nearest != null)
+                {
+                    DebugTexts.Add($"{nearest.name} - {nearestDistance}m");
+                }
             }
 
             
             if (PlayerData.instance.isInventoryOpen)
             {
-                GUI.Label(new Rect(10f, Screen.height - 70f, 100, 100), $"{map.mode} map.", ModResources.GetLabelStyle());
-    
+                DebugTexts.Add($"{map.mode} map.");
             }
         }
-        
+
+        for (int i = 0; i < DebugTexts.Count; i++)
+        {
+            GUI.Label(new Rect(10f, Screen.height - (40f + i * 30), 100, 100), DebugTexts[i], ModResources.GetLabelStyle());
+        }
     }
     
     private void Update()
@@ -156,7 +171,7 @@ public class RandoPlugin : BaseUnityPlugin, ISaveDataMod<SaveData>
 
         if (Input.GetKeyDown(KeyCode.C) && Input.GetKey(KeyCode.F11))
         {
-            ShowNearestTransition = !ShowNearestTransition;
+            ShowSceneDebug = !ShowSceneDebug;
         }
 
         if (Input.GetKeyDown(KeyCode.B) && Input.GetKey(KeyCode.F11))

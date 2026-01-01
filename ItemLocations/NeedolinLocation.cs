@@ -24,6 +24,8 @@ public class NeedolinLocation : ItemLocation
 
     public override void SetItem(string item)
     {
+        fsm.GetState("Final Bind Burst").RemoveAction(3);
+        
         var state = fsm.GetState("Get Needolin");
         state.RemoveAction(1);
         state.AddAction(new Wait()
@@ -34,9 +36,28 @@ public class NeedolinLocation : ItemLocation
         state.AddLambdaMethod((fin) =>
         {
             AwardCollectable();
+            PlayerData.instance.spinnerDefeated = true;
+            HeroController.instance.SetSilkRegenBlocked(true);
+            PlayerData.instance.disableInventory = false;
             fin();
         });
-            
+        state.AddAction(new Wait()
+        {
+            time = 1f,
+            realTime = false
+        });
+        
+        state.AddAction(new QueueMemoryFullHeal());
+        state.AddAction(new ToolsCutsceneControl()
+        {
+            SetInCutscene = false
+        });
+        
+
+        var transition = fsm.GetState("To Memory Scene").GetAction<BeginSceneTransition>(2);
+        transition.sceneName = "Belltown_Shrine";
+        transition.entryGateName = "door_wakeOnGround";
+
     }
 
     public override GameObject GetObj()

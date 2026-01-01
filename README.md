@@ -19,7 +19,7 @@ The current logic should ensure that you can get the Weaver Queen ending.
 
 `F11 + R` Re-randomises everything with a new seed, **THIS IS A DEBUG FEATURE INTENDED FOR DEVELOPERS THIS WILL BREAK THINGS**.
 
-`F11 + c` Toggles printing the closest scene transition in the bottom left of the screen.
+`F11 + c` Toggles printing scene debug information in bottom left.
 
 `T` Cycle map mode, see the [map modes](#map-modes) below.
 
@@ -62,7 +62,9 @@ When in the map screen, press `T` to switch the map mode.
 
 ## Known Bugs
 If you run into any bugs you are welcome to create an issue in the Issues tab explaining the bug.
-- [x] If the player has obtained sprint, the original check is marked as already checked
+- [x] ~~If the player has obtained sprint, the original check is marked as already checked~~
+- [x] ~~Beating widow without needolin softlocked in memory~~
+- [x] ~~Beating widow always gave player needolin~~
 - [ ] The game mode selector only appears if steel soul is unlocked
 - [ ] Sometimes the map can break softlocking the player in the menu
 - [ ] Invalid items named `!!/!!` will appear in the inventory sometimes after loading a save
