@@ -28,6 +28,7 @@
         <PackageIcon>icon.png</PackageIcon>
         <RepositoryUrl>https://github.com/timothymarriott/Silksong-Rando</RepositoryUrl>
         <RootNamespace>Silksong.Rando</RootNamespace>
+        <DisableFastUpToDateCheck>true</DisableFastUpToDateCheck>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
         <DefineConstants>DEV</DefineConstants>
