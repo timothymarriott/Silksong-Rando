@@ -3,7 +3,7 @@ schemaVersion = "0.0.1"
 
 [package]
 # The name of the team you are publishing as
-namespace = "timothymarriott"
+namespace = "lem00ns"
 # max 250 characters
 description = "Silksong Rando"
 
