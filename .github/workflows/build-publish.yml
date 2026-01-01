@@ -42,7 +42,7 @@ jobs:
     - name: Build
       run: dotnet build Silksong.Rando.csproj -c Release --verbosity normal
     - name: Pack
-      run: dotnet pack -o nuget/
+      run: dotnet pack Silksong.Rando.csproj -o nuget/
     - name: Get Version
       id: version
       run: |-
