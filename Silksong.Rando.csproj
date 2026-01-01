@@ -67,7 +67,7 @@
     
     <ItemGroup>
         <Reference Include="SkongGamemodes">
-            <HintPath>$(SilksongFolder)/BepInEx/plugins/SkongGamemodes.dll</HintPath>
+            <HintPath>libs/SkongGamemodes.dll</HintPath>
         </Reference>
     </ItemGroup>
 
