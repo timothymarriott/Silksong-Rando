@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Silksong.Rando.Hooks
 {
-    #if DEBUG
+    #if DEV
     [HarmonyPatch]
     public class AnimatorHooks
     {

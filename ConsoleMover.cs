@@ -3,7 +3,7 @@ using System.Runtime.InteropServices;
  
 namespace Silksong.Rando;
 
-#if DEBUG
+#if DEV
 class ConsoleMover
 {
     [DllImport("kernel32.dll")]

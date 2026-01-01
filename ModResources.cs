@@ -28,18 +28,12 @@ public class ModResources : MonoBehaviour
 
     public static string LoadData(string id)
     {
-        #if DEBUG
-
-        return File.ReadAllText(Path.Combine(@"E:\Games\Silksong\Mods\Silksong-Rando\Silksong.Rando\Resources", id + ".json"));
-
-#else
         if (!Data.TryGetValue(id, out var text))
         {
             throw new KeyNotFoundException(id);
         }
 
         return text;
-#endif
     }
 
     public static Stream GetResourceStream(string id)

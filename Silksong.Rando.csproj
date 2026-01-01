@@ -29,6 +29,12 @@
         <RepositoryUrl>https://github.com/timothymarriott/Silksong-Rando</RepositoryUrl>
         <RootNamespace>Silksong.Rando</RootNamespace>
     </PropertyGroup>
+    <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
+        <DefineConstants>DEV</DefineConstants>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Configuration)' == 'Release'">
+        <DefineConstants>RELEASE</DefineConstants>
+    </PropertyGroup>
     <ItemGroup>
         <None Remove="Resources\**" />
     </ItemGroup>

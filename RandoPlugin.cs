@@ -75,7 +75,7 @@ public class RandoPlugin : BaseUnityPlugin, ISaveDataMod<SaveData>
             return args.Source.SourceName == "Unity Log" || args.Source == Logger;
         }));
         
-        #if DEBUG
+        #if DEV
         ConsoleMover.Move();
         #endif
         resources = ModResources.LoadResources(Logger);

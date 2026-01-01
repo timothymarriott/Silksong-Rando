@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Silksong.Rando", "Silksong.Rando\Silksong.Rando.csproj", "{915533AB-A3D2-4FA9-931C-869A29F76DFA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Silksong.Rando", "Silksong.Rando.csproj", "{3D299D0E-9F0D-4538-AC79-1F681B300698}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -8,9 +8,9 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{915533AB-A3D2-4FA9-931C-869A29F76DFA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{915533AB-A3D2-4FA9-931C-869A29F76DFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{915533AB-A3D2-4FA9-931C-869A29F76DFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{915533AB-A3D2-4FA9-931C-869A29F76DFA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3D299D0E-9F0D-4538-AC79-1F681B300698}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D299D0E-9F0D-4538-AC79-1F681B300698}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D299D0E-9F0D-4538-AC79-1F681B300698}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D299D0E-9F0D-4538-AC79-1F681B300698}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
