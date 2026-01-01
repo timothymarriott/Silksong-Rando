@@ -152,21 +152,9 @@ public class RandoPlugin : BaseUnityPlugin, ISaveDataMod<SaveData>
             {
                 try
                 {
-                    Log.LogInfo(b.name);
                     bundles.Add(b.name, b.GetAllAssetNames().ToList());
-                    foreach (var allAssetName in b.GetAllAssetNames())
-                    {
-                        Log.LogInfo($"  - {allAssetName}");
-                    }
-                
-
-                    //if (res)
-                    //    return bundle;
-
                 }
-                catch
-                {
-                }
+                catch { }
             }
         
             File.WriteAllText(Application.persistentDataPath + "/rando/bundles.json", JsonConvert.SerializeObject(bundles, Formatting.Indented));
@@ -210,6 +198,7 @@ public class RandoPlugin : BaseUnityPlugin, ISaveDataMod<SaveData>
             AddressableItems.Add(fakeCollectable.name, fakeCollectable);
         }
     }
+    
     private void OnDestroy()
     {
         if (instance == this)
