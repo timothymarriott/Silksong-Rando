@@ -64,7 +64,8 @@ public class RandoPlugin : BaseUnityPlugin, ISaveDataMod<SaveData>
     public GameModeManager.GameModeData GameMode;
 
     public Dictionary<string, SavedItem> AddressableItems = new();
-    
+
+    public bool ShowNearestTransition = false;
     
     
     private void Awake()
@@ -110,28 +111,36 @@ public class RandoPlugin : BaseUnityPlugin, ISaveDataMod<SaveData>
 
         GUI.skin.font = ModResources.GetFont();
         GUI.Label(new Rect(10f, Screen.height - 40f, 100, 100), GM.GetSceneNameString(), ModResources.GetLabelStyle());
-        TransitionPoint? nearest = null;
-        float nearestDistance = float.MaxValue;
-        foreach (var transitionPoint in TransitionPoint.TransitionPoints)
-        {
-            if (transitionPoint.gameObject.scene.name == GM.GetSceneNameString())
-            {
-                float dist = Vector2.Distance(transitionPoint.transform.position, GM.hero_ctrl.transform.position);
-                if (dist < nearestDistance)
-                {
-                    nearestDistance = dist;
-                    nearest = transitionPoint;
-                }
-            }
-        }
-        if (nearest != null)
-            GUI.Label(new Rect(10f, Screen.height - 70f, 100, 100), $"{nearest.name} - {nearestDistance}m", ModResources.GetLabelStyle());
-
+        
         if (PlayerData.instance != null)
         {
+            
+            
+            if (ShowNearestTransition)
+            {
+                TransitionPoint? nearest = null;
+                float nearestDistance = float.MaxValue;
+                foreach (var transitionPoint in TransitionPoint.TransitionPoints)
+                {
+                    if (transitionPoint.gameObject.scene.name == GM.GetSceneNameString())
+                    {
+                        float dist = Vector2.Distance(transitionPoint.transform.position, GM.hero_ctrl.transform.position);
+                        if (dist < nearestDistance)
+                        {
+                            nearestDistance = dist;
+                            nearest = transitionPoint;
+                        }
+                    }
+                }
+                if (nearest != null)
+                    GUI.Label(new Rect(10f, Screen.height - (PlayerData.instance.isInventoryOpen ? 100f : 70), 100, 100), $"{nearest.name} - {nearestDistance}m", ModResources.GetLabelStyle());
+
+            }
+
+            
             if (PlayerData.instance.isInventoryOpen)
             {
-                GUI.Label(new Rect(10f, Screen.height - 100f, 100, 100), $"{map.mode} map.", ModResources.GetLabelStyle());
+                GUI.Label(new Rect(10f, Screen.height - 70f, 100, 100), $"{map.mode} map.", ModResources.GetLabelStyle());
     
             }
         }
@@ -143,6 +152,11 @@ public class RandoPlugin : BaseUnityPlugin, ISaveDataMod<SaveData>
         if (GameManager.SilentInstance && !GM)
         {
             GM = GameManager.instance;
+        }
+
+        if (Input.GetKeyDown(KeyCode.C) && Input.GetKey(KeyCode.F11))
+        {
+            ShowNearestTransition = !ShowNearestTransition;
         }
 
         if (Input.GetKeyDown(KeyCode.B) && Input.GetKey(KeyCode.F11))

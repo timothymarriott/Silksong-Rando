@@ -22,10 +22,16 @@ public class RandoItem : CollectableItemBasic
         if (wrapped != null)
         {
             Take(showCounter:false);
+            RandoPlugin.Log.LogInfo("Giving wrapped item: " + wrapped.name + " at " + check + "(" + (wrapped is RandoItem itm ? itm.check : "vanilla wrapped") + ")");
+            
             wrapped.Get(false);
         }
-        if (CollectCallback != null)
-            CollectCallback(this);
+        else
+        {
+            if (CollectCallback != null)
+                CollectCallback(this);
+        }
+        
         
         RandoPlugin.instance.map.Refresh();
 
@@ -37,6 +43,10 @@ public class RandoItem : CollectableItemBasic
         res.result.name = targetItem + "_wrap";
         res.result.icon = template.GetPopupIcon();
         res.result.tinyIcon = template.GetPopupIcon();
+        if (template is RandoItem itm)
+        {
+            itm.check = check;
+        }
         res.result.wrapped = template;
         res.SetDisplayName(template.GetPopupName());
         return res.Build();
@@ -47,9 +57,6 @@ public class RandoItemBuilder : DataBuilder<RandoItem>
 {
 
     private static List<RandoItemBuilder> created = new();
-
-    public const string LANG_SHEET = "ITEM_MOD";
-
     
     
     public static RandoItemBuilder Create(string targetItem, string check)

@@ -1,4 +1,5 @@
 ﻿using System;
+using Silksong.Rando.Map;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
@@ -67,7 +68,7 @@ public abstract class ItemLocation
     public void SetReplacement(string id)
     {
         replacement = id;
-        RandoPlugin.Log.LogInfo(GetLocationID() + " -> " + replacement + (IsChecked() ? " checked" : " unchecked"));
+        RandoPlugin.Log.LogInfo(GetLocationID() + " -> " + (RandoPlugin.instance.map.mode == MapMode.Spoiler ? replacement : "SPOILERS") + (IsChecked() ? " checked" : " unchecked"));
         SetItem(id);
     }
 

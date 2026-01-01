@@ -33,7 +33,6 @@ public class CollectableItemPickupLocation : ItemLocation
             Object.Destroy(pickup.gameObject);
             return;
         }
-        RandoPlugin.Log.LogInfo("Setting item to " + item);
         pickup.SetItem(RandoPlugin.GetCollectableItem(item, GetLocationID()));
     }
 
