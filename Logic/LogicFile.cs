@@ -196,32 +196,6 @@ namespace Silksong.Rando.Logic
                 }
             }
 
-            /*
-            var remainingItems = new List<string>();
-            foreach (var item in allItems)
-                if (!obtainedItems.Contains(item))
-                    remainingItems.Add(item);
-
-            Shuffle(remainingItems, rng);
-
-            foreach (var check in GetReachableChecks(ref progress))
-            {
-                if (!placements.ContainsKey(check))
-                {
-                    if (remainingItems.Count > 0)
-                    {
-                        placements[check] = remainingItems[0];
-                        remainingItems.RemoveAt(0);
-                    }
-                    else
-                    {
-                        RandoPlugin.Log.LogWarning("Ran out of items");
-                    }
-
-                }
-            }
-            */
-
             return placements;
         }
         

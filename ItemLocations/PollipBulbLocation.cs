@@ -33,7 +33,6 @@ public class PollipBulbLocation : ItemLocation
         state.RemoveAction(6);
         state.InsertLambdaMethod(6, (fin) =>
         {
-            // Make sure to check if its already obtained.
             AwardCollectable();
             fin();
         });

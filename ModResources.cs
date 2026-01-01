@@ -136,8 +136,6 @@ public class ModResources : MonoBehaviour
                 {
                     trajanNormal = f;
                 }
-
-                //Just in case for some reason the computer doesn't have arial
                 if (f != null && f.name == "Perpetua")
                 {
                     arial = f;

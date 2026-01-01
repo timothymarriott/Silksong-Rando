@@ -53,14 +53,11 @@ public class MossberryLocation : ItemLocation
                 state.RemoveAction(2);
                 state.InsertLambdaMethod(2, (fin) =>
                 {
-                    // Make sure to check if its already obtained.
                     AwardCollectable();
                     fin();
                 });
                 fin();
             });
-            
-            //fsm.fsm.GetState("Init").GetAction<CreateObject>(3).gameObject.Value = obj;
         }
         else if (locType == MossberryLocationType.Aspid)
         {
@@ -70,7 +67,6 @@ public class MossberryLocation : ItemLocation
             state.RemoveAction(2);
             state.InsertLambdaMethod(2, (fin) =>
             {
-                // Make sure to check if its already obtained.
                 AwardCollectable();
                 fin();
             });
