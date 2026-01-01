@@ -72,7 +72,7 @@
         </Reference>
     </ItemGroup>
 
-    <Target Name="GenerateConstants" BeforeTargets="BeforeCompile">
+    <Target Name="GenerateConstants" BeforeTargets="Build">
         <WriteLinesToFile
                 File="BuildConstants.g.cs"
                 Lines="namespace Generated { public static class BuildConstants { public const string Version = &quot;$(Version)&quot;%3b public const string GitHubRepo = &quot;$(GitHubRepo)&quot;%3b } }"
