@@ -187,6 +187,6 @@ jobs:
         fail_on_unmatched_files: true
         tag_name: v${{ needs.build.outputs.version }}
         body: |
-          Build attested at ${{ needs.build.outputs.attestation-url }}
+          © 2026 Timothy Marriott. Licensed under the MIT License.
         files: |
           thunderstore/dist/*.zip
