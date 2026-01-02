@@ -42,6 +42,14 @@
     <ItemGroup>
         <EmbeddedResource Include="Resources\**" />
     </ItemGroup>
+    <!-- This can be used when doing local development to use a non stripped version of Silksong.GameLibs for intellisense-->
+    <!-- Define LocalGameLibs in SilksongPath.props to be the path to a directory containing your version of Silksong.GameLibs.<version>.nupkg -->
+    <PropertyGroup Condition="'$(LocalGameLibs)' != ''">
+        <RestoreSources>
+            $(LocalGameLibs);
+            $(RestoreSources)
+        </RestoreSources>
+    </PropertyGroup>
     <ItemGroup>
         <PackageReference Include="Silksong.FilteredLogs" Version="1.0.0" />
         <PackageReference Include="BepInEx.Analyzers" Version="1.0.8" PrivateAssets="all"/>
