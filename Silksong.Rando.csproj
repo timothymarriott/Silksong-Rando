@@ -13,7 +13,7 @@
         <!-- Ignore warning about processor architecture mismatch with PlayMaker ConditionalExpression -->
         <NoWarn>$(NoWarn);MSB3270</NoWarn>
 
-        <RestorePackagesWithLockFile>True</RestorePackagesWithLockFile>
+        <RestorePackagesWithLockFile>False</RestorePackagesWithLockFile>
         <!-- CI environment variable is automatically set by GitHub actions -->
         <RestoreLockedMode Condition="'$(CI)' == 'true'">True</RestoreLockedMode>
 
@@ -35,6 +35,10 @@
     </PropertyGroup>
     <PropertyGroup Condition="'$(Configuration)' == 'Release'">
         <DefineConstants>RELEASE</DefineConstants>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(CI)' == 'true'">
+        <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
     </PropertyGroup>
     <ItemGroup>
         <None Remove="Resources\**" />
