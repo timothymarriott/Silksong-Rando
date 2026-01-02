@@ -12,6 +12,7 @@ public enum MapMode
 {
     No,
     Checks,
+    Logic,
     Dev,
     Spoiler
 }
@@ -25,6 +26,8 @@ public class RandoMap : MonoBehaviour
     public List<GameObject> CreatedMarkers = new List<GameObject>();
 
     public MapMode mode = MapMode.No;
+
+    public List<string> AccessibleChecks = new();
     
     private void Awake()
     {
@@ -51,7 +54,7 @@ public class RandoMap : MonoBehaviour
         if (PlayerData.instance != null)
             if (Input.GetKeyDown(KeyCode.T) && PlayerData.instance.isInventoryOpen)
             {
-                mode = (MapMode)(((int)mode + 1) % 4);
+                mode = (MapMode)(((int)mode + 1) % Enum.GetNames(typeof(MapMode)).Length);
                 Refresh();
             }
         
@@ -95,7 +98,7 @@ public class RandoMap : MonoBehaviour
     public void CreateMapPin(ItemLocationData loc)
     {
 
-        if (mode == MapMode.Checks)
+        if (mode == MapMode.Checks || mode == MapMode.Logic || mode == MapMode.Spoiler)
         {
             if (!RandoPlugin.instance.logic.HasCheck(loc.GetID()))
             {
@@ -169,17 +172,30 @@ public class RandoMap : MonoBehaviour
             }
         }
         
-        if (mode == MapMode.Checks)
+        if (mode == MapMode.Checks || mode == MapMode.Logic)
         {
             SavedItem itm = RandoPlugin.GetCollectableItem(loc.item, loc.GetID());
             sr.sprite = itm.GetPopupIcon();
+        }
+        
+        if (mode == MapMode.Logic)
+        {
+            if (AccessibleChecks.Contains(loc.GetID()))
+            {
+                
+            }
+            else
+            {
+                sr.color *= new Color(1, 1, 1, 0.5f);
+            }
         }
         
         
         
         if (SaveData.Instance.CollectedChecks.Contains(loc.GetID()))
         {
-            sr.color *= new Color(1, 1, 1, 0.5f);
+            
+            sr.color *= new Color(1, 1, 1, 0f);
         }
         
         obj.transform.SetLocalPosition2D(new Vector3(position.x, position.y, -1f));
@@ -192,6 +208,12 @@ public class RandoMap : MonoBehaviour
         if (mode == MapMode.No) return;
         var locationData = JsonConvert.DeserializeObject<Dictionary<string, ItemLocationData>>(ModResources.LoadData("locations"));
 
+        AccessibleChecks =
+            RandoPlugin.instance.logic.GetAccessible(SaveData.Instance.ItemReplacements,
+                SaveData.Instance.CollectedChecks);
+        
+        
+        
         foreach (var (id, data) in locationData)
         {
             CreateMapPin(data);

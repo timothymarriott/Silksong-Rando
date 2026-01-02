@@ -69,6 +69,11 @@ class PlayMakerFSM_Start_Patch
             loc.AddToCurrentScene();
         }
 
+        if (__instance.name == "Bellshrine gate" && RandoPlugin.instance.GameMode.Enabled && RandoPlugin.GM.sceneName != "Bellshrine_Enclave")
+        {
+            Object.Destroy(__instance.gameObject);
+        }
+
         /*
         if (__instance.fsm.name == "Heart Container Control")
         {

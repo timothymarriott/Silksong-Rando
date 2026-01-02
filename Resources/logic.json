@@ -34,7 +34,8 @@
 
 				"Room_Forge|Shard Pouch",
 
-				"Bone_East_05|ability_Sprint"
+				"Bone_East_05|ability_Sprint",
+				"Bellshrine|Bell_bellShrineBoneForest"
 			]
 		},
 		"Sprint": {
@@ -45,7 +46,8 @@
 				"Bonetown|Weaver Totem Bonetown_upper_room",
 				"Dock_03b|Bell Bind",
 				"Bone_East_Umbrella|Brolly",
-				"Bone_East_14|Rosary_Set_Small"
+				"Bone_East_14|Rosary_Set_Small",
+				"Bellshrine_05|Bell_bellShrineWilds"
 			]
 		},
 		"PostBrolly": {
@@ -70,7 +72,8 @@
 				"Shellwood_10|ability_Walljump",
 				"Shellwood_10|Shell Flower",
 				
-				"Crawl_01|Dead Mans Purse"
+				"Crawl_01|Dead Mans Purse",
+				"Bellshrine_02|Bell_bellShrineGreymoor"
 			]
 		},
 		"PostWalljump": {
@@ -102,14 +105,17 @@
 				
 				"Crawl_09|Crest Socket Unlocker",
 				
-				"Coral_33|Magnetite Dice"
+				"Coral_33|Magnetite Dice",
+				
+				"Belltown_Shrine|Bell_bellShrineBellhart",
+				"Bellshrine_03|Bell_bellShrineShellwood"
 
 
 			]
 		},
 		"PostNeedolin": {
 			"edges": [
-				{"to":"Act2"},
+				{"to":"Act2", "req": "Bell_bellShrineBellhart & Bell_bellShrineBoneForest & Bell_bellShrineGreymoor & Bell_bellShrineShellwood & Bell_bellShrineWilds"},
 				{"to":"AtlaHarp", "req":"ability_Walljump"}
 			],
 			"checks": [

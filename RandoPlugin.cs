@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Linq;
@@ -71,7 +72,8 @@ public class RandoPlugin : BaseUnityPlugin, ISaveDataMod<SaveData>
     public Dictionary<string, SavedItem> AddressableItems = new();
 
     public bool ShowSceneDebug = false;
-    
+
+    public bool PrintPlayerDataChanges = false;
     
     private void Awake()
     {
@@ -109,6 +111,24 @@ public class RandoPlugin : BaseUnityPlugin, ISaveDataMod<SaveData>
             versionStatusText = statusText;
             versionStatus = status;
         }));
+
+        PlayerDataVariableEvents.OnSetBool += (pd, fieldName, value) =>
+        {
+            if (pd.GetBool(fieldName) != value && PrintPlayerDataChanges)
+            {
+                Log.LogInfo(fieldName + " = " + value);
+            }
+            return value;
+        };
+
+        PlayerDataVariableEvents.OnGetBool += ((pd, fieldName, current) =>
+        {
+            if (fieldName.StartsWith("CHECKED_"))
+            {
+                return SaveData.Instance.CollectedChecks.Contains(fieldName.Substring("CHECKED_".Length));
+            }
+            return current;
+        });
 
     }
 
@@ -208,6 +228,11 @@ public class RandoPlugin : BaseUnityPlugin, ISaveDataMod<SaveData>
         if (GameManager.SilentInstance && !GM)
         {
             GM = GameManager.instance;
+        }
+
+        if (Input.GetKeyDown(KeyCode.P) && Input.GetKey(KeyCode.F11))
+        {
+            PrintPlayerDataChanges = !PrintPlayerDataChanges;
         }
 
         if (Input.GetKeyDown(KeyCode.C) && Input.GetKey(KeyCode.F11))
@@ -343,6 +368,17 @@ public class RandoPlugin : BaseUnityPlugin, ISaveDataMod<SaveData>
                 GM.playerData.hasDoubleJump = true;
             };
         }
+
+        if (target.StartsWith("Bell_"))
+        {
+            builder.SetDisplayName("Bell Shrine Rung");
+            builder.SetIcon("Bell");
+            var value = target.Substring("Bell_".Length);
+            callback = item =>
+            {
+                GM.playerData.SetBool(value, true);
+            };
+        }
         
         if (target == "melody_Vault")
         {
@@ -444,7 +480,7 @@ public class RandoPlugin : BaseUnityPlugin, ISaveDataMod<SaveData>
         {
             if (itm.target == target && itm.check == check)
             {
-                return itm.itm;
+                return Object.Instantiate(itm.itm);
             }
         }
         

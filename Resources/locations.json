@@ -142,6 +142,17 @@
       "y": 52.0095825
     }
   },
+  "Belltown_Shrine|Bell_bellShrineBellhart": {
+    "locationType": "BellshrineLocation",
+    "item": "Bell_bellShrineBellhart",
+    "scene": "Belltown_Shrine",
+    "positionInSceneX": 54.09,
+    "positionInSceneY": 21.1,
+    "PositionInScene": {
+      "x": 54.09,
+      "y": 21.1
+    }
+  },
   "Belltown_Room_shellwood|Harpoon": {
     "locationType": "CollectableItemPickupLocation",
     "item": "Harpoon",
@@ -162,6 +173,50 @@
     "PositionInScene": {
       "x": 67.57,
       "y": 24.2774963
+    }
+  },
+  "Bellshrine|Bell_bellShrineBoneForest": {
+    "locationType": "BellshrineLocation",
+    "item": "Bell_bellShrineBoneForest",
+    "scene": "Bellshrine",
+    "positionInSceneX": 20.5,
+    "positionInSceneY": 17.29,
+    "PositionInScene": {
+      "x": 20.5,
+      "y": 17.29
+    }
+  },
+  "Bellshrine_02|Bell_bellShrineGreymoor": {
+    "locationType": "BellshrineLocation",
+    "item": "Bell_bellShrineGreymoor",
+    "scene": "Bellshrine_02",
+    "positionInSceneX": 20.5,
+    "positionInSceneY": 17.29,
+    "PositionInScene": {
+      "x": 20.5,
+      "y": 17.29
+    }
+  },
+  "Bellshrine_03|Bell_bellShrineShellwood": {
+    "locationType": "BellshrineLocation",
+    "item": "Bell_bellShrineShellwood",
+    "scene": "Bellshrine_03",
+    "positionInSceneX": 20.5,
+    "positionInSceneY": 17.29,
+    "PositionInScene": {
+      "x": 20.5,
+      "y": 17.29
+    }
+  },
+  "Bellshrine_05|Bell_bellShrineWilds": {
+    "locationType": "BellshrineLocation",
+    "item": "Bell_bellShrineWilds",
+    "scene": "Bellshrine_05",
+    "positionInSceneX": 20.5,
+    "positionInSceneY": 17.29,
+    "PositionInScene": {
+      "x": 20.5,
+      "y": 17.29
     }
   },
   "Bellshrine_Coral|Simple Key": {

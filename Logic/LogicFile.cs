@@ -42,6 +42,63 @@ namespace Silksong.Rando.Logic
             return false;
         }
 
+        public List<string> GetAccessible(Dictionary<string, string> placements, List<string> checkedLocations)
+        {
+            
+            
+            
+            List<string> res = new();
+            var locationData = JsonConvert.DeserializeObject<Dictionary<string, ItemLocationData>>(ModResources.LoadData("locations"));
+
+            HashSet<string> obtained = new HashSet<string>();
+            foreach (var checkedLocation in checkedLocations)
+            {
+                if (placements.TryGetValue(checkedLocation, out var item))
+                {
+                    obtained.Add(item);
+                }
+            }
+            
+            List<string> reachableNodes = [start];
+            added:
+            foreach (var from in reachableNodes.ToArray())
+            {
+                foreach (var edge in nodes[from].edges ?? Array.Empty<NodeEdge>())
+                {
+                    if (!reachableNodes.Contains(edge.to) && EdgeSatisfied(edge, obtained))
+                    {
+                        reachableNodes.Add(edge.to);
+                        goto added;
+                    }
+                }
+            }
+            
+            foreach (var placement in placements)
+            {
+                if (IsAccessible(reachableNodes, placement.Key))
+                {
+                    res.Add(placement.Key);
+                }
+            }
+
+            return res;
+        }
+
+        public bool IsAccessible(List<string> reachableNodes, string check)
+        {
+            
+
+            foreach (var node in reachableNodes)
+            {
+                if (nodes[node].checks.Contains(check))
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+        
         public Dictionary<string, string> GenerateSeed(int seed = -1)
         {
             var rng = new Random();
@@ -144,7 +201,10 @@ namespace Silksong.Rando.Logic
                             if (obtainedItems.Contains(req))
                                 continue;
 
-                            ForcePlaceItem(req, placements, nodes[from].checks.ToList(), rng);
+                            var checks = GetReachableChecks(ref progress);
+                            checks.AddRange(nodes[from].checks.ToList());
+
+                            ForcePlaceItem(req, placements, checks, rng);
                             obtainedItems.Add(req);
                             progress = true;
                             goto placed;
@@ -204,7 +264,13 @@ namespace Silksong.Rando.Logic
             if (string.IsNullOrWhiteSpace(req) || req == "true")
                 yield break;
 
-            yield return req;
+            if (req.Contains("&"))
+                foreach (var itm in req.Split("&"))
+                {
+                    yield return itm.Trim();
+                }
+            else yield return req;
+
         }
 
         private static bool ForcePlaceItem(
@@ -231,12 +297,17 @@ namespace Silksong.Rando.Logic
             if (string.IsNullOrWhiteSpace(edge.req) || edge.req == "true")
                 return true;
 
-            
-            if (!obtainedItems.Contains(edge.req))
-                return false;
-            
+            bool satisfied = true;
 
-            return true;
+            foreach (string s in ParseReq(edge.req))
+            {
+                if (!obtainedItems.Contains(s))
+                {
+                    satisfied = false;
+                }
+            }
+
+            return satisfied;
         }
 
         private static void Shuffle<T>(IList<T> list, Random rng)

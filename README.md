@@ -19,7 +19,9 @@ The current logic should ensure that you can get the Weaver Queen ending.
 
 `F11 + R` Re-randomises everything with a new seed, **THIS IS A DEBUG FEATURE INTENDED FOR DEVELOPERS THIS WILL BREAK THINGS**.
 
-`F11 + c` Toggles printing scene debug information in bottom left.
+`F11 + C` Toggles printing scene debug information in bottom left.
+
+`F11 + P` Toggle printing changes to player data values.
 
 `T` Cycle map mode, see the [map modes](#map-modes) below.
 
@@ -29,6 +31,8 @@ When in the map screen, press `T` to switch the map mode.
     Uses the vanilla map, no new icons.
  - **Checks map**\
     Shows the location and vanilla item for every randomised check.
+ - **Logic Map**\
+    Shows the vanilla item for all reachable checks with the currently collected items.
  - **Dev map**\
     Mainly useful when developing logic, read `RandoMap.cs` to understand the colors.
  - **Spoiler map**\
@@ -56,6 +60,7 @@ When in the map screen, press `T` to switch the map mode.
   - [ ] Shops
   - [ ] Bell Stations
   - [ ] Ventrica Stations
+  - [x] Bell Shrines
 - [ ] Switch to [Randomizer Core](https://github.com/homothetyhk/RandomizerCore) for logic
 - [ ] Add ability to toggle location types
 - [ ] Menu when creating a save to configure settings

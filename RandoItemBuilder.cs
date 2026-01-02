@@ -18,7 +18,8 @@ public class RandoItem : CollectableItemBasic
     {
         base.OnCollected();
         RandoPlugin.Log.LogInfo("Collected " + targetItem);
-        Rando.SaveData.Instance.CollectedChecks.Add(check);
+        if (!Rando.SaveData.Instance.CollectedChecks.Contains(check))
+            Rando.SaveData.Instance.CollectedChecks.Add(check);
         if (wrapped != null)
         {
             Take(showCounter:false);
@@ -36,6 +37,7 @@ public class RandoItem : CollectableItemBasic
         RandoPlugin.instance.map.Refresh();
 
     }
+
 
     public static RandoItem Wrap(string targetItem, string check, SavedItem template)
     {
