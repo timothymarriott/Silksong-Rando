@@ -7,7 +7,7 @@ class CollectableItemPickup_Start_Patch
 {
     public static void Prefix(CollectableItemPickup __instance)
     {
-        if (!(__instance.item is RandoItem) && !RandoPlugin.instance.PickupsToIgnore.Contains(__instance) && (__instance.item.name != "Trobbio Quill Red") && (__instance.item.name != "Shiny Bell Goomba"))
+        if (!(__instance.item is RandoItem) && !RandoPlugin.Instance.PickupsToIgnore.Contains(__instance) && (__instance.item.name != "Trobbio Quill Red") && (__instance.item.name != "Shiny Bell Goomba"))
         {
             CollectableItemPickupLocation loc = new CollectableItemPickupLocation(__instance);
             loc.AddToCurrentScene();

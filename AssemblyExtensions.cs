@@ -14,12 +14,17 @@ public static class AssemblyExtensions
         using var stream = asm.GetManifestResourceStream(path);
         if (stream == null)
         {
-            
+            throw new FileNotFoundException($"{path} not found in assembly resources.");
         }
 
         var buffer = new byte[stream.Length];
-        
-        stream.Read(buffer, 0, buffer.Length);
+
+        var readLength = stream.Read(buffer, 0, buffer.Length);
+
+        if (readLength != buffer.Length)
+        {
+            RandoPlugin.Log.LogInfo("Mismatch in resource buffer size and amount read.");
+        }
 
         var tex = new Texture2D(2, 2);
 

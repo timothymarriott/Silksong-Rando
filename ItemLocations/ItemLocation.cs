@@ -1,4 +1,5 @@
 ﻿using System;
+using Newtonsoft.Json;
 using Silksong.Rando.Map;
 using UnityEngine;
 using Object = UnityEngine.Object;
@@ -8,13 +9,11 @@ namespace Silksong.Rando.Locations;
 [Serializable]
 public class ItemLocationData
 {
-    public string locationType;
-    public string item;
-    public string scene;
-    public float positionInSceneX;
-    public float positionInSceneY;
+    public string locationType = "";
+    public string item = "";
+    public string scene = "";
 
-    public Vector2 PositionInScene => new Vector2(positionInSceneX, positionInSceneY);
+    public Vector2 PositionInScene = new Vector2(0, 0);
 
     public string GetID()
     {
@@ -29,7 +28,7 @@ public abstract class ItemLocation
 
     public abstract string GetItem();
 
-    private string replacement;
+    private string replacement = "";
 
     public string GetLocationID()
     {
@@ -41,19 +40,17 @@ public abstract class ItemLocation
         locationData.locationType = GetType().Name;
         locationData.item = GetItem();
         locationData.scene = RandoPlugin.GM.sceneName;
-        var pos = GetPosition();
-        locationData.positionInSceneX = pos.x;
-        locationData.positionInSceneY = pos.y;
+        locationData.PositionInScene = GetPosition();
         if (LocationFinder.IsSearching)
             LocationFinder.ItemLocations.TryAdd(GetLocationID(), this);
 
-        if (RandoPlugin.instance.GameMode.Enabled)
+        if (RandoPlugin.Instance.GameMode.Enabled)
         {
-            if (RandoPlugin.instance.ItemReplacements.ContainsKey(GetLocationID()))
+            if (RandoPlugin.Instance.ItemReplacements.ContainsKey(GetLocationID()))
             {
                 if (!SaveData.Instance.CollectedChecks.Contains(GetLocationID()))
                 {
-                    SetReplacement(RandoPlugin.instance.ItemReplacements[GetLocationID()]);
+                    SetReplacement(RandoPlugin.Instance.ItemReplacements[GetLocationID()]);
                 }
                 else
                 {
@@ -68,7 +65,7 @@ public abstract class ItemLocation
     public void SetReplacement(string id)
     {
         replacement = id;
-        RandoPlugin.Log.LogInfo(GetLocationID() + " -> " + (RandoPlugin.instance.map.mode == MapMode.Spoiler ? replacement : "SPOILERS") + (IsChecked() ? " checked" : " unchecked"));
+        RandoPlugin.Log.LogInfo(GetLocationID() + " -> " + (RandoPlugin.Instance.Map.mode == MapMode.Spoiler ? replacement : "SPOILERS") + (IsChecked() ? " checked" : " unchecked"));
         SetItem(id);
     }
 
@@ -92,15 +89,11 @@ public abstract class ItemLocation
     {
         if (!IsChecked())
         {
-            RandoPlugin.GetCollectableItem(replacement, GetLocationID()).Get(1, true);
-        }
-        else
-        {
-            
+            RandoPlugin.GetCollectableItem(replacement, GetLocationID()).Get(1);
         }
     }
 
-    public bool IsChecked()
+    protected bool IsChecked()
     {
         return SaveData.Instance.CollectedChecks.Contains(GetLocationID());
     }
@@ -110,7 +103,7 @@ public abstract class ItemLocation
 
         GameObject obj = Object.Instantiate(GlobalSettings.Gameplay.CollectableItemPickupPrefab.gameObject);
         CollectableItemPickup pickup = obj.GetComponent<CollectableItemPickup>();
-        RandoPlugin.instance.PickupsToIgnore.Add(pickup);
+        RandoPlugin.Instance.PickupsToIgnore.Add(pickup);
         
         
         pickup.SetItem(RandoPlugin.GetCollectableItem(item, GetLocationID()));

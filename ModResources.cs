@@ -3,19 +3,33 @@ using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
 using BepInEx.Logging;
+using Newtonsoft.Json;
 using UnityEngine;
 
 namespace Silksong.Rando;
 
 public class ModResources : MonoBehaviour
 {
-    public static ManualLogSource Logger;
+    private static ManualLogSource? logger;
+
+    public static ManualLogSource Logger
+    {
+        get
+        {
+            if (logger == null)
+            {
+                throw new Exception("Logger not setup");
+            }
+            return logger;
+        }
+        set => logger = value;
+    }
     private static Dictionary<string, Sprite> Images = new Dictionary<string, Sprite>();
     private static Dictionary<string, string> Data = new Dictionary<string, string>();
     
-    public Font trajanBold;
-    public Font trajanNormal;
-    public Font arial;
+    public Font? trajanBold;
+    public Font? trajanNormal;
+    public Font? arial;
     
     public static Sprite LoadSprite(string id, float pixelsPerUnit = 64f)
     {
@@ -36,6 +50,11 @@ public class ModResources : MonoBehaviour
         return text;
     }
 
+    public static T? LoadData<T>(string id)
+    {
+        return JsonConvert.DeserializeObject<T>(LoadData(id));
+    }
+
     public static Stream GetResourceStream(string id)
     {
         string[] resourceNames = Assembly.GetExecutingAssembly().GetManifestResourceNames();
@@ -49,7 +68,9 @@ public class ModResources : MonoBehaviour
                 string internalName = relativeName.Replace('.', '/');
                 if (internalName == id)
                 {
-                    return Assembly.GetExecutingAssembly().GetManifestResourceStream(res);
+                    var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream(res);
+                    if (stream != null)
+                        return stream;
                 }
             }
         }
@@ -71,11 +92,14 @@ public class ModResources : MonoBehaviour
                 if (internalName == id)
                 {
                     var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream(res);
-                    using var ms = new MemoryStream();
-                    stream.CopyTo(ms);
-                    byte[] data = ms.ToArray();
+                    if (stream != null)
+                    {
+                        using var ms = new MemoryStream();
+                        stream.CopyTo(ms);
+                        byte[] data = ms.ToArray();
 
-                    return AssetBundle.LoadFromMemory(data);
+                        return AssetBundle.LoadFromMemory(data);
+                    }
                 }
             }
         }
@@ -83,9 +107,8 @@ public class ModResources : MonoBehaviour
         throw new FileNotFoundException();
     }
 
-    public static ModResources LoadResources(ManualLogSource logger)
+    public static void LoadResources()
     {
-        Logger = logger;
         string[] resourceNames = Assembly.GetExecutingAssembly().GetManifestResourceNames();
         
         const string imagePrefix = "Silksong.Rando.Resources.Images.";
@@ -105,7 +128,7 @@ public class ModResources : MonoBehaviour
                 }
                 catch (Exception e)
                 {
-                    Logger.LogInfo("Failed to load image: " + res + "\n" + e.ToString());
+                    Logger.LogInfo($"Failed to load image: {res}\n{e}");
                 }
             }
 
@@ -117,7 +140,6 @@ public class ModResources : MonoBehaviour
             }
         }
 
-        return RandoPlugin.instance.gameObject.AddComponent<ModResources>();
     }
 
     private void Update()
@@ -146,7 +168,7 @@ public class ModResources : MonoBehaviour
 
     public static Font GetFont()
     {
-        return RandoPlugin.instance.resources.arial;
+        return RandoPlugin.Instance.Resources.arial!;
     }
 
     public static GUIStyle GetLabelStyle()

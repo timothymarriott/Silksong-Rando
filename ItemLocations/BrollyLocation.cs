@@ -24,7 +24,7 @@ public class BrollyLocation : ItemLocation
 
     public override void SetItem(string item)
     {
-        var state = fsm.GetState("Msg");
+        var state = fsm.GetState("Msg")!;
         state.RemoveAction(3);
         state.RemoveAction(2);
         state.RemoveAction(1);

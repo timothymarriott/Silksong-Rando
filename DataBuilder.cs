@@ -1,10 +1,8 @@
 ﻿
 namespace Silksong.Rando;
 
-public abstract class DataBuilder<TResult>
+public abstract class DataBuilder<TResult> where TResult : class
 {
-    public bool IsBuilt { get; protected set; }
-    public TResult result;
-
-
+    protected bool IsBuilt { get; set; }
+    public TResult result = null!;
 }

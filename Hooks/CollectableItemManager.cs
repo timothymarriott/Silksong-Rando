@@ -17,7 +17,7 @@ namespace Silksong.Rando.Hooks
         [HarmonyPrefix]
         public static void BeginSceneTransition(CollectableItemManager __instance)
         {
-            var locationData = JsonConvert.DeserializeObject<Dictionary<string, ItemLocationData>>(ModResources.LoadData("locations"));
+            var locationData = RandoResources.ReadLocationsData();
 
 
             if (cachedItems.Count != locationData.Count)

@@ -24,9 +24,9 @@ public class NeedolinLocation : ItemLocation
 
     public override void SetItem(string item)
     {
-        fsm.GetState("Final Bind Burst").RemoveAction(3);
+        fsm.GetState("Final Bind Burst")!.RemoveAction(3);
         
-        var state = fsm.GetState("Get Needolin");
+        var state = fsm.GetState("Get Needolin")!;
         state.RemoveAction(1);
         state.AddAction(new Wait()
         {
@@ -54,7 +54,7 @@ public class NeedolinLocation : ItemLocation
         });
         
 
-        var transition = fsm.GetState("To Memory Scene").GetAction<BeginSceneTransition>(2);
+        var transition = fsm.GetState("To Memory Scene")!.GetAction<BeginSceneTransition>(2)!;
         transition.sceneName = "Belltown_Shrine";
         transition.entryGateName = "door_wakeOnGround";
 

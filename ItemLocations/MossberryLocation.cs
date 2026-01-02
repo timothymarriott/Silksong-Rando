@@ -17,9 +17,9 @@ public enum MossberryLocationType
 
 public class MossberryLocation : ItemLocation
 {
-    private MossberryLocationType locType = MossberryLocationType.Vine;
-    private PlayMakerFSM fsm = null;
-    private HealthManager aspid = null;
+    private MossberryLocationType locType;
+    private PlayMakerFSM fsm;
+    private HealthManager? aspid;
     public MossberryLocation(PlayMakerFSM fsm)
     {
         locType = MossberryLocationType.Vine;
@@ -51,10 +51,10 @@ public class MossberryLocation : ItemLocation
             {
                 var state = fsm.fsm.GetGameObjectVariable("Fruit").Value.GetComponent<PlayMakerFSM>().fsm.GetState("Collect");
                 state.RemoveAction(2);
-                state.InsertLambdaMethod(2, (fin) =>
+                state.InsertLambdaMethod(2, (giveFin) =>
                 {
                     AwardCollectable();
-                    fin();
+                    giveFin();
                 });
                 fin();
             });
@@ -79,16 +79,16 @@ public class MossberryLocation : ItemLocation
         if (locType == MossberryLocationType.Vine)
             return fsm.gameObject;
         if (locType == MossberryLocationType.Aspid)
-            return aspid.gameObject;
+            return aspid!.gameObject;
         return fsm.gameObject;
     }
 
     public static void InstallHooks()
     {
         
-        PlayerDataVariableEvents.OnGetBool += ((pd, name, current) =>
+        PlayerDataVariableEvents.OnGetBool += ((_, name, current) =>
         {
-            if (RandoPlugin.instance.GameMode.Enabled)
+            if (RandoPlugin.Instance.GameMode.Enabled)
             {
                 
                 if (name == "mosstownAspidBerryCollected")

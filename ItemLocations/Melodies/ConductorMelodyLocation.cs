@@ -25,21 +25,21 @@ public class ConductorMelodyLocation : ItemLocation
     {
 
         
-        var checkState = fsm.GetState("Has Item?");
+        var checkState = fsm.GetState("Has Item?")!;
         checkState.ReplaceAction(3, new SetBoolValue()
         {
             boolVariable = fsm.GetBoolVariable("Is Melody Quest Active"),
             boolValue = false
         });
 
-        fsm.GetState("Quest Active?").GetAction<CheckQuestStateV2>(0).NotTrackedEvent =
-            fsm.GetState("Quest Active?").GetTransitionEvent(1);
+        fsm.GetState("Quest Active?")!.GetAction<CheckQuestStateV2>(0)!.NotTrackedEvent =
+            fsm.GetState("Quest Active?")!.GetTransitionEvent(1);
         
         
         
         
-        var state = fsm.GetState("Run Melody Play Prompted");
-        var giveFsm = state.GetAction<RunFSM>(5).fsmTemplateControl;
+        var state = fsm.GetState("Run Melody Play Prompted")!;
+        var giveFsm = state.GetAction<RunFSM>(5)!.fsmTemplateControl;
         var giveState = giveFsm.RunFsm.GetState("Give Item");
         giveState.RemoveAction(0);
         giveState.AddAction(new Wait()

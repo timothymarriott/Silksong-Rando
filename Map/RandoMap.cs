@@ -21,7 +21,20 @@ public class RandoMap : MonoBehaviour
 {
     public static GameManager GM => RandoPlugin.GM;
 
-    public static RandoMap instance;
+    private static RandoMap? instance;
+    
+    public static RandoMap Instance
+    {
+        get
+        {
+            if (instance == null)
+            {
+                throw new Exception("Map not setup.");
+            }
+            return instance;
+        }
+        set => instance = value;
+    }
 
     public List<GameObject> CreatedMarkers = new List<GameObject>();
 
@@ -31,9 +44,9 @@ public class RandoMap : MonoBehaviour
     
     private void Awake()
     {
-        instance = this;
+        Instance = this;
 
-        PlayerDataVariableEvents.OnGetBool += (pd, fieldName, current) =>
+        PlayerDataVariableEvents.OnGetBool += (_, fieldName, current) =>
         {
             if (fieldName == nameof(PlayerData.mapAllRooms))
             {
@@ -63,14 +76,14 @@ public class RandoMap : MonoBehaviour
             int seed = UnityEngine.Random.Range(0, int.MaxValue);
             RandoPlugin.Log.LogInfo($"Starting rando with seed {seed}");
             SaveData.Instance.RandoSeed = seed;
-            SaveData.Instance.ItemReplacements = RandoPlugin.instance.logic.GenerateSeed(seed);
+            SaveData.Instance.ItemReplacements = RandoPlugin.Instance.Logic.GenerateSeed(seed);
             Refresh();
         }
     }
 
     private void OnDestroy()
     {
-        if (instance == this)
+        if (Instance == this)
         {
             instance = null;
         }
@@ -100,7 +113,7 @@ public class RandoMap : MonoBehaviour
 
         if (mode == MapMode.Checks || mode == MapMode.Logic || mode == MapMode.Spoiler)
         {
-            if (!RandoPlugin.instance.logic.HasCheck(loc.GetID()))
+            if (!RandoPlugin.Instance.Logic.HasCheck(loc.GetID()))
             {
                 return;
             }
@@ -123,7 +136,7 @@ public class RandoMap : MonoBehaviour
 
         PinColor color = PinColor.Black;
 
-        if (RandoPlugin.instance.logic.HasCheck(loc.GetID()))
+        if (RandoPlugin.Instance.Logic.HasCheck(loc.GetID()))
         {
             color = PinColor.White;
         }
@@ -152,7 +165,7 @@ public class RandoMap : MonoBehaviour
             }
         
 
-            if (!RandoPlugin.instance.logic.HasCheck(loc.scene + "|" + loc.item))
+            if (!RandoPlugin.Instance.Logic.HasCheck(loc.scene + "|" + loc.item))
             {
                 sr.color = Color.red;
             }
@@ -206,15 +219,15 @@ public class RandoMap : MonoBehaviour
     public void CreateLocationPins()
     {
         if (mode == MapMode.No) return;
-        var locationData = JsonConvert.DeserializeObject<Dictionary<string, ItemLocationData>>(ModResources.LoadData("locations"));
+        var locationData = RandoResources.ReadLocationsData();
 
         AccessibleChecks =
-            RandoPlugin.instance.logic.GetAccessible(SaveData.Instance.ItemReplacements,
+            RandoPlugin.Instance.Logic.GetAccessible(SaveData.Instance.ItemReplacements,
                 SaveData.Instance.CollectedChecks);
         
         
         
-        foreach (var (id, data) in locationData)
+        foreach (var (_, data) in locationData)
         {
             CreateMapPin(data);
         }

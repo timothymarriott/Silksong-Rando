@@ -7,7 +7,7 @@ class GameMap_Start_Patch
 {
     public static void Postfix(GameMap __instance)
     {
-        RandoMap.instance.CreateLocationPins();
+        RandoMap.Instance.CreateLocationPins();
         RandoPlugin.GM.UpdateGameMapWithPopup();
     }
 }

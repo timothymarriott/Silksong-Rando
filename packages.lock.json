@@ -84,7 +84,7 @@
         "type": "Direct",
         "requested": "[*-*, )",
         "resolved": "1.2.0-silksong1.0.29315",
-        "contentHash": "MwcUC0FMUn7aCwYHWgQegOBxNGgNBDie9nfg0GeodqbnfrHOjUZ06sZjq+0Iiz9/WBL8yd511YZujFS91FgVMw=="
+        "contentHash": "jOUKKJCbfylaT1vF5R6fVbBPXjAwzdr+UZLBYLrHiLZL26KT9FfgJVuVILgfJapYL4kOiczjJSxfyjr4I6owlQ=="
       },
       "Silksong.PrepatcherPlugin": {
         "type": "Direct",

@@ -41,20 +41,85 @@ public class RandoPlugin : BaseUnityPlugin, ISaveDataMod<SaveData>
     public const string Id = "com.lem00ns.Silksong.Rando";
     public const string Name = "Randomiser";
     
-    public static RandoPlugin instance;
-    
-    public static GameManager GM;
+    private static RandoPlugin? instance;
+    public static RandoPlugin Instance
+    {
+        get
+        {
+            if (instance == null)
+            {
+                throw new Exception("Randomiser not intialized");
+            }
+            return instance;
+        }
+        set => instance = value;
+    }
 
-    public ModResources resources;
-    public SceneLoader sceneLoader;
-    public RandoMap map;
-    
-    public Logic.LogicFile logic;
+    public static GameManager GM => GameManager.SilentInstance;
 
-    public long versionStatus = 0;
-    private string versionStatusText;
+    private ModResources? modResources;
+    public ModResources Resources
+    {
+        get
+        {
+            if (modResources == null)
+            {
+                throw new Exception("Resources not intialized");
+            }
+            return modResources;
+        }
+        set => modResources = value;
+    }
+
+    private SceneLoader? sceneLoader;
+    public SceneLoader SceneLoader
+    {
+        get
+        {
+            if (sceneLoader == null)
+            {
+                throw new Exception("Scene loader not intialized");
+            }
+            return sceneLoader;
+        }
+        set => sceneLoader = value;
+    }
+
+    
+    private RandoMap? map;
+    public RandoMap Map
+    {
+        get
+        {
+            if (map == null)
+            {
+                throw new Exception("Rando map not intialized");
+            }
+            return map;
+        }
+        set => map = value;
+    }
+    
+    public LogicFile? logic;
+
+    public LogicFile Logic
+    {
+        get
+        {
+            if (logic == null)
+            {
+                throw new Exception("Logic not loaded");
+            }
+
+            return logic;
+        }
+        set => logic = value;
+    }
+
+    public long versionStatus;
+    private string versionStatusText = "";
     private bool versionOutOfDate;
-    private string latestVersion;
+    private string latestVersion = "";
     
     SaveData? ISaveDataMod<SaveData>.SaveData
     {
@@ -62,22 +127,36 @@ public class RandoPlugin : BaseUnityPlugin, ISaveDataMod<SaveData>
         set => SaveData.Instance = value;
     }
     
-    public static ManualLogSource Log => instance.Logger;
+    public static ManualLogSource Log => Instance.Logger;
     public Dictionary<string, string> ItemReplacements => SaveData.Instance.ItemReplacements;
 
     public List<CollectableItemPickup> PickupsToIgnore = new();
 
-    public GameModeManager.GameModeData GameMode;
+    private GameModeManager.GameModeData? gameMode;
+    
+    public GameModeManager.GameModeData GameMode
+    {
+        get
+        {
+            if (gameMode == null)
+            {
+                throw new Exception("Game mode not loaded");
+            }
+
+            return gameMode;
+        }
+        set => gameMode = value;
+    }
 
     public Dictionary<string, SavedItem> AddressableItems = new();
 
-    public bool ShowSceneDebug = false;
+    public bool ShowSceneDebug;
 
-    public bool PrintPlayerDataChanges = false;
+    public bool PrintPlayerDataChanges;
     
     private void Awake()
     {
-        instance = this;
+        Instance = this;
         FilteredLogs.API.ApplyFilter((args =>
         {
             return args.Source.SourceName == "Unity Log" || args.Source == Logger;
@@ -86,14 +165,16 @@ public class RandoPlugin : BaseUnityPlugin, ISaveDataMod<SaveData>
         #if DEV
         ConsoleMover.Move();
         #endif
-        resources = ModResources.LoadResources(Logger);
+        Resources = gameObject.AddComponent<RandoResources>();
+        ModResources.LoadResources();
+        
         GameScenes.Load();
-        sceneLoader = SceneLoader.Setup();
-        map = gameObject.AddComponent<RandoMap>();
+        SceneLoader = SceneLoader.Setup();
+        Map = gameObject.AddComponent<RandoMap>();
         gameObject.AddComponent<LocationFinder>();
         gameObject.AddComponent<SceneDumper>();
 
-        logic = LogicFile.Load("logic");
+        logic = ModResources.LoadData<LogicFile>("logic");
         
         GameMode = GameModeManagerPlugin.Instance.Manager.Init(
             this,
@@ -121,7 +202,7 @@ public class RandoPlugin : BaseUnityPlugin, ISaveDataMod<SaveData>
             return value;
         };
 
-        PlayerDataVariableEvents.OnGetBool += ((pd, fieldName, current) =>
+        PlayerDataVariableEvents.OnGetBool += ((_, fieldName, current) =>
         {
             if (fieldName.StartsWith("CHECKED_"))
             {
@@ -211,7 +292,7 @@ public class RandoPlugin : BaseUnityPlugin, ISaveDataMod<SaveData>
             
             if (PlayerData.instance.isInventoryOpen)
             {
-                AddLine($"{map.mode} map.");
+                AddLine($"{Map.mode} map.");
             }
         }
 
@@ -225,10 +306,6 @@ public class RandoPlugin : BaseUnityPlugin, ISaveDataMod<SaveData>
     
     private void Update()
     {
-        if (GameManager.SilentInstance && !GM)
-        {
-            GM = GameManager.instance;
-        }
 
         if (Input.GetKeyDown(KeyCode.P) && Input.GetKey(KeyCode.F11))
         {
@@ -245,11 +322,7 @@ public class RandoPlugin : BaseUnityPlugin, ISaveDataMod<SaveData>
             Dictionary<string, List<string>> bundles = new Dictionary<string, List<string>>();
             foreach (var b in AssetBundle.GetAllLoadedAssetBundles())
             {
-                try
-                {
-                    bundles.Add(b.name, b.GetAllAssetNames().ToList());
-                }
-                catch { }
+                bundles.Add(b.name, b.GetAllAssetNames().ToList());
             }
         
             File.WriteAllText(Application.persistentDataPath + "/rando/bundles.json", JsonConvert.SerializeObject(bundles, Formatting.Indented));
@@ -258,24 +331,16 @@ public class RandoPlugin : BaseUnityPlugin, ISaveDataMod<SaveData>
         
     }
     
-    AssetBundle FindBundleContaining(string req)
+    AssetBundle? FindBundleContaining(string req)
     {
         foreach (var bundle in AssetBundle.GetAllLoadedAssetBundles())
-        {
-            try
+        {  
+            foreach (var asset in bundle.GetAllAssetNames())
             {
-                
-                foreach (var asset in bundle.GetAllAssetNames())
+                if (asset.Contains(req))
                 {
-                    if (asset.Contains(req))
-                    {
-                        return bundle;
-                    }
+                    return bundle;
                 }
-
-            }
-            catch
-            {
             }
         }
         return null;
@@ -286,7 +351,7 @@ public class RandoPlugin : BaseUnityPlugin, ISaveDataMod<SaveData>
         
         AddressableItems.Clear();
 
-        AssetBundle bundle = FindBundleContaining("Fake Collectables");
+        AssetBundle bundle = FindBundleContaining("Fake Collectables")!;
         var collectables = bundle.LoadAllAssets<FakeCollectable>();
         foreach (var fakeCollectable in collectables)
         {
@@ -296,7 +361,7 @@ public class RandoPlugin : BaseUnityPlugin, ISaveDataMod<SaveData>
     
     private void OnDestroy()
     {
-        if (instance == this)
+        if (Instance == this)
         {
             instance = null;
         }
@@ -321,9 +386,9 @@ public class RandoPlugin : BaseUnityPlugin, ISaveDataMod<SaveData>
             return RandoItem.Wrap(target, check, CollectableRelicManager.GetRelic(target));
         }
 
-        if (instance.AddressableItems.ContainsKey(target))
+        if (Instance.AddressableItems.ContainsKey(target))
         {
-            return RandoItem.Wrap(target, check, instance.AddressableItems[target]);
+            return RandoItem.Wrap(target, check, Instance.AddressableItems[target]);
         }
         
         if (target.StartsWith("georock_"))
@@ -353,7 +418,7 @@ public class RandoPlugin : BaseUnityPlugin, ISaveDataMod<SaveData>
         {
             builder.SetDisplayName("Float Cloak");
             builder.SetIcon("DriftersCloak");
-            callback = item =>
+            callback = _ =>
             {
                 GM.playerData.hasBrolly = true;
             };
@@ -363,7 +428,7 @@ public class RandoPlugin : BaseUnityPlugin, ISaveDataMod<SaveData>
         {
             builder.SetDisplayName("Faydown Cloak");
             builder.SetIcon("FaydownCloak");
-            callback = item =>
+            callback = _ =>
             {
                 GM.playerData.hasDoubleJump = true;
             };
@@ -374,7 +439,7 @@ public class RandoPlugin : BaseUnityPlugin, ISaveDataMod<SaveData>
             builder.SetDisplayName("Bell Shrine Rung");
             builder.SetIcon("Bell");
             var value = target.Substring("Bell_".Length);
-            callback = item =>
+            callback = _ =>
             {
                 GM.playerData.SetBool(value, true);
             };
@@ -384,7 +449,7 @@ public class RandoPlugin : BaseUnityPlugin, ISaveDataMod<SaveData>
         {
             builder.SetDisplayName("Vaultkeeper's Melody");
             builder.SetIcon("VaultkeepersMelody");
-            callback = item =>
+            callback = _ =>
             {
                 GM.playerData.HasMelodyLibrarian = true;
             };
@@ -393,7 +458,7 @@ public class RandoPlugin : BaseUnityPlugin, ISaveDataMod<SaveData>
         {
             builder.SetDisplayName("Conductor's Melody");
             builder.SetIcon("ConductorsMelody");
-            callback = item =>
+            callback = _ =>
             {
                 GM.playerData.HasMelodyConductor = true;
             };
@@ -402,7 +467,7 @@ public class RandoPlugin : BaseUnityPlugin, ISaveDataMod<SaveData>
         {
             builder.SetDisplayName("Architects's Melody");
             builder.SetIcon("ArchitectsMelody");
-            callback = item =>
+            callback = _ =>
             {
                 GM.playerData.HasMelodyArchitect = true;
             };
@@ -425,7 +490,7 @@ public class RandoPlugin : BaseUnityPlugin, ISaveDataMod<SaveData>
                 case WeaverSpireAbility.HarpoonDash:
                     builder.SetDisplayName("Clawline");
                     builder.SetIcon("Icon_SS_Clawline");
-                    callback = item =>
+                    callback = _ =>
                     {
                         GM.playerData.hasHarpoonDash = true;
                     };
@@ -433,7 +498,7 @@ public class RandoPlugin : BaseUnityPlugin, ISaveDataMod<SaveData>
                 case WeaverSpireAbility.Needolin:
                     builder.SetDisplayName("Needolin");
                     builder.SetIcon("Icon_SS_Needolin");
-                    callback = item =>
+                    callback = _ =>
                     {
                         GM.playerData.hasNeedolin = true;
                     };
@@ -441,7 +506,7 @@ public class RandoPlugin : BaseUnityPlugin, ISaveDataMod<SaveData>
                 case WeaverSpireAbility.Sprint:
                     builder.SetDisplayName("Swift Step");
                     builder.SetIcon("Icon_SS_Swift_Step");
-                    callback = item =>
+                    callback = _ =>
                     {
                         GM.playerData.hasDash = true;
                     };
@@ -449,7 +514,7 @@ public class RandoPlugin : BaseUnityPlugin, ISaveDataMod<SaveData>
                 case WeaverSpireAbility.SuperJump:
                     builder.SetDisplayName("Silk Soar");
                     builder.SetIcon("Icon_SS_Silk_Soar");
-                    callback = item =>
+                    callback = _ =>
                     {
                         GM.playerData.hasSuperJump = true;
                     };
@@ -457,7 +522,7 @@ public class RandoPlugin : BaseUnityPlugin, ISaveDataMod<SaveData>
                 case WeaverSpireAbility.Walljump:
                     builder.SetDisplayName("Cling Grip");
                     builder.SetIcon("Icon_SS_Cling_Grip");
-                    callback = item =>
+                    callback = _ =>
                     {
                         GM.playerData.hasWalljump = true;
                     };
@@ -476,7 +541,7 @@ public class RandoPlugin : BaseUnityPlugin, ISaveDataMod<SaveData>
     public static SavedItem GetCollectableItem(string target, string check)
     {
 
-        foreach (var itm in instance.CollectableCache)
+        foreach (var itm in Instance.CollectableCache)
         {
             if (itm.target == target && itm.check == check)
             {
@@ -486,7 +551,7 @@ public class RandoPlugin : BaseUnityPlugin, ISaveDataMod<SaveData>
         
         var res = CreateCollectableItem(target, check);
         
-        instance.CollectableCache.Add((target, check, res));
+        Instance.CollectableCache.Add((target, check, res));
         
         return res;
     }

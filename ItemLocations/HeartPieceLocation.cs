@@ -22,12 +22,12 @@ namespace Silksong.Rando.Locations
         {
             Object.Destroy(fsm.gameObject.GetComponent<PersistentBoolItem>());
 
-            var state = fsm.GetState("UI");
+            var state = fsm.GetState("UI")!;
             state.RemoveAction(1);
             state.RemoveAction(0);
             
-            state.AddAction(fsm.GetState("End").GetAction<RemoveHeroInputBlocker>(0));
-            state.AddAction(fsm.GetState("End").GetAction<FsmStateAction>(1));
+            state.AddAction(fsm.GetState("End")!.GetAction<RemoveHeroInputBlocker>(0)!);
+            state.AddAction(fsm.GetState("End")!.GetAction<FsmStateAction>(1)!);
             state.AddAction(new SendEventToRegister()
             {
                 eventName = "HEART PIECE COLLECTED"

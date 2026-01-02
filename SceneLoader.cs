@@ -14,15 +14,15 @@ namespace Silksong.Rando
         
         public static SceneLoader Setup()
         {
-            return RandoPlugin.instance.gameObject.AddComponent<SceneLoader>();
+            return RandoPlugin.Instance.gameObject.AddComponent<SceneLoader>();
         }
 
         public static void ExecuteLoad(List<string> scenes, OnSceneCallback OnScene, Action? OnComplete = null)
         {
-            RandoPlugin.instance.sceneLoader.StartCoroutine(RandoPlugin.instance.sceneLoader.LoadAll(scenes, OnScene, OnComplete));
+            RandoPlugin.Instance.SceneLoader.StartCoroutine(RandoPlugin.Instance.SceneLoader.LoadAll(scenes, OnScene, OnComplete));
         }
         
-        public bool IsLoading = false;
+        public bool IsLoading;
 
         public delegate void OnSceneCallback(string scene, int index);
         
@@ -39,7 +39,7 @@ namespace Silksong.Rando
                 {
             
                     string scn = scenes[i];
-                    var task = Addressables.LoadSceneAsync("Scenes/" + scn, LoadSceneMode.Single, true);
+                    var task = Addressables.LoadSceneAsync("Scenes/" + scn);
                     while (!task.IsDone)
                     {
                         yield return null;

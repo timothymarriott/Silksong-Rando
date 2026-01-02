@@ -22,7 +22,7 @@ public class VaultMelodyLocation : ItemLocation
 
     public override void SetItem(string item)
     {
-        var giveFsm = fsm.GetState("Needolin").GetAction<RunFSM>(4).fsmTemplateControl;
+        var giveFsm = fsm.GetState("Needolin")!.GetAction<RunFSM>(4)!.fsmTemplateControl;
         var giveState = giveFsm.RunFsm.GetState("Give Item");
         giveState.RemoveAction(0);
         giveState.AddAction(new Wait()

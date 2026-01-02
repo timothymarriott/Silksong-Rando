@@ -9,32 +9,22 @@ namespace Silksong.Rando.Logic
     [Serializable]
     public class LogicFile
     {
-        public string start;
+        public string start = "";
 
-        public string[] required;
+        public string[] required = [];
         
-        public Dictionary<string, LogicNode> nodes;
+        public Dictionary<string, LogicNode> nodes = [];
 
-        [JsonIgnore]
-        public LogicNode StartNode => nodes[start];
-
-        public static LogicFile Load(string name)
-        {
-            return JsonConvert.DeserializeObject<LogicFile>(ModResources.LoadData(name));
-        }
-
+        
         public bool HasCheck(string id)
         {
-            foreach (var (nodeId, node) in nodes)
+            foreach (var (_, node) in nodes)
             {
-                if (node.checks != null)
+                foreach (var check in node.checks)
                 {
-                    foreach (var check in node.checks)
+                    if (check == id)
                     {
-                        if (check == id)
-                        {
-                            return true;
-                        }
+                        return true;
                     }
                 }
             }
@@ -48,7 +38,6 @@ namespace Silksong.Rando.Logic
             
             
             List<string> res = new();
-            var locationData = JsonConvert.DeserializeObject<Dictionary<string, ItemLocationData>>(ModResources.LoadData("locations"));
 
             HashSet<string> obtained = new HashSet<string>();
             foreach (var checkedLocation in checkedLocations)
@@ -63,7 +52,7 @@ namespace Silksong.Rando.Logic
             added:
             foreach (var from in reachableNodes.ToArray())
             {
-                foreach (var edge in nodes[from].edges ?? Array.Empty<NodeEdge>())
+                foreach (var edge in nodes[from].edges)
                 {
                     if (!reachableNodes.Contains(edge.to) && EdgeSatisfied(edge, obtained))
                     {
@@ -106,8 +95,8 @@ namespace Silksong.Rando.Logic
             {
                 rng = new Random(seed);
             }
-            
-            var locationData = JsonConvert.DeserializeObject<Dictionary<string, ItemLocationData>>(ModResources.LoadData("locations"));
+
+            var locationData = RandoResources.ReadLocationsData();
             
             var allLocations = locationData.Keys;
             
@@ -119,12 +108,11 @@ namespace Silksong.Rando.Logic
             foreach (var (nodeId, node) in nodes)
             {
                 var list = new List<string>();
-                if (node.checks != null)
-                {
-                    foreach (var c in node.checks)
-                        if (allLocations.Contains(c))
-                            list.Add(c);
-                }
+                
+                foreach (var c in node.checks)
+                    if (allLocations.Contains(c))
+                        list.Add(c);
+                
 
                 Shuffle(list, rng);
                 nodeChecks[nodeId] = list;
@@ -136,7 +124,7 @@ namespace Silksong.Rando.Logic
             {
                 foreach (var from in reachable.ToArray())
                 {
-                    foreach (var edge in nodes[from].edges ?? Array.Empty<NodeEdge>())
+                    foreach (var edge in nodes[from].edges)
                     {
                         if (!reachable.Contains(edge.to) && EdgeSatisfied(edge, obtainedItems))
                         {
@@ -170,17 +158,6 @@ namespace Silksong.Rando.Logic
                 return res;
             }
             
-            
-
-            var allItems = new HashSet<string>();
-            foreach (var checks in nodeChecks.Values)
-                foreach (var c in checks)
-                    allItems.Add(c.Split('|')[1]);
-
-            
-            
-
-
             bool progress;
 
             do
@@ -191,7 +168,7 @@ namespace Silksong.Rando.Logic
                 RefreshReachable(ref progress);
                 foreach (var from in reachable.ToArray())
                 {
-                    foreach (var edge in nodes[from].edges ?? Array.Empty<NodeEdge>())
+                    foreach (var edge in nodes[from].edges)
                     {
                         if (reachable.Contains(edge.to))
                             continue;
@@ -331,14 +308,14 @@ namespace Silksong.Rando.Logic
     [Serializable]
     public class LogicNode
     {
-        public NodeEdge[] edges;
-        public string[] checks;
+        public NodeEdge[] edges = [];
+        public string[] checks = [];
     }
 
     [Serializable]
     public class NodeEdge
     {
-        public string to;
+        public string to = "";
         public string req = "true";
     }
 }

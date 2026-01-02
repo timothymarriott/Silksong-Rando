@@ -41,7 +41,7 @@ class StateChangeSequence_Hook
         if (RandoPlugin.GM.sceneName == "Bellshrine_Enclave") return true;
 
         RandoPlugin.Log.LogInfo("StateChangeSequence " + __instance.name + " set " + __instance.isCompleteBool);
-        if (RandoPlugin.instance.GameMode.Enabled)
+        if (RandoPlugin.Instance.GameMode.Enabled)
         {
             BellshrineLocation.OnSetIsCompleteBool(__instance);
             return false;

@@ -38,9 +38,9 @@ public class CollectableItemPickupLocation : ItemLocation
 
     public static void InstallHooks()
     {
-        PlayerDataVariableEvents.OnGetInt += (pd, name, current) =>
+        PlayerDataVariableEvents.OnGetInt += (_, name, current) =>
         {
-            if (name == nameof(PlayerData.dicePilgrimState) && RandoPlugin.instance.GameMode.Enabled)
+            if (name == nameof(PlayerData.dicePilgrimState) && RandoPlugin.Instance.GameMode.Enabled)
             {
                 return 1;
             }

@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Runtime.InteropServices;
  
+#if DEV
 namespace Silksong.Rando;
 
-#if DEV
+
 class ConsoleMover
 {
     [DllImport("kernel32.dll")]
@@ -44,7 +45,6 @@ class ConsoleMover
         );
         IntPtr console = GetConsoleWindow();
 
-        // Move to (100, 100) and resize to 800x600
         MoveWindow(console, 3833, 936, (int)(1094f * 1.5f), (int)(943f * 1.5f), true);
     }
     

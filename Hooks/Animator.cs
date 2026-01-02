@@ -7,7 +7,8 @@ namespace Silksong.Rando.Hooks
     [HarmonyPatch]
     public class AnimatorHooks
     {
-        public static bool IsStartComplete = false;
+        public static bool IsStartComplete;
+        
         [HarmonyPatch(typeof(AnimatorStateInfo), nameof(AnimatorStateInfo.shortNameHash), MethodType.Getter)]
         [HarmonyPrefix]
         public static bool GetShortNameHash(ref int __result)

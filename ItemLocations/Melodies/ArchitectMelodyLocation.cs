@@ -24,19 +24,19 @@ public class ArchitectMelodyLocation : ItemLocation
     {
         bool hasChecked = IsChecked();
             
-        var notifyState = fsm.GetState("Wait For Notify");
+        var notifyState = fsm.GetState("Wait For Notify")!;
             
         if (hasChecked)
         {
-            notifyState.GetAction<PlayerDataVariableTest>(0).IsExpectedEvent = notifyState.GetTransitionEvent(2);
-            notifyState.GetAction<PlayerDataVariableTest>(0).IsNotExpectedEvent = notifyState.GetTransitionEvent(2);
+            notifyState.GetAction<PlayerDataVariableTest>(0)!.IsExpectedEvent = notifyState.GetTransitionEvent(2);
+            notifyState.GetAction<PlayerDataVariableTest>(0)!.IsNotExpectedEvent = notifyState.GetTransitionEvent(2);
         }
         else
         {
-            notifyState.GetAction<PlayerDataVariableTest>(0).IsExpectedEvent = null;
+            notifyState.GetAction<PlayerDataVariableTest>(0)!.IsExpectedEvent = null;
         }
             
-        var state = fsm.GetState("Show Prompt");
+        var state = fsm.GetState("Show Prompt")!;
         state.RemoveAction(0);
         state.AddAction(new Wait()
         {

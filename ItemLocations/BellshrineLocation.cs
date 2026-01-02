@@ -17,20 +17,21 @@ public class BellshrineLocation : ItemLocation
     public BellshrineLocation(StateChangeSequence sequence)
     {
         this.sequence = sequence;
-        
-        
 
-        if (RandoPlugin.GM.sceneName != "Belltown_Shrine")
+
+
+        var gate = FindGate();
+        if (RandoPlugin.GM.sceneName != "Belltown_Shrine" && gate != null)
         {
-            Object.Destroy(FindGate().GetComponent<DeactivateIfPlayerdataTrue>());
+            Object.Destroy(gate.GetComponent<DeactivateIfPlayerdataTrue>());
             if (IsChecked())
             {
             
-                FindGate().gameObject.SetActive(false);
+                gate.gameObject.SetActive(false);
             }
             else
             {
-                FindGate().gameObject.SetActive(true);
+                gate.gameObject.SetActive(true);
             }
         }
         
@@ -53,14 +54,15 @@ public class BellshrineLocation : ItemLocation
 
     public void Collect()
     {
-        if (!IsChecked() && RandoPlugin.GM.sceneName != "Belltown_Shrine")
+        var gate = FindGate();
+        if (!IsChecked() && RandoPlugin.GM.sceneName != "Belltown_Shrine" && gate != null)
         {
-            FindGate().Open();
+            gate.Open();
         }
         AwardCollectable();
     }
 
-    public Gate FindGate()
+    public Gate? FindGate()
     {
         foreach (var gate in Object.FindObjectsByType<Gate>(FindObjectsInactive.Include, FindObjectsSortMode.None))
         {
@@ -77,12 +79,12 @@ public class BellshrineLocation : ItemLocation
     {
         if (sequence == null)
         {
-            RandoPlugin.Log.LogInfo("NULL SEQUENCE");
+            throw new ArgumentNullException(nameof(sequence));
         }
         
-        if (Replacements.ContainsKey(sequence))
+        if (Replacements.TryGetValue(sequence, out BellshrineLocation? value))
         {
-            Replacements[sequence].Collect();
+            value.Collect();
         }
     }
 

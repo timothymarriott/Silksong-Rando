@@ -7,10 +7,10 @@ namespace Silksong.Rando;
 
 public class RandoItem : CollectableItemBasic
 {
-    public string targetItem;
-    public string check;
+    public string targetItem = "";
+    public string check = "";
 
-    public SavedItem wrapped = null;
+    public SavedItem? wrapped;
     
     public delegate void OnCollectedCallback(RandoItem item);
     public OnCollectedCallback? CollectCallback;
@@ -34,7 +34,7 @@ public class RandoItem : CollectableItemBasic
         }
         
         
-        RandoPlugin.instance.map.Refresh();
+        RandoPlugin.Instance.Map.Refresh();
 
     }
 
@@ -57,10 +57,6 @@ public class RandoItem : CollectableItemBasic
 
 public class RandoItemBuilder : DataBuilder<RandoItem>
 {
-
-    private static List<RandoItemBuilder> created = new();
-    
-    
     public static RandoItemBuilder Create(string targetItem, string check)
     {
         RandoItemBuilder res = new RandoItemBuilder();
@@ -71,8 +67,6 @@ public class RandoItemBuilder : DataBuilder<RandoItem>
         res.result.check = check;
         res.Setup();
         
-        created.Add(res);
-        
         return res;
     }
 
@@ -80,13 +74,13 @@ public class RandoItemBuilder : DataBuilder<RandoItem>
     {
         result.isAlwaysUnlocked = true;
         result.displayButtonPrompt = false;
-        result.useResponses = new CollectableItemBasic.UseResponse[]
-        {
-            new ()
+        result.useResponses =
+        [
+            new CollectableItem.UseResponse
             {
                 UseType = CollectableItem.UseTypes.None,
             }
-        };
+        ];
 
         result.setExtraPlayerDataBools = new PlayerDataBoolOperation[0];
         result.setExtraPlayerDataInts = new PlayerDataIntOperation[0];

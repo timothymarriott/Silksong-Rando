@@ -25,9 +25,9 @@ public class DJLocation : ItemLocation
     public override void SetItem(string item)
     {
 
-        var checkState = fsm.GetState("Has DJ?");
+        var checkState = fsm.GetState("Has DJ?")!;
         checkState.RemoveAction(0);
-        checkState.AddLambdaMethod((fin) =>
+        checkState.AddLambdaMethod((_) =>
         {
             if (IsChecked())
             {
@@ -40,7 +40,7 @@ public class DJLocation : ItemLocation
             
         });
 
-        var state = fsm.GetState("Msg");
+        var state = fsm.GetState("Msg")!;
         state.RemoveAction(13);
         state.RemoveAction(12);
         state.RemoveAction(11);

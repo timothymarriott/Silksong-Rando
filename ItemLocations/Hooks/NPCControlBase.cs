@@ -22,8 +22,7 @@ class NPCControlBase_Hook
     public static void Start(NPCControlBase __instance)
     {
         
-        ShopOwner shop = null;
-        __instance.TryGetComponent(out shop);
+        __instance.TryGetComponent(out ShopOwner shop);
         if (__instance.transform.parent != null && __instance.transform.parent.GetComponent<ShopOwner>() != null)
         {
             shop = __instance.transform.parent.GetComponent<ShopOwner>();

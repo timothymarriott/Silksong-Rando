@@ -13,7 +13,7 @@ namespace Silksong.Rando
 
         public static void FetchInfo(OnFetched onFetched)
         {
-            RandoPlugin.instance.StartCoroutine(fetchInfo(onFetched));
+            RandoPlugin.Instance.StartCoroutine(fetchInfo(onFetched));
         }
 
         static IEnumerator fetchInfo(OnFetched onFetched)
@@ -54,9 +54,7 @@ namespace Silksong.Rando
         
         private sealed class ProjectInfo
         {
-            public string AssemblyTitle;
-            public string Version;
-            public string GitHubRepo;
+            public string Version = "";
         }
         
         private static ProjectInfo ParseProjectXml(string xml)
@@ -65,11 +63,17 @@ namespace Silksong.Rando
 
             var propertyGroup = doc.Root?.Element("PropertyGroup");
 
+            if (propertyGroup == null || propertyGroup.Element("Version") == null)
+            {
+                return new ProjectInfo()
+                {
+                    Version = "0.0.0"
+                };
+            }
+            
             return new ProjectInfo
             {
-                AssemblyTitle = propertyGroup.Element("AssemblyTitle")?.Value,
-                Version       = propertyGroup.Element("Version")?.Value,
-                GitHubRepo    = propertyGroup.Element("GitHubRepo")?.Value
+                Version       = propertyGroup.Element("Version")!.Value,
             };
         }
         

@@ -15,18 +15,14 @@ namespace Silksong.Rando.Hooks
         [HarmonyPostfix]
         public static void BeginSceneTransition(GameManager __instance, GameManager.SceneLoadInfo info)
         {
-            if (RandoPlugin.instance.GameMode.Enabled)
+            if (RandoPlugin.Instance.GameMode.Enabled)
             {
                 if (info.SceneName == "Opening_Sequence" && SaveData.Instance.RandoSeed == -1)
                 {
-                    
-                    
-                    
-                    
                     int seed = UnityEngine.Random.Range(0, int.MaxValue);
                     RandoPlugin.Log.LogInfo($"Starting rando with seed {seed}");
                     SaveData.Instance.RandoSeed = seed;
-                    SaveData.Instance.ItemReplacements = RandoPlugin.instance.logic.GenerateSeed(seed);
+                    SaveData.Instance.ItemReplacements = RandoPlugin.Instance.Logic.GenerateSeed(seed);
                 }
                 
             }
@@ -36,7 +32,7 @@ namespace Silksong.Rando.Hooks
         [HarmonyPostfix]
         public static void ClearSaveFile(GameManager __instance, int saveSlot, Action<bool> callback)
         {
-            if (RandoPlugin.instance.GameMode.Enabled)
+            if (RandoPlugin.Instance.GameMode.Enabled)
             {
                 SaveData.Clear();
             }
@@ -46,7 +42,7 @@ namespace Silksong.Rando.Hooks
         [HarmonyPostfix]
         public static void Start(GameManager __instance)
         {
-            RandoPlugin.instance.LoadFakeCollectables();
+            RandoPlugin.Instance.LoadFakeCollectables();
         }
         
     }

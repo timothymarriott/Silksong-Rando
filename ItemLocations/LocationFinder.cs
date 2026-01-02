@@ -13,7 +13,7 @@ namespace Silksong.Rando.Locations
 
         public static Dictionary<string, Dictionary<string, Dictionary<string, string>>> RoomChecks = new();
 
-        public static bool IsSearching = false;
+        public static bool IsSearching;
         
         private void Update()
         {
