@@ -30,7 +30,7 @@ When in the map screen, press `T` to switch the map mode.
  - **Checks map**\
     Shows the location and vanilla item for every randomised check.
  - **Dev map**\
-    Mainly useful when developing logic, read `LogicFile.cs` to understand the colors.
+    Mainly useful when developing logic, read `RandoMap.cs` to understand the colors.
  - **Spoiler map**\
     Shows every randomised check and the item they have been replaced with.
 
